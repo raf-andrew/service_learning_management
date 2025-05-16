@@ -1,0 +1,83 @@
+@startuml LMS Models
+
+' Entities
+class User {
+  +id: int
+  +first_name: string
+  +last_name: string
+  +email: string
+  +password: string
+  +role_id: int
+  +is_instructor: boolean
+  +social_links: json
+  +payment_keys: json
+}
+
+class Course {
+  +id: int
+  +title: string
+  +description: text
+  +price: decimal
+  +discount_flag: boolean
+  +discounted_price: decimal
+  +user_id: int
+  +category_id: int
+  +status: string
+}
+
+class Category {
+  +id: int
+  +name: string
+  +parent: int
+  +slug: string
+  +thumbnail: string
+}
+
+class Section {
+  +id: int
+  +title: string
+  +course_id: int
+  +order_index: int
+}
+
+class Lesson {
+  +id: int
+  +title: string
+  +section_id: int
+  +course_id: int
+  +lesson_type: string
+  +video_url: string
+  +duration: string
+}
+
+class Enrollment {
+  +id: int
+  +user_id: int
+  +course_id: int
+  +date_added: timestamp
+}
+
+class Payment {
+  +id: int
+  +user_id: int
+  +course_id: int
+  +amount: decimal
+  +payment_type: string
+  +date_added: timestamp
+}
+
+' Relationships
+User "1" -- "0..*" Course : creates >
+User "1" -- "0..*" Enrollment : has >
+User "1" -- "0..*" Payment : makes >
+
+Course "1" -- "0..*" Section : contains >
+Course "1" -- "0..*" Enrollment : has >
+Course "1" -- "0..*" Payment : receives >
+Course "n" -- "1" Category : belongs to >
+
+Section "1" -- "0..*" Lesson : contains >
+
+Category "1" -- "0..*" Category : has subcategories >
+
+@enduml 

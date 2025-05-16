@@ -1,0 +1,84 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Testing Infrastructure Guide
+
+## Test Tracking System
+
+The test tracking system is located in `.codespaces/testing/.test/` and consists of:
+
+- `run-feature-tests.ps1`: Main test runner script
+- `checklist-tracking.json`: Checklist and test execution tracking
+- `tracking/`: Directory for test execution tracking files
+- `results/`: Directory for test reports
+- `logs/`: Directory for test execution logs
+
+## Test Suites
+
+The system organizes tests into three main suites:
+
+1. Authentication
+   - User Login
+   - User Registration
+   - Password Reset
+
+2. User Management
+   - Profile Update
+   - Role Management
+   - User Search
+
+3. Service Learning
+   - Project Creation
+   - Project Management
+   - Hours Tracking
+
+## Running Tests
+
+To run the test suite:
+
+```powershell
+cd .codespaces/testing/.test
+./run-feature-tests.ps1
+```
+
+## Test Reports
+
+Test reports are generated in Markdown format and include:
+- Test execution summary
+- Checklist status
+- Detailed test results
+- Error information (if any)
+
+Reports are stored in `.codespaces/testing/.test/results/`
+
+## Checklist Integration
+
+The checklist system tracks:
+- Test completion status
+- Last run timestamp
+- Completion proof
+- Test report references
+
+Checklist data is stored in `.codespaces/testing/.test/checklist-tracking.json`
+
+## Adding New Tests
+
+To add new tests:
+1. Add test case to appropriate test suite in `run-feature-tests.ps1`
+2. Add corresponding checklist item in `checklist-tracking.json`
+3. Implement actual test execution logic
+
+## Test Execution Flow
+
+1. Test suite initialization
+2. Test execution
+3. Result tracking
+4. Checklist updates
+5. Report generation
+
+## File References
+
+- [run-feature-tests.ps1](mdc:.codespaces/testing/.test/run-feature-tests.ps1)
+- [checklist-tracking.json](mdc:.codespaces/testing/.test/checklist-tracking.json)

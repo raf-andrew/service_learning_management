@@ -1,0 +1,286 @@
+{
+  "EndTime": "2025-05-14T21:25:42.9123608-07:00",
+  "Tests": [
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Details": "Docker version 28.0.4, build b8034c0",
+      "Timestamp": "2025-05-14T21:25:42.2108125-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Installation",
+      "Details": " Warning: PHP Startup: curl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0  Warning: PHP Startup: mbstring: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: exif: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: openssl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: pdo_mysql: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: xsl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: pdo_sqlite: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0 PHP 8.2.28 (cli) (built: Mar 11 2025 18:37:30) (ZTS Visual C++ 2019 x64) Copyright (c) The PHP Group Zend Engine v4.2.28, Copyright (c) Zend Technologies",
+      "Timestamp": "2025-05-14T21:25:42.2865351-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Extension: pdo",
+      "Details": "Warning: PHP Startup: pdo_mysql: Unable to initialize module Warning: PHP Startup: pdo_sqlite: Unable to initialize module PDO",
+      "Timestamp": "2025-05-14T21:25:42.3660367-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Extension: pdo_mysql",
+      "Details": "Warning: PHP Startup: pdo_mysql: Unable to initialize module",
+      "Timestamp": "2025-05-14T21:25:42.43845-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: redis",
+      "Details": "Extension not found",
+      "Timestamp": "2025-05-14T21:25:42.507736-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Extension: mbstring",
+      "Details": "Warning: PHP Startup: mbstring: Unable to initialize module",
+      "Timestamp": "2025-05-14T21:25:42.5816987-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Extension: xml",
+      "Details": "libxml SimpleXML xml xmlreader xmlwriter",
+      "Timestamp": "2025-05-14T21:25:42.6570944-07:00"
+    },
+    {
+      "Status": "Passed",
+      "Name": "PHP Extension: curl",
+      "Details": "Warning: PHP Startup: curl: Unable to initialize module",
+      "Timestamp": "2025-05-14T21:25:42.7346908-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "MySQL Connection",
+      "Details": " Warning: PHP Startup: curl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0  Warning: PHP Startup: mbstring: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: exif: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: openssl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: pdo_mysql: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: xsl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: pdo_sqlite: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Parse error: syntax error, unexpected token \"\\\", expecting \")\" in Command line code on line 1",
+      "Timestamp": "2025-05-14T21:25:42.8300806-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Redis Connection",
+      "Details": " Warning: PHP Startup: curl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0  Warning: PHP Startup: mbstring: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: exif: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: openssl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: pdo_mysql: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: xsl: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0  Warning: PHP Startup: pdo_sqlite: Unable to initialize module Module compiled with module API=20230831 PHP    compiled with module API=20220829 These options need to match  in Unknown on line 0  Parse error: syntax error, unexpected token \"\\\" in Command line code on line 1",
+      "Timestamp": "2025-05-14T21:25:42.9085628-07:00"
+    }
+  ],
+  "StartTime": "2025-05-14T21:25:42.0580238-07:00",
+  "Environment": {
+    "Extensions": [
+      {
+        "Name": "pdo",
+        "Available": true
+      },
+      {
+        "Name": "pdo_mysql",
+        "Available": true
+      },
+      {
+        "Name": "redis",
+        "Available": false
+      },
+      {
+        "Name": "mbstring",
+        "Available": true
+      },
+      {
+        "Name": "xml",
+        "Available": true
+      },
+      {
+        "Name": "curl",
+        "Available": true
+      }
+    ],
+    "PHP": {
+      "Available": true,
+      "Version": [
+        "",
+        "Warning: PHP Startup: curl: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: mbstring: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: exif: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: openssl: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: pdo_mysql: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: xsl: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0",
+        "",
+        "Warning: PHP Startup: pdo_sqlite: Unable to initialize module",
+        "Module compiled with module API=20230831",
+        "PHP    compiled with module API=20220829",
+        "These options need to match",
+        " in Unknown on line 0",
+        "PHP 8.2.28 (cli) (built: Mar 11 2025 18:37:30) (ZTS Visual C++ 2019 x64)",
+        "Copyright (c) The PHP Group",
+        "Zend Engine v4.2.28, Copyright (c) Zend Technologies"
+      ]
+    },
+    "OS": "Microsoft Windows 10.0.26100",
+    "Docker": {
+      "Available": true,
+      "Version": "Docker version 28.0.4, build b8034c0"
+    },
+    "Services": {
+      "Redis": {
+        "Available": [],
+        "Status": [
+          "",
+          "Warning: PHP Startup: curl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: mbstring: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: exif: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: openssl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: pdo_mysql: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: xsl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: pdo_sqlite: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Parse error: syntax error, unexpected token \"\\\" in Command line code on line 1"
+        ]
+      },
+      "MySQL": {
+        "Available": [],
+        "Status": [
+          "",
+          "Warning: PHP Startup: curl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: mbstring: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: exif: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: openssl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: pdo_mysql: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: xsl: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0",
+          "",
+          "Warning: PHP Startup: pdo_sqlite: Unable to initialize module",
+          "Module compiled with module API=20230831",
+          "PHP    compiled with module API=20220829",
+          "These options need to match",
+          " in Unknown on line 0",
+          "",
+          "Parse error: syntax error, unexpected token \"\\\", expecting \")\" in Command line code on line 1"
+        ]
+      }
+    },
+    "PowerShell": {
+      "Major": 7,
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabel": null,
+      "BuildLabel": null
+    }
+  }
+}

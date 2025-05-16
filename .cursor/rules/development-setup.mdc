@@ -1,0 +1,51 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Development Environment Setup
+
+## Requirements
+- PHP 8.2 or higher
+- Composer
+- Docker
+- Git
+
+## Environment Setup
+The development environment is containerized using Docker as defined in [Dockerfile.test](mdc:Dockerfile.test).
+
+### Key Components
+1. PHP 8.2 with FPM
+2. Required PHP extensions:
+   - pdo_mysql
+   - mbstring
+   - exif
+   - pcntl
+   - bcmath
+   - gd
+   - pdo_sqlite
+
+### Development Tools
+1. PHP_CodeSniffer for PSR-12 compliance
+2. PHPMD for code quality checks
+3. Composer for dependency management
+
+## Line Ending Standards
+Line endings are managed according to [.gitattributes](mdc:.gitattributes):
+- PHP files: LF
+- Shell scripts: LF
+- Batch files: CRLF
+
+## Development Workflow
+1. Create feature branch
+2. Implement changes
+3. Write/update tests
+4. Run code quality checks
+5. Submit pull request
+
+## Testing Environment
+The testing environment includes:
+1. SQLite for testing database
+2. PHPUnit for unit testing
+3. Code quality tools
+4. Test reporting infrastructure

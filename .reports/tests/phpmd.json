@@ -1,0 +1,78 @@
+/var/www/html/app/Events/UserPasswordChanged.php:111                     MissingImport         Missing class import via use statement (line '111', column '23').
+/var/www/html/app/Events/UserPasswordChanged.php:115                     MissingImport         Missing class import via use statement (line '115', column '23').
+/var/www/html/app/Events/UserProfileUpdated.php:123                      MissingImport         Missing class import via use statement (line '123', column '23').
+/var/www/html/app/Events/UserProfileUpdated.php:127                      MissingImport         Missing class import via use statement (line '127', column '23').
+/var/www/html/app/Events/UserProfileUpdated.php:132                      MissingImport         Missing class import via use statement (line '132', column '27').
+/var/www/html/app/Listeners/ProcessHealthCheckResults.php:40             ElseExpression        The method handle uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/MetricService.php:43                          ElseExpression        The method getCpuUsage uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/MetricService.php:65                          ElseExpression        The method getMemoryUsage uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/MetricService.php:132                         ElseExpression        The method getActiveConnections uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/MetricService.php:152                         ElseExpression        The method getProcessCount uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/tests/Feature/Listeners/NotifyPasswordChangeTest.php:190   MissingImport         Missing class import via use statement (line '190', column '32').
+/var/www/html/tests/Feature/Listeners/NotifyPasswordChangeTest.php:219   MissingImport         Missing class import via use statement (line '219', column '30').
+/var/www/html/tests/Feature/TestReporterTest.php:116                     MissingImport         Missing class import via use statement (line '116', column '22').
+/var/www/html/tests/Feature/TestReporterTest.php:176                     MissingImport         Missing class import via use statement (line '176', column '24').
+/var/www/html/tests/MCP/Agentic/Agents/BaseAgentTest.php:63              MissingImport         Missing class import via use statement (line '63', column '28').
+/var/www/html/tests/MCP/Agentic/Agents/Security/AuditAgentTest.php:286   MissingImport         Missing class import via use statement (line '286', column '38').
+/var/www/html/tests/MCP/Agentic/Core/Services/TaskManagerTest.php:100    MissingImport         Missing class import via use statement (line '100', column '50').
+/var/www/html/tests/MCP/Agentic/Core/Services/TenantServiceTest.php:242  MissingImport         Missing class import via use statement (line '242', column '38').
+/var/www/html/tests/MCP/BaseTestCase.php:19                              NumberOfChildren      The class BaseTestCase has 17 children. Consider to rebalance this class hierarchy to keep number of children under 15.
+/var/www/html/tests/MCP/BaseTestCase.php:59                              MissingImport         Missing class import via use statement (line '59', column '27').
+/var/www/html/tests/MCP/BaseTestCaseTest.php:25                          ErrorControlOperator  Remove error control operator '@' on line 34.
+/var/www/html/tests/MCP/BaseTestCaseTest.php:25                          ErrorControlOperator  Remove error control operator '@' on line 35.
+/var/www/html/tests/MCP/BaseTestCaseTest.php:25                          ErrorControlOperator  Remove error control operator '@' on line 36.
+/var/www/html/tests/MCP/BaseTestCaseTest.php:115                         ErrorControlOperator  Remove error control operator '@' on line 118.
+/var/www/html/tests/MCP/BaseTestCaseTest.php:115                         ErrorControlOperator  Remove error control operator '@' on line 119.
+/var/www/html/tests/MCP/BaseTestCaseTest.php:115                         ErrorControlOperator  Remove error control operator '@' on line 120.
+/var/www/html/tests/MCP/Core/BaseAgentTest.php:21                        MissingImport         Missing class import via use statement (line '21', column '34').
+/var/www/html/tests/MCP/Core/BaseAgentTest.php:102                       MissingImport         Missing class import via use statement (line '102', column '27').
+/var/www/html/tests/MCP/Core/BaseAgentTest.php:151                       MissingImport         Missing class import via use statement (line '151', column '27').
+/var/www/html/tests/MCP/Core/Services/AgentLifecycleManagerTest.php:99   MissingImport         Missing class import via use statement (line '99', column '27').
+/var/www/html/tests/MCP/Core/Services/AgentLifecycleManagerTest.php:120  MissingImport         Missing class import via use statement (line '120', column '27').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:20           MissingImport         Missing class import via use statement (line '20', column '22').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:32           MissingImport         Missing class import via use statement (line '32', column '23').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:33           MissingImport         Missing class import via use statement (line '33', column '23').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:45           MissingImport         Missing class import via use statement (line '45', column '23').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:46           MissingImport         Missing class import via use statement (line '46', column '23').
+/var/www/html/tests/MCP/Core/Services/AgentRegistryTest.php:58           MissingImport         Missing class import via use statement (line '58', column '22').
+/var/www/html/tests/MCP/Core/Services/HealthMonitorTest.php:80           MissingImport         Missing class import via use statement (line '80', column '27').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:20        MissingImport         Missing class import via use statement (line '20', column '24').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:32        MissingImport         Missing class import via use statement (line '32', column '24').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:54        MissingImport         Missing class import via use statement (line '54', column '25').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:55        MissingImport         Missing class import via use statement (line '55', column '25').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:67        MissingImport         Missing class import via use statement (line '67', column '24').
+/var/www/html/tests/MCP/Core/Services/ServiceDiscoveryTest.php:78        MissingImport         Missing class import via use statement (line '78', column '24').
+/var/www/html/tests/MCP/EndToEnd/EndToEndTest.php:116                    MissingImport         Missing class import via use statement (line '116', column '23').
+/var/www/html/tests/MCP/Unit/ApplicationTest.php:128                     MissingImport         Missing class import via use statement (line '128', column '23').
+/var/www/html/tests/MCP/Unit/ApplicationTest.php:142                     MissingImport         Missing class import via use statement (line '142', column '23').
+/var/www/html/tests/MCP/Unit/ApplicationTest.php:156                     MissingImport         Missing class import via use statement (line '156', column '23').
+/var/www/html/tests/MCP/Unit/ApplicationTest.php:170                     MissingImport         Missing class import via use statement (line '170', column '23').
+/var/www/html/tests/MCP/Unit/ApplicationTest.php:184                     MissingImport         Missing class import via use statement (line '184', column '23').
+/var/www/html/tests/MCP/Unit/Controllers/ControllerTest.php:16           Superglobals          testValidate accesses the super-global variable $_REQUEST.
+/var/www/html/tests/MCP/Unit/LoggerTest.php:103                          MissingImport         Missing class import via use statement (line '103', column '26').
+/var/www/html/tests/MCP/Unit/Presenters/PresenterTest.php:137            ErrorControlOperator  Remove error control operator '@' on line 164.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_GET.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_POST.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_COOKIE.
+/var/www/html/tests/MCP/Unit/RequestTest.php:17                          Superglobals          setUp accesses the super-global variable $_FILES.
+/var/www/html/tests/MCP/Unit/RequestTest.php:110                         Superglobals          testRequestCanGetHeader accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:118                         Superglobals          testRequestCanGetAllHeaders accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:118                         Superglobals          testRequestCanGetAllHeaders accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:132                         Superglobals          testRequestCanGetContentType accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/RequestTest.php:139                         Superglobals          testRequestCanGetContentLength accesses the super-global variable $_SERVER.
+/var/www/html/tests/MCP/Unit/ResponseTest.php:259                        MissingImport         Missing class import via use statement (line '259', column '21').
+/var/www/html/tests/MCP/Unit/ResponseTest.php:281                        MissingImport         Missing class import via use statement (line '281', column '21').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:20         MissingImport         Missing class import via use statement (line '20', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:32         MissingImport         Missing class import via use statement (line '32', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:51         MissingImport         Missing class import via use statement (line '51', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:71         MissingImport         Missing class import via use statement (line '71', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:91         MissingImport         Missing class import via use statement (line '91', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:110        MissingImport         Missing class import via use statement (line '110', column '27').
+/var/www/html/tests/Unit/Middleware/ApiAuthenticationTest.php:116        MissingImport         Missing class import via use statement (line '116', column '64').
+/var/www/html/tests/helpers/MockFactory.php:93                           MissingImport         Missing class import via use statement (line '93', column '21').
+/var/www/html/tests/helpers/TestCase.php:11                              NumberOfChildren      The class TestCase has 16 children. Consider to rebalance this class hierarchy to keep number of children under 15.

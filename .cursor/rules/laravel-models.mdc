@@ -1,0 +1,58 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Models Simulation Guide
+
+## Core Components
+- Product Model: [Product.php](mdc:.simulation/11_laravel_models/app/Models/Product.php)
+- Model Tests: [ProductTest.php](mdc:.simulation/11_laravel_models/tests/Feature/Models/ProductTest.php)
+
+## Model Features
+1. Attributes
+   - Fillable attributes
+   - Hidden attributes
+   - Casts
+   - Accessors/Mutators
+
+2. Relationships
+   - HasMany
+   - BelongsTo
+   - HasOne
+   - BelongsToMany
+
+3. Scopes
+   - Local scopes
+   - Global scopes
+   - Dynamic scopes
+   - Query scopes
+
+4. Events
+   - Model events
+   - Observer events
+   - Custom events
+   - Event listeners
+
+## Test Structure
+- Model Tests: [ProductTest.php](mdc:.simulation/11_laravel_models/tests/Feature/Models/ProductTest.php)
+- Database Tests: [Database/ProductDatabaseTest.php](mdc:.simulation/11_laravel_models/tests/Feature/Database/ProductDatabaseTest.php)
+
+## Key Features
+1. Model Implementation
+   - Eloquent ORM
+   - Database interactions
+   - Query building
+   - Data validation
+
+2. Model Testing
+   - Unit tests
+   - Feature tests
+   - Database tests
+   - Relationship tests
+
+3. Model Documentation
+   - PHPDoc
+   - Usage examples
+   - Best practices
+   - Database schema

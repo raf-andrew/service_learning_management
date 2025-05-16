@@ -1,0 +1,42 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# PowerShell Script Conventions
+
+## Path Handling
+When working with paths in PowerShell scripts:
+- Use `Join-Path` for path construction
+- Nest `Join-Path` calls when combining multiple path segments
+- Example: `Join-Path (Join-Path $scriptPath "..") "results"`
+
+## Error Handling
+- Set `$ErrorActionPreference = "Stop"` at the start of scripts
+- Use try-catch blocks for error handling
+- Log errors with appropriate context
+- Exit with meaningful status codes (0 for success, 1 for failure)
+
+## Script Organization
+- Import dependencies at the start of the script
+- Define functions before using them
+- Use descriptive function names with verb-noun format
+- Group related functionality into functions
+
+## Logging
+- Use the `Write-Log` function for consistent logging
+- Include timestamps and log levels
+- Log both to console and file
+- Use appropriate log levels (INFO, WARNING, ERROR)
+
+## Environment Setup
+- Check for required tools before execution
+- Verify administrator privileges when needed
+- Update PATH environment variable after tool installation
+- Clean up temporary files and resources
+
+## Testing
+- Each test suite should be self-contained
+- Use descriptive test names
+- Include setup and cleanup in test suites
+- Report test results in a consistent format

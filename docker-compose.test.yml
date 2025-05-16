@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=testing
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=service_learning_management_test
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=mailhog
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - MAIL_FROM_ADDRESS=testing@example.com
+      - MAIL_FROM_NAME="Testing"
+    depends_on:
+      - mysql
+      - redis
+      - mailhog
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=service_learning_management_test
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_test_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_test_data:/data
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1026:1025"
+      - "8026:8025"
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    environment:
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_SESSION_REQUEST_TIMEOUT=300
+      - SE_START_XVFB=true
+
+  node:
+    image: node:16-alpine
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: sh -c "npm install && npm run test"
+
+volumes:
+  mysql_test_data:
+  redis_test_data: 

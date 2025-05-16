@@ -1,0 +1,68 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Framework Development Workflow
+
+## Creating New Components
+
+1. Models
+   - Extend [BaseModel.php](mdc:src/MCP/Models/BaseModel.php)
+   - Define table and primary key
+   - Implement custom data access methods
+   - Add model-specific validation
+
+2. Controllers
+   - Extend [BaseController.php](mdc:src/MCP/Controllers/BaseController.php)
+   - Define validation rules
+   - Implement request handling methods
+   - Add controller-specific business logic
+
+3. Presenters
+   - Extend [BasePresenter.php](mdc:src/MCP/Presenters/BasePresenter.php)
+   - Define data transformation methods
+   - Implement response formatting
+   - Add presenter-specific output handling
+
+## Testing Process
+
+1. Unit Tests
+   - Create corresponding test class
+   - Implement all test cases
+   - Verify 100% coverage
+   - Run `composer test`
+
+2. Integration Tests
+   - Test component interactions
+   - Verify database operations
+   - Check error handling
+   - Run with coverage: `composer test-coverage`
+
+## Configuration Management
+
+1. Environment Setup
+   - Copy `.env.example` to `.env`
+   - Configure database settings
+   - Set logging preferences
+   - Update testing configuration
+
+2. Framework Configuration
+   - Modify [config/mcp.php](mdc:config/mcp.php) as needed
+   - Update database settings
+   - Configure logging
+   - Set testing parameters
+
+## Deployment Process
+
+1. Pre-deployment Checks
+   - Run all tests
+   - Check code coverage
+   - Verify documentation
+   - Update changelog
+
+2. Deployment Steps
+   - Update dependencies
+   - Run database migrations
+   - Clear caches
+   - Deploy code

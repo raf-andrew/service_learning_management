@@ -1,0 +1,46 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Validation Simulation Guide
+
+## Core Components
+- Form Request Validation: [BaseFormRequest.php](mdc:.simulation/16_laravel_validation/app/Http/Requests/BaseFormRequest.php)
+- Custom Validation Rules: [ValidUrl.php](mdc:.simulation/16_laravel_validation/app/Rules/ValidUrl.php)
+- Validation Exception Handler: [ValidationExceptionHandler.php](mdc:.simulation/16_laravel_validation/app/Exceptions/ValidationExceptionHandler.php)
+
+## Test Structure
+- Form Request Tests: [BaseFormRequestTest.php](mdc:.simulation/16_laravel_validation/tests/Feature/Requests/BaseFormRequestTest.php)
+- Integration Tests: [UserRegistrationControllerTest.php](mdc:.simulation/16_laravel_validation/tests/Feature/Controllers/UserRegistrationControllerTest.php)
+- API Tests: [CourseApiTest.php](mdc:.simulation/16_laravel_validation/tests/Feature/Api/CourseApiTest.php)
+- Form Tests: [ProfileUpdateFormTest.php](mdc:.simulation/16_laravel_validation/tests/Feature/Forms/ProfileUpdateFormTest.php)
+
+## Documentation
+- Checklist: [checklist.md](mdc:.simulation/16_laravel_validation/.job/checklist.md)
+- Language Files: [validation.php](mdc:.simulation/16_laravel_validation/resources/lang/en/validation.php)
+
+## Key Features
+1. Form Request Validation
+   - Required fields validation
+   - Custom validation rules
+   - Data transformation
+   - Error messages
+
+2. Custom Validation Rules
+   - Rule implementation
+   - Rule registration
+   - Rule testing
+   - Rule documentation
+
+3. Validation Error Handling
+   - Error formatting
+   - Error logging
+   - Error responses
+   - Error localization
+
+4. Integration Testing
+   - Controller validation
+   - API validation
+   - Form validation
+   - Error handling

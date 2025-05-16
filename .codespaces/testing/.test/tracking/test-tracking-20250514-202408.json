@@ -1,0 +1,181 @@
+{
+  "test_suites": [
+    {
+      "Name": "Authentication",
+      "EndTime": "2025-05-14T20:23:52.6909542-07:00",
+      "TestName": "DeveloperCredentialTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:23:50.646281-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "API",
+      "EndTime": "2025-05-14T20:23:54.6411349-07:00",
+      "TestName": "ApiTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:23:52.7210478-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "File Upload",
+      "EndTime": "2025-05-14T20:23:57.0605227-07:00",
+      "TestName": "FileUploadTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:23:54.6665157-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Mail",
+      "EndTime": "2025-05-14T20:23:58.9761972-07:00",
+      "TestName": "MailTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:23:57.0763201-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Queue",
+      "EndTime": "2025-05-14T20:24:00.926689-07:00",
+      "TestName": "QueueTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:23:59.0000122-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Rate Limit",
+      "EndTime": "2025-05-14T20:24:02.6222416-07:00",
+      "TestName": "RateLimitTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:24:00.9414096-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Concurrent Requests",
+      "EndTime": "2025-05-14T20:24:04.528345-07:00",
+      "TestName": "ConcurrentRequestTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:24:02.6392707-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Smoke Test",
+      "EndTime": "2025-05-14T20:24:06.5783269-07:00",
+      "TestName": "SmokeTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:24:04.5441191-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    },
+    {
+      "Name": "Test Reporter",
+      "EndTime": "2025-05-14T20:24:08.4271353-07:00",
+      "TestName": "TestReporterTest",
+      "Status": "Failed",
+      "StartTime": "2025-05-14T20:24:06.5933359-07:00",
+      "Error": "Test failed with exit code 1",
+      "Result": [
+        "",
+        "                                  ",
+        "  Command \"test\" is not defined.  ",
+        "                                  ",
+        "",
+        " Do you want to run \"test:run\" instead?  (yes/no) [no]:",
+        " > "
+      ]
+    }
+  ],
+  "end_time": "2025-05-14T20:24:08.430133-07:00",
+  "total_tests": 9,
+  "status": "Failed",
+  "passed_tests": 0,
+  "skipped_tests": 0,
+  "duration": {
+    "Ticks": 178767903,
+    "Days": 0,
+    "Hours": 0,
+    "Milliseconds": 876,
+    "Microseconds": 790,
+    "Nanoseconds": 300,
+    "Minutes": 0,
+    "Seconds": 17,
+    "TotalDays": 0.00020690729513888888,
+    "TotalHours": 0.004965775083333334,
+    "TotalMilliseconds": 17876.7903,
+    "TotalMicroseconds": 17876790.3,
+    "TotalNanoseconds": 17876790300.0,
+    "TotalMinutes": 0.297946505,
+    "TotalSeconds": 17.8767903
+  },
+  "start_time": "2025-05-14T20:23:50.5533427-07:00",
+  "failed_tests": 9
+}

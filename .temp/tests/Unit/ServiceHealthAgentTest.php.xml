@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="PHP_CodeSniffer 3.12.2" errors="0" tests="9" failures="9">
+<testsuite name="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" errors="0" tests="9" failures="9">
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (20:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_successful_check&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (26:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_invalid_service&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (32:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_missing_config&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (38:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_failed_pre_check&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (44:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_failed_health_check&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (50:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_check_health_degraded_service&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (56:12)">
+  <failure type="error" message="Method name &quot;ServiceHealthAgentTest::test_get_metrics&quot; is not in camel caps format"/>
+ </testcase>
+ <testcase name="PSR2.Files.EndFileNewline.NoneFound at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (70:2)">
+  <failure type="error" message="Expected 1 newline at end of file; 0 found"/>
+ </testcase>
+ <testcase name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine at /var/www/html/tests/Unit/ServiceHealthAgentTest.php (70:2)">
+  <failure type="error" message="Whitespace found at end of line"/>
+ </testcase>
+</testsuite>
+</testsuites>
+

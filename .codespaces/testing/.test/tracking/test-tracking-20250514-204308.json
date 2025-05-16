@@ -1,0 +1,172 @@
+{
+  "passed_tests": 0,
+  "test_suites": [
+    {
+      "EndTime": "2025-05-14T20:42:45.5004129-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "DeveloperCredentialTest",
+      "StartTime": "2025-05-14T20:42:42.2489863-07:00",
+      "Status": "Failed",
+      "Name": "Authentication",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:42:48.8722299-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "ApiTest",
+      "StartTime": "2025-05-14T20:42:45.5524922-07:00",
+      "Status": "Failed",
+      "Name": "API",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:42:51.2258129-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "FileUploadTest",
+      "StartTime": "2025-05-14T20:42:48.8934249-07:00",
+      "Status": "Failed",
+      "Name": "File Upload",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:42:54.3037954-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "MailTest",
+      "StartTime": "2025-05-14T20:42:51.2454892-07:00",
+      "Status": "Failed",
+      "Name": "Mail",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:42:57.1837848-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "QueueTest",
+      "StartTime": "2025-05-14T20:42:54.3447532-07:00",
+      "Status": "Failed",
+      "Name": "Queue",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:42:59.920384-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "RateLimitTest",
+      "StartTime": "2025-05-14T20:42:57.2056389-07:00",
+      "Status": "Failed",
+      "Name": "Rate Limit",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:43:02.8372299-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "ConcurrentRequestTest",
+      "StartTime": "2025-05-14T20:42:59.9398734-07:00",
+      "Status": "Failed",
+      "Name": "Concurrent Requests",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:43:05.1535602-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "SmokeTest",
+      "StartTime": "2025-05-14T20:43:02.8524048-07:00",
+      "Status": "Failed",
+      "Name": "Smoke Test",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    },
+    {
+      "EndTime": "2025-05-14T20:43:08.2277318-07:00",
+      "Error": "Test failed with exit code 255",
+      "TestName": "TestReporterTest",
+      "StartTime": "2025-05-14T20:43:05.1723544-07:00",
+      "Status": "Failed",
+      "Name": "Test Reporter",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ]
+    }
+  ],
+  "total_tests": 9,
+  "skipped_tests": 0,
+  "status": "Failed",
+  "end_time": "2025-05-14T20:43:08.2497101-07:00",
+  "failed_tests": 9,
+  "duration": {
+    "Ticks": 261016188,
+    "Days": 0,
+    "Hours": 0,
+    "Milliseconds": 101,
+    "Microseconds": 618,
+    "Nanoseconds": 800,
+    "Minutes": 0,
+    "Seconds": 26,
+    "TotalDays": 0.00030210206944444445,
+    "TotalHours": 0.007250449666666666,
+    "TotalMilliseconds": 26101.6188,
+    "TotalMicroseconds": 26101618.8,
+    "TotalNanoseconds": 26101618800.0,
+    "TotalMinutes": 0.43502698,
+    "TotalSeconds": 26.1016188
+  },
+  "start_time": "2025-05-14T20:42:42.1480913-07:00"
+}

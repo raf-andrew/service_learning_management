@@ -1,0 +1,66 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Test Checklist System Guide
+
+## Overview
+
+The test checklist system provides a standardized way to track test execution and completion status. It is implemented in `.codespaces/testing/.test/checklist-tracking.json`.
+
+## Checklist Structure
+
+Each checklist contains:
+- Unique ID for each item
+- Description of the test
+- Associated test suite and test name
+- Current status (pending/completed/failed)
+- Last run timestamp
+- Completion proof
+
+## Checklist Categories
+
+1. Authentication Checklist
+   - ID: auth-001 to auth-003
+   - Covers user authentication features
+
+2. User Management Checklist
+   - ID: user-001 to user-003
+   - Covers user profile and management features
+
+3. Service Learning Checklist
+   - ID: sl-001 to sl-003
+   - Covers core service learning functionality
+
+## Completion Proof
+
+Each completed checklist item includes:
+- Timestamp of completion
+- Test result
+- Error information (if any)
+- Reference to test report
+
+## Metadata
+
+The checklist system maintains metadata:
+- Last update timestamp
+- Version number
+- Total items count
+- Completed items count
+- Pending items count
+- Failed items count
+
+## Integration with Test Runner
+
+The checklist system is automatically updated by the test runner:
+1. Test execution starts
+2. Results are recorded
+3. Checklist items are updated
+4. Completion proof is generated
+5. Reports are linked
+
+## File References
+
+- [checklist-tracking.json](mdc:.codespaces/testing/.test/checklist-tracking.json)
+- [run-feature-tests.ps1](mdc:.codespaces/testing/.test/run-feature-tests.ps1)

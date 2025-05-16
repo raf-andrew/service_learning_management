@@ -1,0 +1,118 @@
+@startuml Database Schema
+
+' Core Entities
+entity "users" {
+    + id : integer <<PK>>
+    --
+    first_name : string
+    last_name : string
+    email : string
+    password : string
+    role_id : integer
+    is_instructor : boolean
+    social_links : json
+    biography : text
+    status : boolean
+    image : string
+    payment_keys : json
+    date_added : datetime
+    last_modified : datetime
+}
+
+entity "courses" {
+    + id : integer <<PK>>
+    --
+    title : string
+    description : text
+    price : decimal
+    discount_flag : boolean
+    discounted_price : decimal
+    is_free_course : boolean
+    status : string
+    requirements : json
+    outcomes : json
+    category_id : integer
+    sub_category_id : integer
+    instructor_id : integer
+    thumbnail : string
+    enable_drip_content : boolean
+    created_at : datetime
+    updated_at : datetime
+}
+
+entity "sections" {
+    + id : integer <<PK>>
+    --
+    title : string
+    course_id : integer
+    order : integer
+    created_at : datetime
+    updated_at : datetime
+}
+
+entity "lessons" {
+    + id : integer <<PK>>
+    --
+    title : string
+    section_id : integer
+    course_id : integer
+    video_url : string
+    duration : integer
+    order : integer
+    created_at : datetime
+    updated_at : datetime
+}
+
+entity "enrollments" {
+    + id : integer <<PK>>
+    --
+    user_id : integer
+    course_id : integer
+    status : string
+    enrolled_at : datetime
+    completed_at : datetime
+}
+
+entity "payments" {
+    + id : integer <<PK>>
+    --
+    user_id : integer
+    course_id : integer
+    amount : decimal
+    status : string
+    payment_date : datetime
+    payment_method : string
+}
+
+entity "payouts" {
+    + id : integer <<PK>>
+    --
+    instructor_id : integer
+    amount : decimal
+    status : string
+    payment_date : datetime
+    payment_method : string
+}
+
+entity "categories" {
+    + id : integer <<PK>>
+    --
+    name : string
+    parent : integer
+    thumbnail : string
+    created_at : datetime
+    updated_at : datetime
+}
+
+' Relationships
+users ||--o{ enrollments
+users ||--o{ payments
+users ||--o{ courses : instructor
+users ||--o{ payouts : instructor
+courses ||--o{ enrollments
+courses ||--o{ payments
+courses ||--o{ sections
+sections ||--o{ lessons
+categories ||--o{ courses
+
+@enduml 

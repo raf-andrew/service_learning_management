@@ -1,0 +1,29 @@
+{
+    "environment": "production",
+    "services": {
+        "mysql": {
+            "host": "localhost",
+            "port": 3306,
+            "user": "root",
+            "password": ""
+        },
+        "redis": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "nginx": {
+            "port": 80,
+            "ssl_port": 443
+        }
+    },
+    "logging": {
+        "level": "INFO",
+        "max_size": "100MB",
+        "max_files": 10
+    },
+    "monitoring": {
+        "disk_warning_threshold": 10,
+        "memory_warning_threshold": 90,
+        "check_interval": 300
+    }
+} 

@@ -1,0 +1,101 @@
+@startuml Authentication Flow
+
+actor User
+participant "Frontend" as Frontend
+participant "API Gateway" as Gateway
+participant "Auth Service" as Auth
+participant "User Service" as UserService
+participant "Token Handler" as Token
+database "Database" as DB
+
+== Registration Flow ==
+
+User -> Frontend: Submit registration form
+Frontend -> Gateway: POST /api/auth/register
+Gateway -> Auth: Register request
+Auth -> DB: Check email uniqueness
+alt Email exists
+    Auth --> Gateway: 400 Bad Request
+    Gateway --> Frontend: Error response
+    Frontend --> User: Show error
+else Email unique
+    Auth -> DB: Create user record
+    Auth -> Token: Generate JWT
+    Token --> Auth: JWT token
+    Auth --> Gateway: 201 Created + JWT
+    Gateway --> Frontend: Success response
+    Frontend --> User: Show success
+end
+
+== Login Flow ==
+
+User -> Frontend: Submit login form
+Frontend -> Gateway: POST /api/auth/login
+Gateway -> Auth: Login request
+Auth -> DB: Verify credentials
+alt Invalid credentials
+    Auth --> Gateway: 401 Unauthorized
+    Gateway --> Frontend: Error response
+    Frontend --> User: Show error
+else Valid credentials
+    Auth -> Token: Generate JWT
+    Token --> Auth: JWT token
+    Auth --> Gateway: 200 OK + JWT
+    Gateway --> Frontend: Success response
+    Frontend -> Frontend: Store JWT
+    Frontend --> User: Show dashboard
+end
+
+== Token Validation Flow ==
+
+User -> Frontend: Access protected resource
+Frontend -> Gateway: Request + JWT
+Gateway -> Token: Validate JWT
+alt Invalid/Expired token
+    Token --> Gateway: 401 Unauthorized
+    Gateway --> Frontend: Error response
+    Frontend --> User: Redirect to login
+else Valid token
+    Token --> Gateway: Decoded token data
+    Gateway -> UserService: Get user data
+    UserService -> DB: Query user
+    UserService --> Gateway: User data
+    Gateway --> Frontend: Resource data
+    Frontend --> User: Show resource
+end
+
+== Password Reset Flow ==
+
+User -> Frontend: Request password reset
+Frontend -> Gateway: POST /api/auth/reset-request
+Gateway -> Auth: Reset request
+Auth -> DB: Check email exists
+alt Email not found
+    Auth --> Gateway: 404 Not Found
+    Gateway --> Frontend: Error response
+    Frontend --> User: Show error
+else Email found
+    Auth -> Token: Generate reset token
+    Token --> Auth: Reset token
+    Auth -> DB: Store reset token
+    Auth --> Gateway: 200 OK
+    Gateway --> Frontend: Success response
+    Frontend --> User: Show success
+end
+
+User -> Frontend: Submit new password
+Frontend -> Gateway: POST /api/auth/reset-password
+Gateway -> Auth: Reset password
+Auth -> DB: Verify reset token
+alt Invalid token
+    Auth --> Gateway: 400 Bad Request
+    Gateway --> Frontend: Error response
+    Frontend --> User: Show error
+else Valid token
+    Auth -> DB: Update password
+    Auth --> Gateway: 200 OK
+    Gateway --> Frontend: Success response
+    Frontend --> User: Redirect to login
+end
+
+@enduml 

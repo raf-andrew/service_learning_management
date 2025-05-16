@@ -1,0 +1,115 @@
+@startuml User Management System
+
+' Enums
+enum UserRole {
+    ADMIN
+    INSTRUCTOR
+    STUDENT
+}
+
+enum UserStatus {
+    ACTIVE
+    INACTIVE
+    PENDING
+    SUSPENDED
+}
+
+enum AuthMethod {
+    PASSWORD
+    OAUTH
+    MFA
+}
+
+' Classes
+class User {
+    +id: UUID
+    +first_name: string
+    +last_name: string
+    +email: string
+    +password: string
+    +social_links: JSON
+    +biography: string
+    +phone: string
+    +address: string
+    +role_id: int
+    +is_instructor: boolean
+    +date_added: timestamp
+    +wishlist: JSON
+    +status: UserStatus
+    +image: string
+    +payment_keys: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class Role {
+    +id: int
+    +name: string
+    +description: string
+    +permissions: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class Permission {
+    +id: UUID
+    +admin_id: UUID
+    +permissions: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class InstructorApplication {
+    +id: UUID
+    +user_id: UUID
+    +status: string
+    +message: string
+    +document: string
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class UserSession {
+    +id: UUID
+    +user_id: UUID
+    +token: string
+    +device_info: JSON
+    +ip_address: string
+    +last_activity: timestamp
+    +expires_at: timestamp
+    +created_at: timestamp
+}
+
+' Relationships
+User "1" -- "1" Role : has >
+User "1" -- "0..1" Permission : has >
+User "1" -- "0..1" InstructorApplication : has >
+User "1" -- "0..*" UserSession : has >
+
+' Notes
+note right of User
+    Represents a user with their
+    personal and account details
+end note
+
+note right of Role
+    Defines user roles and their
+    associated permissions
+end note
+
+note right of Permission
+    Stores specific permissions
+    for administrative users
+end note
+
+note right of InstructorApplication
+    Tracks instructor applications
+    and their status
+end note
+
+note right of UserSession
+    Manages user authentication
+    sessions and security
+end note
+
+@enduml 

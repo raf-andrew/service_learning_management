@@ -1,0 +1,15 @@
+## Testing
+- [x] Unit Tests
+  - [x] Agent Tests
+  - [x] Service Tests
+  - [x] Tenant Tests
+  - [x] Security Tests
+- [x] Integration Tests
+  - [x] API Integration Tests (`tests/MCP/Integration/Api/ApiIntegrationTest.php`)
+  - [x] Service Integration Tests (`tests/MCP/Integration/Service/ServiceIntegrationTest.php`)
+  - [x] Agent Integration Tests (`tests/MCP/Integration/Agent/AgentIntegrationTest.php`)
+- [x] End-to-End Tests
+  - [x] Workflow Tests (`tests/MCP/EndToEnd/WorkflowTest.php`)
+  - [x] User Interaction Tests (`tests/MCP/EndToEnd/UserInteractionTest.php`)
+  - [x] System Integration Tests (`tests/MCP/EndToEnd/SystemIntegrationTest.php`)
+  - [x] Test Runner (`tests/MCP/EndToEnd/run_tests.php`) 

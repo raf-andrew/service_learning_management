@@ -1,0 +1,492 @@
+{
+  "test_results": {
+    "start_time": "2025-05-14T20:41:51.7484-07:00",
+    "total_tests": 9,
+    "passed_tests": 0,
+    "skipped_tests": 0,
+    "test_suites": [
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:41:51.8557679-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:41:54.9861258-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Authentication",
+        "TestName": "DeveloperCredentialTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:41:55.0238044-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:41:57.8779649-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "API",
+        "TestName": "ApiTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:41:57.9063272-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:00.7985745-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "File Upload",
+        "TestName": "FileUploadTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:00.8152654-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:03.1447268-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Mail",
+        "TestName": "MailTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:03.1735294-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:05.5110921-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Queue",
+        "TestName": "QueueTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:05.529779-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:08.1534911-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Rate Limit",
+        "TestName": "RateLimitTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:08.1714872-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:10.7954076-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Concurrent Requests",
+        "TestName": "ConcurrentRequestTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:10.8126861-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:13.2041272-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Smoke Test",
+        "TestName": "SmokeTest"
+      },
+      {
+        "Status": "Failed",
+        "StartTime": "2025-05-14T20:42:13.2199998-07:00",
+        "Result": [
+          "",
+          "In TestRunner.php line 12:",
+          "                                                                              ",
+          "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+          "                                                                              ",
+          ""
+        ],
+        "EndTime": "2025-05-14T20:42:16.6743538-07:00",
+        "Error": "Test failed with exit code 255",
+        "Name": "Test Reporter",
+        "TestName": "TestReporterTest"
+      }
+    ],
+    "status": "Failed",
+    "duration": {
+      "Ticks": 249303276,
+      "Days": 0,
+      "Hours": 0,
+      "Milliseconds": 930,
+      "Microseconds": 327,
+      "Nanoseconds": 600,
+      "Minutes": 0,
+      "Seconds": 24,
+      "TotalDays": 0.00028854545833333333,
+      "TotalHours": 0.006925091,
+      "TotalMilliseconds": 24930.3276,
+      "TotalMicroseconds": 24930327.6,
+      "TotalNanoseconds": 24930327600.0,
+      "TotalMinutes": 0.41550546,
+      "TotalSeconds": 24.9303276
+    },
+    "failed_tests": 9,
+    "end_time": "2025-05-14T20:42:16.6787276-07:00"
+  },
+  "environment": {
+    "laravel_version": [
+      "",
+      "Warning: PHP Startup: curl: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: Unable to load dynamic library 'fileinfo' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\fileinfo (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_fileinfo.dll (The specified procedure could not be found)) in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: Unable to load dynamic library 'gd' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\gd (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_gd.dll (The specified procedure could not be found)) in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\intl (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_intl.dll (The specified module could not be found)) in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: mbstring: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: exif: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: Unable to load dynamic library 'mysqli' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\mysqli (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_mysqli.dll (The specified procedure could not be found)) in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: openssl: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: pdo_mysql: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: xsl: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: Unable to load dynamic library 'zip' (tried: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\zip (The specified module could not be found), C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext\\php_zip.dll (The specified procedure could not be found)) in Unknown on line 0",
+      "",
+      "Warning: PHP Startup: pdo_sqlite: Unable to initialize module",
+      "Module compiled with module API=20230831",
+      "PHP    compiled with module API=20220829",
+      "These options need to match",
+      " in Unknown on line 0",
+      "Could not open input file: artisan"
+    ],
+    "os": "Microsoft Windows 10.0.26100",
+    "powershell_version": {
+      "Major": 7,
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabel": null,
+      "BuildLabel": null
+    },
+    "php_version": ""
+  },
+  "timestamp": "2025-05-14 20:42:16",
+  "checklist_data": {
+    "metadata": {
+      "pending_items": 13,
+      "completed_items": 0,
+      "version": "1.0",
+      "total_items": 13,
+      "last_updated": null,
+      "failed_items": 0
+    },
+    "checklists": {
+      "developer_tools": {
+        "items": [
+          {
+            "last_run": null,
+            "test_suite": "Developer Tools",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Developer Credentials",
+            "id": "dev-001",
+            "test_name": "DeveloperCredentialTest"
+          },
+          {
+            "last_run": null,
+            "test_suite": "Developer Tools",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Codespace Integration",
+            "id": "dev-002",
+            "test_name": "CodespaceTest"
+          }
+        ],
+        "name": "Developer Tools Checklist"
+      },
+      "service_learning": {
+        "items": [
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "Service Learning",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "Project Creation Process",
+            "id": "sl-001",
+            "test_name": "Project Creation"
+          },
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "Service Learning",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "Project Management Features",
+            "id": "sl-002",
+            "test_name": "Project Management"
+          },
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "Service Learning",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "Service Hours Tracking",
+            "id": "sl-003",
+            "test_name": "Hours Tracking"
+          }
+        ],
+        "name": "Service Learning Checklist"
+      },
+      "file_operations": {
+        "items": {
+          "last_run": null,
+          "test_suite": "File Operations",
+          "completion_proof": null,
+          "status": "pending",
+          "description": "File Upload Functionality",
+          "id": "file-001",
+          "test_name": "FileUploadTest"
+        },
+        "name": "File Operations Checklist"
+      },
+      "authentication": {
+        "items": [
+          {
+            "last_run": null,
+            "test_suite": "Authentication",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "User Login Functionality",
+            "id": "auth-001",
+            "test_name": "User Login"
+          },
+          {
+            "last_run": null,
+            "test_suite": "Authentication",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "User Registration Process",
+            "id": "auth-002",
+            "test_name": "User Registration"
+          },
+          {
+            "last_run": null,
+            "test_suite": "Authentication",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Password Reset Functionality",
+            "id": "auth-003",
+            "test_name": "Password Reset"
+          }
+        ],
+        "name": "Authentication Checklist"
+      },
+      "user_management": {
+        "items": [
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "User Management",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "Profile Update Functionality",
+            "id": "user-001",
+            "test_name": "Profile Update"
+          },
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "User Management",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "Role Management System",
+            "id": "user-002",
+            "test_name": "Role Management"
+          },
+          {
+            "last_run": "2025-05-14 19:32:18",
+            "test_suite": "User Management",
+            "completion_proof": {
+              "error": "",
+              "timestamp": "2025-05-14 19:32:18",
+              "result": "Test completed successfully",
+              "test_report": "feature-test-report-20250514-193218.md"
+            },
+            "status": "completed",
+            "description": "User Search Capabilities",
+            "id": "user-003",
+            "test_name": "User Search"
+          }
+        ],
+        "name": "User Management Checklist"
+      },
+      "api": {
+        "items": [
+          {
+            "last_run": null,
+            "test_suite": "API",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "API Endpoint Testing",
+            "id": "api-001",
+            "test_name": "ApiTest"
+          },
+          {
+            "last_run": null,
+            "test_suite": "API",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Rate Limiting",
+            "id": "api-002",
+            "test_name": "RateLimitTest"
+          },
+          {
+            "last_run": null,
+            "test_suite": "API",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Concurrent Request Handling",
+            "id": "api-003",
+            "test_name": "ConcurrentRequestTest"
+          }
+        ],
+        "name": "API Functionality Checklist"
+      },
+      "notifications": {
+        "items": [
+          {
+            "last_run": null,
+            "test_suite": "Notifications",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Mail System Testing",
+            "id": "notif-001",
+            "test_name": "MailTest"
+          },
+          {
+            "last_run": null,
+            "test_suite": "Notifications",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Queue Processing",
+            "id": "notif-002",
+            "test_name": "QueueTest"
+          }
+        ],
+        "name": "Notifications Checklist"
+      },
+      "system": {
+        "items": [
+          {
+            "last_run": null,
+            "test_suite": "System",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "System Smoke Test",
+            "id": "sys-001",
+            "test_name": "SmokeTest"
+          },
+          {
+            "last_run": null,
+            "test_suite": "System",
+            "completion_proof": null,
+            "status": "pending",
+            "description": "Test Reporter Functionality",
+            "id": "sys-002",
+            "test_name": "TestReporterTest"
+          }
+        ],
+        "name": "System Health Checklist"
+      }
+    }
+  }
+}

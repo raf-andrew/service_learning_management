@@ -1,0 +1,24 @@
+{
+    "name": "mail",
+    "type": "smtp",
+    "version": "1.0",
+    "env": {
+        "MAIL_MAILER": "smtp",
+        "MAIL_HOST": "127.0.0.1",
+        "MAIL_PORT": "1025",
+        "MAIL_USERNAME": null,
+        "MAIL_PASSWORD": null,
+        "MAIL_ENCRYPTION": null,
+        "MAIL_FROM_ADDRESS": "noreply@servicelearning.test",
+        "MAIL_FROM_NAME": "Service Learning Management"
+    },
+    "health_check": {
+        "type": "smtp",
+        "timeout": 5
+    },
+    "queue": {
+        "enabled": true,
+        "connection": "redis",
+        "queue": "emails"
+    }
+} 

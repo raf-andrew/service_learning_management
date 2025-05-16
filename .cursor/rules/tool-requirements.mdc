@@ -1,0 +1,49 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Tool Requirements and Installation
+
+## Required Tools
+The following tools are required for development and testing:
+
+### Development Environment
+- [Laragon](https://laragon.org/download/): Provides PHP, MySQL, and Apache/Nginx
+- [Node.js](https://nodejs.org/): JavaScript runtime
+- [npm](https://www.npmjs.com/): Node.js package manager
+- [Composer](https://getcomposer.org/): PHP dependency manager
+
+### Testing Tools
+- [jq](https://stedolan.github.io/jq/): JSON processor
+- [GitHub CLI](https://cli.github.com/): GitHub command-line interface
+
+## Installation Methods
+Tools can be installed in the following ways:
+
+### Automatic Installation
+The [setup-tools.ps1](mdc:.codespaces/testing/scripts/setup-tools.ps1) script handles automatic installation:
+- Uses Chocolatey for package management
+- Installs Laragon for PHP and Composer
+- Configures environment variables
+- Verifies installations
+
+### Manual Installation
+If automatic installation fails:
+1. Install Laragon for PHP and Composer
+2. Install Node.js and npm from official website
+3. Install jq using Chocolatey or direct download
+4. Install GitHub CLI using official installer
+
+## Version Requirements
+- PHP: 8.0 or higher
+- Node.js: LTS version
+- Composer: Latest version
+- jq: Latest version
+- GitHub CLI: Latest version
+
+## Environment Variables
+The following environment variables should be set:
+- `PATH`: Include tool installation directories
+- `GITHUB_TOKEN`: For GitHub API access
+- `COMPOSER_HOME`: For Composer configuration

@@ -1,0 +1,132 @@
+@startuml Payment System
+
+' Enums
+enum PaymentStatus {
+    PENDING
+    COMPLETED
+    FAILED
+    REFUNDED
+    CANCELLED
+}
+
+enum PaymentType {
+    COURSE_PURCHASE
+    INSTRUCTOR_PAYOUT
+    SUBSCRIPTION
+    REFUND
+}
+
+enum GatewayType {
+    PAYPAL
+    STRIPE
+    RAZORPAY
+    SKRILL
+    PAYU
+    SSLCOMMERZ
+    PAGSEGURO
+    XENDIT
+    DOKU
+    BKASH
+    CASHFREE
+    MAXICASH
+    AAMARPAY
+    FLUTTERWAVE
+    TAZAPAY
+}
+
+' Classes
+class Payment {
+    +id: UUID
+    +user_id: UUID
+    +amount: decimal
+    +currency: string
+    +status: PaymentStatus
+    +type: PaymentType
+    +gateway: GatewayType
+    +transaction_id: string
+    +metadata: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class PaymentItem {
+    +id: UUID
+    +payment_id: UUID
+    +item_id: UUID
+    +item_type: string
+    +title: string
+    +amount: decimal
+    +quantity: int
+    +metadata: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class PaymentGateway {
+    +id: UUID
+    +type: GatewayType
+    +name: string
+    +config: JSON
+    +is_active: boolean
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class Payout {
+    +id: UUID
+    +instructor_id: UUID
+    +amount: decimal
+    +status: PaymentStatus
+    +gateway: GatewayType
+    +transaction_id: string
+    +metadata: JSON
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+class Coupon {
+    +id: UUID
+    +code: string
+    +discount_type: string
+    +discount_amount: decimal
+    +valid_from: timestamp
+    +valid_to: timestamp
+    +usage_limit: int
+    +used_count: int
+    +created_at: timestamp
+    +updated_at: timestamp
+}
+
+' Relationships
+Payment "1" -- "1..*" PaymentItem : contains >
+Payment "1" -- "1" PaymentGateway : uses >
+Payment "1" -- "0..1" Coupon : applies >
+Payout "1" -- "1" PaymentGateway : uses >
+
+' Notes
+note right of Payment
+    Represents a payment transaction
+    with its status and details
+end note
+
+note right of PaymentItem
+    Represents individual items
+    in a payment transaction
+end note
+
+note right of PaymentGateway
+    Configures and manages
+    payment gateway integrations
+end note
+
+note right of Payout
+    Handles instructor payments
+    and revenue distribution
+end note
+
+note right of Coupon
+    Manages discount codes and
+    promotional offers
+end note
+
+@enduml 

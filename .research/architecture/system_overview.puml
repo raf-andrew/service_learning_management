@@ -1,0 +1,60 @@
+@startuml System Architecture Overview
+
+' Current Architecture
+package "Current CodeIgniter LMS" {
+    [Frontend Layer] as FE
+    [Controllers] as CTRL
+    [Models] as MDL
+    [Libraries] as LIB
+    [Helpers] as HLP
+    database "Database" as DB
+    
+    FE --> CTRL
+    CTRL --> MDL
+    CTRL --> LIB
+    CTRL --> HLP
+    MDL --> DB
+}
+
+' Proposed Modular Architecture
+package "Modular LMS Architecture" {
+    package "Core Application" {
+        [Application Frontend] as APP_FE
+        [Application Backend] as APP_BE
+        database "App Database" as APP_DB
+    }
+    
+    package "LMS Module" {
+        [Vue 3 Components] as VUE3
+        [API Gateway] as API
+        [Authentication Service] as AUTH
+        [Course Service] as COURSE
+        [User Service] as USER
+        [Content Service] as CONTENT
+        database "LMS Database" as LMS_DB
+    }
+    
+    package "Client Library" {
+        [API Client] as CLIENT
+        [Event Handlers] as EVENTS
+        [Data Models] as MODELS
+    }
+    
+    ' Connections
+    APP_FE --> CLIENT
+    CLIENT --> API
+    API --> AUTH
+    API --> COURSE
+    API --> USER
+    API --> CONTENT
+    
+    AUTH --> LMS_DB
+    COURSE --> LMS_DB
+    USER --> LMS_DB
+    CONTENT --> LMS_DB
+    
+    APP_BE --> CLIENT
+    APP_BE --> APP_DB
+}
+
+@enduml 

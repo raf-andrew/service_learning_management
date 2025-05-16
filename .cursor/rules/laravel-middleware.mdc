@@ -1,0 +1,53 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Middleware Simulation Guide
+
+## Core Components
+- Security Headers: [SecurityHeadersMiddlewareTest.php](mdc:.simulation/13_laravel_middleware/tests/Feature/Middleware/SecurityHeadersMiddlewareTest.php)
+- Permission Control: [PermissionBasedAccessControlMiddlewareTest.php](mdc:.simulation/13_laravel_middleware/tests/Feature/Middleware/PermissionBasedAccessControlMiddlewareTest.php)
+- Rate Limiting: [RateLimitingMiddlewareTest.php](mdc:.simulation/13_laravel_middleware/tests/Feature/Middleware/RateLimitingMiddlewareTest.php)
+
+## Middleware Types
+1. Security Headers
+   - X-Frame-Options
+   - X-XSS-Protection
+   - X-Content-Type-Options
+   - Content-Security-Policy
+
+2. Permission Control
+   - Role-based access
+   - Permission checking
+   - Access logging
+   - Error handling
+
+3. Rate Limiting
+   - Request throttling
+   - IP-based limiting
+   - User-based limiting
+   - Custom limits
+
+## Test Structure
+- Middleware Tests: [SecurityHeadersMiddlewareTest.php](mdc:.simulation/13_laravel_middleware/tests/Feature/Middleware/SecurityHeadersMiddlewareTest.php)
+- Integration Tests: [MiddlewareChainIntegrationTest.php](mdc:.simulation/13_laravel_middleware/tests/Feature/Middleware/MiddlewareChainIntegrationTest.php)
+
+## Key Features
+1. Middleware Implementation
+   - Request/Response handling
+   - Middleware groups
+   - Middleware priority
+   - Configuration
+
+2. Middleware Testing
+   - Unit tests
+   - Integration tests
+   - Performance tests
+   - Security tests
+
+3. Middleware Documentation
+   - Usage guide
+   - Configuration options
+   - Best practices
+   - Security considerations

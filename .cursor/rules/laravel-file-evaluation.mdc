@@ -1,0 +1,91 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel File Evaluation Standards
+
+## File Metadata Tags
+- @laravel-simulation: Indicates file is part of Laravel simulation
+- @component-type: Specifies component type (Model, Controller, Middleware, etc.)
+- @test-coverage: Links to test files
+- @api-docs: Links to OpenAPI/Swagger documentation
+- @security-review: Security considerations
+- @qa-status: Quality assurance status
+- @refactor-notes: Refactoring recommendations
+
+## Documentation Standards
+1. PHPDoc Blocks
+   ```php
+   /**
+    * @laravel-simulation
+    * @component-type Model
+    * @test-coverage tests/Feature/Models/ProductTest.php
+    * @api-docs docs/api/Product.yaml
+    * @security-review docs/security/Product.md
+    * @qa-status Complete
+    * @refactor-notes Consider extracting common traits
+    */
+   ```
+
+2. OpenAPI/Swagger
+   - YAML format
+   - Full endpoint documentation
+   - Request/Response schemas
+   - Authentication requirements
+   - Error responses
+
+3. Test Coverage
+   - Unit tests
+   - Feature tests
+   - Integration tests
+   - Security tests
+   - Performance tests
+
+## Evaluation Criteria
+1. Code Quality
+   - SOLID principles
+   - Design patterns
+   - Code duplication
+   - Complexity metrics
+   - Naming conventions
+
+2. Security
+   - Input validation
+   - Authentication
+   - Authorization
+   - Data encryption
+   - CSRF protection
+
+3. Performance
+   - Query optimization
+   - Caching strategy
+   - Resource usage
+   - Response times
+   - Memory usage
+
+4. Documentation
+   - Code comments
+   - API documentation
+   - Usage examples
+   - Configuration guide
+   - Security considerations
+
+## File Organization
+1. Directory Structure
+   - Component-based organization
+   - Clear separation of concerns
+   - Consistent naming conventions
+   - Logical grouping
+
+2. File Naming
+   - PSR-4 compliance
+   - Clear purpose indication
+   - Consistent casing
+   - Descriptive names
+
+3. Related Files
+   - Test files
+   - Documentation files
+   - Configuration files
+   - Migration files

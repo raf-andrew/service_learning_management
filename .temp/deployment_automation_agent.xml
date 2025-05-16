@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Unit\DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" tests="9" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="0.214465">
+    <testcase name="test_deploy_successful_deployment" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="20" assertions="1" time="0.143800"/>
+    <testcase name="test_deploy_invalid_environment" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="26" assertions="1" time="0.016249"/>
+    <testcase name="test_deploy_missing_config" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="32" assertions="1" time="0.000084"/>
+    <testcase name="test_deploy_failed_pre_check" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="38" assertions="1" time="0.000053"/>
+    <testcase name="test_deploy_failed_deployment" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="44" assertions="1" time="0.000044"/>
+    <testcase name="test_rollback_successful_rollback" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="50" assertions="1" time="0.000058"/>
+    <testcase name="test_rollback_invalid_environment" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="56" assertions="1" time="0.000052"/>
+    <testcase name="test_rollback_failed_checkout" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="62" assertions="1" time="0.000039"/>
+    <testcase name="test_get_metrics" class="Tests\Unit\DeploymentAutomationAgentTest" classname="Tests.Unit.DeploymentAutomationAgentTest" file="/var/www/html/tests/Unit/DeploymentAutomationAgentTest.php" line="68" assertions="7" time="0.054086"/>
+  </testsuite>
+</testsuites>

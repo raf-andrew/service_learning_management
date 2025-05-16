@@ -1,0 +1,60 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# PHP Environment Requirements
+
+## Required PHP Version
+- PHP 8.3.x (API version 20230831)
+- ZTS (Thread Safe) build required
+- Visual C++ 2019 x64 runtime
+
+## Required PHP Extensions
+- fileinfo
+- gd
+- intl
+- mbstring
+- mysqli
+- openssl
+- pdo_mysql
+- pdo_sqlite
+- xsl
+- zip
+- redis
+
+## Environment Configuration
+- PHP modules must match the PHP API version (20230831)
+- Extensions should be loaded from the correct path (C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext)
+- Session save path should be configured to C:/laragon/tmp
+
+## Testing Requirements
+- PHPUnit must be installed via Composer
+- All required extensions must be enabled before running tests
+- MySQL and Redis services must be running and accessible
+- Test environment should use separate database and Redis instances
+
+## Common Issues
+1. Module API Version Mismatch
+   - Ensure PHP and modules are compiled with the same API version
+   - Check module paths in php.ini
+   - Verify extension loading order
+
+2. Missing Extensions
+   - Verify extension files exist in the ext directory
+   - Check extension= lines in php.ini
+   - Ensure DLL dependencies are available
+
+3. Service Connections
+   - Verify MySQL service is running
+   - Check Redis service status
+   - Validate connection credentials
+
+## Testing Workflow
+1. Verify PHP environment
+2. Check required extensions
+3. Start required services
+4. Run test suite
+5. Review test results
+6. Address any failures
+7. Record successful test run

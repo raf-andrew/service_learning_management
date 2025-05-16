@@ -1,0 +1,126 @@
+@startuml Module Dependencies
+
+' Core Module Components
+package "LMS Core" {
+    [Config Manager] as CFG
+    [Database Abstraction] as DB
+    [Event System] as EVT
+    [Cache Manager] as CACHE
+    [File Storage] as FS
+    [Tenant Manager] as TM
+}
+
+' Feature Modules
+package "Course Management" {
+    [Course Service] as CS
+    [Section Service] as SS
+    [Lesson Service] as LS
+    [Quiz Service] as QS
+    [Progress Tracker] as PT
+}
+
+package "User Management" {
+    [User Service] as US
+    [Role Service] as RS
+    [Permission Service] as PS
+    [Authentication] as AUTH
+}
+
+package "Content Management" {
+    [Media Service] as MS
+    [File Service] as FSV
+    [Category Service] as CATS
+    [Tag Service] as TS
+}
+
+package "Payment & Billing" {
+    [Payment Service] as PAY
+    [Subscription Service] as SUB
+    [Invoice Service] as INV
+    [Payout Service] as POUT
+}
+
+package "Communication" {
+    [Notification Service] as NS
+    [Email Service] as ES
+    [Message Service] as MSG
+}
+
+package "Analytics" {
+    [Report Service] as REP
+    [Analytics Service] as AS
+    [Dashboard Service] as DS
+}
+
+' Integration Layer
+package "Integration" {
+    [API Gateway] as API
+    [GraphQL Layer] as GQL
+    [Webhook Manager] as WH
+    [Client SDK] as SDK
+}
+
+' Dependencies
+CS --> DB
+CS --> EVT
+CS --> CACHE
+CS --> FS
+CS --> TM
+
+US --> DB
+US --> EVT
+US --> CACHE
+US --> TM
+
+MS --> DB
+MS --> FS
+MS --> EVT
+MS --> CACHE
+
+PAY --> DB
+PAY --> EVT
+PAY --> TM
+
+NS --> EVT
+ES --> EVT
+MSG --> EVT
+
+API --> CS
+API --> US
+API --> MS
+API --> PAY
+
+GQL --> CS
+GQL --> US
+GQL --> MS
+
+SDK --> API
+SDK --> GQL
+
+' Feature Dependencies
+CS --> US
+CS --> MS
+CS --> PAY
+CS --> NS
+
+US --> NS
+US --> ES
+
+MS --> US
+MS --> NS
+
+PAY --> US
+PAY --> NS
+PAY --> ES
+
+' Analytics Dependencies
+REP --> CS
+REP --> US
+REP --> PAY
+AS --> CS
+AS --> US
+AS --> PAY
+DS --> REP
+DS --> AS
+
+@enduml 

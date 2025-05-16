@@ -1,0 +1,140 @@
+{
+  "TotalTests": 2,
+  "CurrentTest": {
+    "Status": "Running",
+    "Result": null,
+    "Error": null,
+    "Description": "Test user registration process",
+    "Duration": null,
+    "EndTime": null,
+    "StartTime": "2025-05-15T09:13:34.9939647-07:00",
+    "Name": "User Registration"
+  },
+  "PassedTests": 1,
+  "Status": "Running",
+  "EndTime": "2025-05-15T09:13:34.9949402-07:00",
+  "TestSuites": [
+    {
+      "FailedTests": 0,
+      "Description": "Tests for user authentication and authorization",
+      "EndTime": null,
+      "SkippedTests": 0,
+      "TotalTests": 2,
+      "CompletedTests": 1,
+      "PassedTests": 1,
+      "StartTime": "2025-05-15T09:13:34.7530906-07:00",
+      "Status": "Running",
+      "Tests": [
+        {
+          "Status": "Passed",
+          "Result": "Test completed successfully",
+          "Error": "",
+          "Description": "Test user login functionality",
+          "Duration": {
+            "Ticks": 644353,
+            "Days": 0,
+            "Hours": 0,
+            "Milliseconds": 64,
+            "Microseconds": 435,
+            "Nanoseconds": 300,
+            "Minutes": 0,
+            "Seconds": 0,
+            "TotalDays": 7.457789351851852E-07,
+            "TotalHours": 1.7898694444444444E-05,
+            "TotalMilliseconds": 64.4353,
+            "TotalMicroseconds": 64435.3,
+            "TotalNanoseconds": 64435300.0,
+            "TotalMinutes": 0.0010739216666666666,
+            "TotalSeconds": 0.0644353
+          },
+          "EndTime": "2025-05-15T09:13:34.8768427-07:00",
+          "StartTime": "2025-05-15T09:13:34.8124074-07:00",
+          "Name": "User Login"
+        },
+        {
+          "Status": "Running",
+          "Result": null,
+          "Error": null,
+          "Description": "Test user registration process",
+          "Duration": null,
+          "EndTime": null,
+          "StartTime": "2025-05-15T09:13:34.9939647-07:00",
+          "Name": "User Registration"
+        }
+      ],
+      "Name": "Authentication"
+    }
+  ],
+  "SkippedTests": 0,
+  "CurrentSuite": {
+    "FailedTests": 0,
+    "Description": "Tests for user authentication and authorization",
+    "EndTime": null,
+    "SkippedTests": 0,
+    "TotalTests": 2,
+    "CompletedTests": 1,
+    "PassedTests": 1,
+    "StartTime": "2025-05-15T09:13:34.7530906-07:00",
+    "Status": "Running",
+    "Tests": [
+      {
+        "Status": "Passed",
+        "Result": "Test completed successfully",
+        "Error": "",
+        "Description": "Test user login functionality",
+        "Duration": {
+          "Ticks": 644353,
+          "Days": 0,
+          "Hours": 0,
+          "Milliseconds": 64,
+          "Microseconds": 435,
+          "Nanoseconds": 300,
+          "Minutes": 0,
+          "Seconds": 0,
+          "TotalDays": 7.457789351851852E-07,
+          "TotalHours": 1.7898694444444444E-05,
+          "TotalMilliseconds": 64.4353,
+          "TotalMicroseconds": 64435.3,
+          "TotalNanoseconds": 64435300.0,
+          "TotalMinutes": 0.0010739216666666666,
+          "TotalSeconds": 0.0644353
+        },
+        "EndTime": "2025-05-15T09:13:34.8768427-07:00",
+        "StartTime": "2025-05-15T09:13:34.8124074-07:00",
+        "Name": "User Login"
+      },
+      {
+        "Status": "Running",
+        "Result": null,
+        "Error": null,
+        "Description": "Test user registration process",
+        "Duration": null,
+        "EndTime": null,
+        "StartTime": "2025-05-15T09:13:34.9939647-07:00",
+        "Name": "User Registration"
+      }
+    ],
+    "Name": "Authentication"
+  },
+  "FailedTests": 0,
+  "StartTime": "2025-05-15T09:13:34.7419132-07:00",
+  "Duration": {
+    "Ticks": 2530270,
+    "Days": 0,
+    "Hours": 0,
+    "Milliseconds": 253,
+    "Microseconds": 27,
+    "Nanoseconds": 0,
+    "Minutes": 0,
+    "Seconds": 0,
+    "TotalDays": 2.928553240740741E-06,
+    "TotalHours": 7.028527777777777E-05,
+    "TotalMilliseconds": 253.027,
+    "TotalMicroseconds": 253027.0,
+    "TotalNanoseconds": 253027000.0,
+    "TotalMinutes": 0.004217116666666666,
+    "TotalSeconds": 0.253027
+  },
+  "CompletedTests": 1,
+  "ChecklistItems": {}
+}

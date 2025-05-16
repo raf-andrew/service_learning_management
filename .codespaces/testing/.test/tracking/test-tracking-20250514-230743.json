@@ -1,0 +1,172 @@
+{
+  "duration": {
+    "Ticks": 286232394,
+    "Days": 0,
+    "Hours": 0,
+    "Milliseconds": 623,
+    "Microseconds": 239,
+    "Nanoseconds": 400,
+    "Minutes": 0,
+    "Seconds": 28,
+    "TotalDays": 0.00033128749305555557,
+    "TotalHours": 0.007950899833333334,
+    "TotalMilliseconds": 28623.2394,
+    "TotalMicroseconds": 28623239.4,
+    "TotalNanoseconds": 28623239400.0,
+    "TotalMinutes": 0.47705399,
+    "TotalSeconds": 28.6232394
+  },
+  "end_time": "2025-05-14T23:07:43.9802064-07:00",
+  "failed_tests": 9,
+  "passed_tests": 0,
+  "start_time": "2025-05-14T23:07:15.356967-07:00",
+  "test_suites": [
+    {
+      "Status": "Failed",
+      "Name": "Authentication",
+      "TestName": "DeveloperCredentialTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:15.4525672-07:00",
+      "EndTime": "2025-05-14T23:07:19.7849398-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "API",
+      "TestName": "ApiTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:19.8126877-07:00",
+      "EndTime": "2025-05-14T23:07:22.9907604-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "File Upload",
+      "TestName": "FileUploadTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:23.0062994-07:00",
+      "EndTime": "2025-05-14T23:07:26.0527673-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Mail",
+      "TestName": "MailTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:26.0674135-07:00",
+      "EndTime": "2025-05-14T23:07:28.738918-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Queue",
+      "TestName": "QueueTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:28.7555863-07:00",
+      "EndTime": "2025-05-14T23:07:31.5430524-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Rate Limit",
+      "TestName": "RateLimitTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:31.5583277-07:00",
+      "EndTime": "2025-05-14T23:07:34.961582-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Concurrent Requests",
+      "TestName": "ConcurrentRequestTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:34.9798184-07:00",
+      "EndTime": "2025-05-14T23:07:38.3803702-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Smoke Test",
+      "TestName": "SmokeTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:38.4158166-07:00",
+      "EndTime": "2025-05-14T23:07:41.4856091-07:00"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Test Reporter",
+      "TestName": "TestReporterTest",
+      "Result": [
+        "",
+        "In TestRunner.php line 15:",
+        "                                                                              ",
+        "  Class Tests\\TestRunner cannot extend final class PHPUnit\\TextUI\\TestRunner  ",
+        "                                                                              ",
+        ""
+      ],
+      "Error": "Test failed with exit code 255",
+      "StartTime": "2025-05-14T23:07:41.5050682-07:00",
+      "EndTime": "2025-05-14T23:07:43.9765271-07:00"
+    }
+  ],
+  "status": "Failed",
+  "skipped_tests": 0,
+  "total_tests": 9
+}

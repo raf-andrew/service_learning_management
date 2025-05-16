@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Unit\ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" tests="7" assertions="11" errors="0" warnings="0" failures="0" skipped="0" time="0.144623">
+    <testcase name="test_check_health_successful_check" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="20" assertions="1" time="0.116738"/>
+    <testcase name="test_check_health_invalid_service" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="26" assertions="1" time="0.006919"/>
+    <testcase name="test_check_health_missing_config" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="32" assertions="1" time="0.000062"/>
+    <testcase name="test_check_health_failed_pre_check" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="38" assertions="1" time="0.000038"/>
+    <testcase name="test_check_health_failed_health_check" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="44" assertions="1" time="0.000032"/>
+    <testcase name="test_check_health_degraded_service" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="50" assertions="1" time="0.000029"/>
+    <testcase name="test_get_metrics" class="Tests\Unit\ServiceHealthAgentTest" classname="Tests.Unit.ServiceHealthAgentTest" file="/var/www/html/tests/Unit/ServiceHealthAgentTest.php" line="56" assertions="5" time="0.020804"/>
+  </testsuite>
+</testsuites>

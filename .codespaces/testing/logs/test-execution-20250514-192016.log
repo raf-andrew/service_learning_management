@@ -1,0 +1,512 @@
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Starting feature test execution...",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.031"
+}
+{
+  "TestName": "",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Starting test suite: Authentication",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.051"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting suite: Authentication)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.101"
+}
+{
+  "TestName": "User Login",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Starting test: User Login",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.180"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting test: User Login)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.212"
+}
+{
+  "TestName": "User Login",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Completed test: User Login",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.291"
+}
+{
+  "TestName": "User Login",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.317"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Completed test: User Login)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.344"
+}
+{
+  "TestName": "User Registration",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Starting test: User Registration",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.374"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting test: User Registration)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.408"
+}
+{
+  "TestName": "User Registration",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Completed test: User Registration",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.435"
+}
+{
+  "TestName": "User Registration",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.464"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Completed test: User Registration)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.498"
+}
+{
+  "TestName": "Password Reset",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Starting test: Password Reset",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.526"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting test: Password Reset)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.563"
+}
+{
+  "TestName": "Password Reset",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Completed test: Password Reset",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.593"
+}
+{
+  "TestName": "Password Reset",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.619"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Completed test: Password Reset)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.654"
+}
+{
+  "TestName": "",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Completed test suite: Authentication",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.685"
+}
+{
+  "TestName": "",
+  "TestSuite": "Authentication",
+  "Level": "INFO",
+  "Message": "Results: 3 passed, 0 failed, 0 skipped",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.716"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Completed suite: Authentication)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.744"
+}
+{
+  "TestName": "",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Starting test suite: User Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.770"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting suite: User Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.799"
+}
+{
+  "TestName": "Profile Update",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Starting test: Profile Update",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.823"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Starting test: Profile Update)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.851"
+}
+{
+  "TestName": "Profile Update",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Completed test: Profile Update",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.875"
+}
+{
+  "TestName": "Profile Update",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.906"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192016.json (Completed test: Profile Update)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.940"
+}
+{
+  "TestName": "Role Management",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Starting test: Role Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:16.974"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting test: Role Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.004"
+}
+{
+  "TestName": "Role Management",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Completed test: Role Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.029"
+}
+{
+  "TestName": "Role Management",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.057"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed test: Role Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.085"
+}
+{
+  "TestName": "User Search",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Starting test: User Search",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.108"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting test: User Search)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.138"
+}
+{
+  "TestName": "User Search",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Completed test: User Search",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.173"
+}
+{
+  "TestName": "User Search",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.204"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed test: User Search)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.241"
+}
+{
+  "TestName": "",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Completed test suite: User Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.270"
+}
+{
+  "TestName": "",
+  "TestSuite": "User Management",
+  "Level": "INFO",
+  "Message": "Results: 3 passed, 0 failed, 0 skipped",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.302"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed suite: User Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.341"
+}
+{
+  "TestName": "",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Starting test suite: Service Learning",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.370"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting suite: Service Learning)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.402"
+}
+{
+  "TestName": "Project Creation",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Starting test: Project Creation",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.427"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting test: Project Creation)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.460"
+}
+{
+  "TestName": "Project Creation",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Completed test: Project Creation",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.485"
+}
+{
+  "TestName": "Project Creation",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.514"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed test: Project Creation)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.548"
+}
+{
+  "TestName": "Project Management",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Starting test: Project Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.576"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting test: Project Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.614"
+}
+{
+  "TestName": "Project Management",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Completed test: Project Management",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.640"
+}
+{
+  "TestName": "Project Management",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.671"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed test: Project Management)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.710"
+}
+{
+  "TestName": "Hours Tracking",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Starting test: Hours Tracking",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.740"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Starting test: Hours Tracking)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.781"
+}
+{
+  "TestName": "Hours Tracking",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Completed test: Hours Tracking",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.820"
+}
+{
+  "TestName": "Hours Tracking",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Result: Test completed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.845"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed test: Hours Tracking)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.873"
+}
+{
+  "TestName": "",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Completed test suite: Service Learning",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.900"
+}
+{
+  "TestName": "",
+  "TestSuite": "Service Learning",
+  "Level": "INFO",
+  "Message": "Results: 3 passed, 0 failed, 0 skipped",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.925"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192017.json (Completed suite: Service Learning)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:17.972"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Test report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\results\\feature-test-report-20250514-192018.md",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:18.015"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "SUCCESS",
+  "Message": "All tests passed successfully",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:18.037"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "DEBUG",
+  "Message": "Test tracking saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\tracking\\test-tracking-20250514-192018.json (Test execution completed)",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:20:18.069"
+}

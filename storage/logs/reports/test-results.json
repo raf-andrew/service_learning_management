@@ -1,0 +1,67 @@
+{
+    "total": 15,
+    "passed": 0,
+    "failed": [
+        {
+            "file": "tests\/Feature\/ApiTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/CodespaceTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/ConcurrentRequestTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/DeveloperCredentialTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/FileUploadTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/MailTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/QueueTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/RateLimitTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/SmokeTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/TestCase.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Feature\/TestReporterTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Unit\/DeploymentAutomationAgentTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Unit\/ServiceHealthAgentTest.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Unit\/TestCase.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        },
+        {
+            "file": "tests\/Integration\/TestCase.php",
+            "output": "\nIn Kernel.php line 35:\n\n  require(\/var\/www\/html\/routes\/console.php): Failed to open stream: No such file or directory\n\n"
+        }
+    ],
+    "skipped": []
+}

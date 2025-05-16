@@ -1,0 +1,72 @@
+@startuml User Management System
+
+' Enums
+enum UserRole {
+    ADMIN
+    INSTRUCTOR
+    STUDENT
+}
+
+enum UserStatus {
+    ACTIVE
+    INACTIVE
+    PENDING
+    SUSPENDED
+}
+
+' Classes
+class User {
+    +id: int
+    +first_name: string
+    +last_name: string
+    +email: string
+    +password: string
+    +social_links: json
+    +biography: text
+    +phone: string
+    +address: text
+    +role_id: int
+    +is_instructor: boolean
+    +date_added: timestamp
+    +wishlist: json
+    +status: UserStatus
+    +image: string
+    +payment_keys: json
+}
+
+class Permission {
+    +admin_id: int
+    +permissions: json
+}
+
+class InstructorApplication {
+    +id: int
+    +user_id: int
+    +document: string
+    +status: string
+    +date_added: timestamp
+    +last_modified: timestamp
+}
+
+' Relationships
+User "1" -- "1" Permission : has >
+User "1" -- "0..1" InstructorApplication : submits >
+
+' Notes
+note right of User
+    Represents a user in the system
+    with role-based access control
+    and profile management
+end note
+
+note right of Permission
+    Stores role-based permissions
+    for administrative users
+end note
+
+note right of InstructorApplication
+    Tracks instructor applications
+    and their approval status
+end note
+
+@enduml 

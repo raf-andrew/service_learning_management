@@ -1,0 +1,40 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Framework Guide
+
+## Core Components
+The MCP (Model-Controller-Presenter) framework consists of several key components:
+
+### Server Components
+- [MCPServer.php](mdc:src/MCP/Core/MCPServer.php) - Base server implementation
+- [AgenticServer.php](mdc:src/MCP/Core/AgenticServer.php) - Agent management server
+
+### Agent Components
+- [ServiceHealthAgent.php](mdc:src/MCP/Core/ServiceHealthAgent.php) - Service health monitoring
+- [DeploymentAutomationAgent.php](mdc:src/MCP/Core/DeploymentAutomationAgent.php) - Deployment automation
+
+### Service Layer
+- [AuditLogger.php](mdc:src/MCP/Core/Services/AuditLogger.php) - Audit logging service
+- [AccessControl.php](mdc:src/MCP/Core/Services/AccessControl.php) - Access control service
+- [TaskManager.php](mdc:src/MCP/Core/Services/TaskManager.php) - Task management service
+
+## Testing Structure
+The test suite is organized as follows:
+
+### Unit Tests
+- [BaseTestCase.php](mdc:tests/Unit/MCP/Core/BaseTestCase.php) - Base test case for core components
+- [BaseAgenticTestCase.php](mdc:tests/Unit/MCP/Agentic/BaseAgenticTestCase.php) - Base test case for agentic components
+
+### Test Runners
+- [CoreTestRunner.php](mdc:tests/Unit/MCP/Core/CoreTestRunner.php) - Core component test runner
+- [AgenticTestRunner.php](mdc:tests/Unit/MCP/Agentic/AgenticTestRunner.php) - Agentic component test runner
+
+## Development Guidelines
+1. All new agents must extend the base Agent class
+2. Services must implement the ServiceInterface
+3. Tests must follow the established test plan in [test_plan.md](mdc:.reports/test_plan.md)
+4. Code must comply with PSR-12 standards
+5. All changes must be covered by unit tests

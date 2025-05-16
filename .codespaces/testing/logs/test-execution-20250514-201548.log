@@ -1,0 +1,96 @@
+{
+  "TestSuite": "",
+  "Message": "Starting feature test execution",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.218",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Authentication",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.253",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: API",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.371",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: File Upload",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.454",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Mail",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.542",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Queue",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.623",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Rate Limit",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.700",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Concurrent Requests",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.784",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Smoke Test",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:48.879",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Running test suite: Test Reporter",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:49.030",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Test tracking data saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\tracking\\test-tracking-20250514-201549.json",
+  "Level": "INFO",
+  "Timestamp": "2025-05-14 20:15:49.159",
+  "Context": null,
+  "TestName": ""
+}
+{
+  "TestSuite": "",
+  "Message": "Error during feature test execution: Cannot process argument transformation on parameter 'ChecklistData'. Cannot convert value \"@{checklists=; metadata=}\" to type \"System.Collections.Hashtable\". Error: \"Cannot convert the \"@{checklists=; metadata=}\" value of type \"System.Management.Automation.PSCustomObject\" to type \"System.Collections.Hashtable\".\"",
+  "Level": "ERROR",
+  "Timestamp": "2025-05-14 20:15:49.188",
+  "Context": null,
+  "TestName": ""
+}

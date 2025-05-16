@@ -1,0 +1,288 @@
+<?php
+
+namespace Tests\Feature\Events;
+
+use App\Events\UserLoggedOut;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Log;
+use Tests\TestCase;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Carbon\Carbon;
+use Tests\TestReporter;
+
+/**
+ * @laravel-simulation
+ * @component-type Test
+ * @test-coverage tests/Feature/Events/UserLogoutTest.php
+ * @api-docs docs/api/events.yaml
+ * @security-review docs/security/events.md
+ * @qa-status Complete
+ * @job-code EVT-004-TEST
+ * @since 1.0.0
+ * @author System
+ * @package Tests\Feature\Events
+ * @see \App\Events\UserLoggedOut
+ * 
+ * Test suite for the UserLoggedOut event.
+ * Validates event dispatching, broadcasting, and security measures.
+ * 
+ * @OpenAPI\Tag(name="User Events Tests", description="User logout event tests")
+ */
+class UserLogoutTest extends TestCase
+{
+    use RefreshDatabase;
+
+    protected $user;
+    protected $event;
+    protected $reporter;
+    protected $sessionDuration = 3600; // 1 hour in seconds
+
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        Event::fake();
+        Broadcast::fake();
+        
+        $this->user = User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        
+        $this->event = new UserLoggedOut($this->user, $this->sessionDuration);
+        $this->reporter = new TestReporter('UserLogoutTest');
+    }
+
+    /**
+     * Test event creation and basic functionality.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test event creation and basic functionality",
+     *     description="Verifies event creation, data validation, and basic functionality"
+     * )
+     */
+    public function test_event_creation_and_basic_functionality()
+    {
+        $this->reporter->startTest('test_event_creation_and_basic_functionality');
+        
+        try {
+            $this->assertInstanceOf(UserLoggedOut::class, $this->event);
+            $this->assertEquals($this->user->id, $this->event->user->id);
+            $this->assertEquals($this->user->name, $this->event->user->name);
+            $this->assertEquals($this->user->email, $this->event->user->email);
+            $this->assertEquals($this->sessionDuration, $this->event->sessionDuration);
+            
+            $this->reporter->addTestResult('test_event_creation_and_basic_functionality', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_event_creation_and_basic_functionality', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Test event broadcasting functionality.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test event broadcasting",
+     *     description="Verifies event broadcasting on correct channels with proper data"
+     * )
+     */
+    public function test_event_broadcasting()
+    {
+        $this->reporter->startTest('test_event_broadcasting');
+        
+        try {
+            // Test channel configuration
+            $channels = $this->event->broadcastOn();
+            $this->assertCount(2, $channels);
+            $this->assertInstanceOf(PrivateChannel::class, $channels[0]);
+            $this->assertInstanceOf(PresenceChannel::class, $channels[1]);
+            
+            // Test broadcast data
+            $data = $this->event->broadcastWith();
+            $this->assertArrayHasKey('user', $data);
+            $this->assertArrayHasKey('logout_time', $data);
+            $this->assertArrayHasKey('session_duration', $data);
+            
+            $this->assertEquals($this->user->id, $data['user']['id']);
+            $this->assertEquals($this->user->name, $data['user']['name']);
+            $this->assertEquals($this->user->email, $data['user']['email']);
+            $this->assertEquals($this->sessionDuration, $data['session_duration']);
+            
+            $this->assertIsString($data['logout_time']);
+            $this->assertTrue(Carbon::parse($data['logout_time'])->isValid());
+            
+            // Test broadcast name
+            $this->assertEquals('user.logged_out', $this->event->broadcastAs());
+            
+            $this->reporter->addTestResult('test_event_broadcasting', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_event_broadcasting', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Test event security measures.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test event security",
+     *     description="Verifies event security measures and error handling"
+     * )
+     */
+    public function test_event_security()
+    {
+        $this->reporter->startTest('test_event_security');
+        
+        try {
+            // Test invalid user handling
+            $this->expectException(\InvalidArgumentException::class);
+            new UserLoggedOut(null, $this->sessionDuration);
+            
+            // Test empty user handling
+            $this->expectException(\InvalidArgumentException::class);
+            new UserLoggedOut(new User(), $this->sessionDuration);
+            
+            // Test negative session duration
+            $this->expectException(\InvalidArgumentException::class);
+            new UserLoggedOut($this->user, -1);
+            
+            // Test broadcast conditions
+            $this->user->should_broadcast = false;
+            $this->assertFalse($this->event->broadcastWhen());
+            
+            $this->user->should_broadcast = true;
+            $this->assertTrue($this->event->broadcastWhen());
+            
+            $this->reporter->addTestResult('test_event_security', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_event_security', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Test event serialization and data integrity.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test event serialization",
+     *     description="Verifies event serialization and data integrity"
+     * )
+     */
+    public function test_event_serialization()
+    {
+        $this->reporter->startTest('test_event_serialization');
+        
+        try {
+            $serialized = serialize($this->event);
+            $unserialized = unserialize($serialized);
+            
+            $this->assertInstanceOf(UserLoggedOut::class, $unserialized);
+            $this->assertEquals($this->user->id, $unserialized->user->id);
+            $this->assertEquals($this->user->name, $unserialized->user->name);
+            $this->assertEquals($this->user->email, $unserialized->user->email);
+            $this->assertEquals($this->sessionDuration, $unserialized->sessionDuration);
+            
+            $this->reporter->addTestResult('test_event_serialization', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_event_serialization', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Test event logging and monitoring.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test event logging",
+     *     description="Verifies event logging and monitoring functionality"
+     * )
+     */
+    public function test_event_logging()
+    {
+        $this->reporter->startTest('test_event_logging');
+        
+        try {
+            Log::shouldReceive('info')
+                ->once()
+                ->with('User logged out', [
+                    'user_id' => $this->user->id,
+                    'email' => $this->user->email,
+                    'timestamp' => $this->event->logoutTime,
+                    'session_duration' => $this->sessionDuration
+                ]);
+            
+            event($this->event);
+            
+            $this->reporter->addTestResult('test_event_logging', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_event_logging', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Test session duration calculations.
+     *
+     * @test
+     * @return void
+     * @OpenAPI\Test(
+     *     summary="Test session duration",
+     *     description="Verifies session duration calculations and validation"
+     * )
+     */
+    public function test_session_duration()
+    {
+        $this->reporter->startTest('test_session_duration');
+        
+        try {
+            // Test zero duration
+            $event = new UserLoggedOut($this->user, 0);
+            $this->assertEquals(0, $event->sessionDuration);
+            
+            // Test long duration
+            $longDuration = 86400; // 24 hours
+            $event = new UserLoggedOut($this->user, $longDuration);
+            $this->assertEquals($longDuration, $event->sessionDuration);
+            
+            // Test maximum duration
+            $maxDuration = PHP_INT_MAX;
+            $event = new UserLoggedOut($this->user, $maxDuration);
+            $this->assertEquals($maxDuration, $event->sessionDuration);
+            
+            $this->reporter->addTestResult('test_session_duration', true);
+        } catch (\Exception $e) {
+            $this->reporter->addTestResult('test_session_duration', false, $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Clean up after tests.
+     *
+     * @return void
+     */
+    protected function tearDown(): void
+    {
+        $this->reporter->endTestSuite();
+        parent::tearDown();
+    }
+} 

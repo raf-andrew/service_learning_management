@@ -1,0 +1,36 @@
+{
+    "name": "mysql",
+    "type": "database",
+    "version": "8.0",
+    "dependencies": [],
+    "configuration": {
+        "local": {
+            "host": "localhost",
+            "port": 3306,
+            "database": "service_learning",
+            "username": "root",
+            "password": "root",
+            "charset": "utf8mb4",
+            "collation": "utf8mb4_unicode_ci"
+        },
+        "codespaces": {
+            "host": "mysql",
+            "port": 3306,
+            "database": "service_learning",
+            "username": "root",
+            "password": "root",
+            "charset": "utf8mb4",
+            "collation": "utf8mb4_unicode_ci"
+        }
+    },
+    "health_check": {
+        "type": "mysql",
+        "query": "SELECT 1",
+        "timeout": 5
+    },
+    "backup": {
+        "enabled": true,
+        "schedule": "0 0 * * *",
+        "retention": 7
+    }
+} 

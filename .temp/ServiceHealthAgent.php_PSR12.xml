@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="PHP_CodeSniffer 3.12.2" errors="0" tests="1" failures="0">
+<testsuite name="/var/www/html/src/MCP/Core/ServiceHealthAgent.php" errors="0" tests="1" failures="0">
+ <testcase name="/var/www/html/src/MCP/Core/ServiceHealthAgent.php"/>
+</testsuite>
+</testsuites>
+

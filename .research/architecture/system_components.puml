@@ -1,0 +1,77 @@
+@startuml System Components
+
+package "Core Application" {
+    [User Management]
+    [Course Management]
+    [Content Management]
+    [Payment Processing]
+    [Analytics]
+}
+
+package "API Layer" {
+    [REST API]
+    [WebSocket API]
+    [Authentication]
+    [Authorization]
+}
+
+package "Frontend" {
+    [Admin Dashboard]
+    [Instructor Portal]
+    [Student Portal]
+    [Mobile App]
+}
+
+package "Integration" {
+    [Payment Gateways]
+    [Email Service]
+    [SMS Service]
+    [Storage Service]
+}
+
+package "Infrastructure" {
+    [Database]
+    [Cache]
+    [Queue]
+    [Search]
+}
+
+[User Management] --> [REST API]
+[Course Management] --> [REST API]
+[Content Management] --> [REST API]
+[Payment Processing] --> [REST API]
+[Analytics] --> [REST API]
+
+[REST API] --> [Admin Dashboard]
+[REST API] --> [Instructor Portal]
+[REST API] --> [Student Portal]
+[REST API] --> [Mobile App]
+
+[WebSocket API] --> [Admin Dashboard]
+[WebSocket API] --> [Instructor Portal]
+[WebSocket API] --> [Student Portal]
+[WebSocket API] --> [Mobile App]
+
+[Payment Gateways] --> [Payment Processing]
+[Email Service] --> [User Management]
+[SMS Service] --> [User Management]
+[Storage Service] --> [Content Management]
+
+[Database] --> [User Management]
+[Database] --> [Course Management]
+[Database] --> [Content Management]
+[Database] --> [Payment Processing]
+[Database] --> [Analytics]
+
+[Cache] --> [User Management]
+[Cache] --> [Course Management]
+[Cache] --> [Content Management]
+
+[Queue] --> [Email Service]
+[Queue] --> [SMS Service]
+[Queue] --> [Analytics]
+
+[Search] --> [Course Management]
+[Search] --> [Content Management]
+
+@enduml 

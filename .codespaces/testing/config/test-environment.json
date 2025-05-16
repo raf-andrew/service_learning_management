@@ -1,0 +1,121 @@
+{
+    "environment": {
+        "name": "service_learning_management_test",
+        "type": "development",
+        "debug": true
+    },
+    "database": {
+        "driver": "mysql",
+        "host": "mysql",
+        "port": 3306,
+        "database": "service_learning_management_test",
+        "username": "root",
+        "password": "root",
+        "charset": "utf8mb4",
+        "collation": "utf8mb4_unicode_ci",
+        "prefix": ""
+    },
+    "redis": {
+        "host": "redis",
+        "port": 6379,
+        "password": null,
+        "database": 0
+    },
+    "mail": {
+        "driver": "smtp",
+        "host": "mailhog",
+        "port": 1025,
+        "from": {
+            "address": "testing@example.com",
+            "name": "Testing"
+        }
+    },
+    "queue": {
+        "default": "redis",
+        "connections": {
+            "redis": {
+                "driver": "redis",
+                "connection": "default",
+                "queue": "default",
+                "retry_after": 90,
+                "block_for": null
+            }
+        }
+    },
+    "cache": {
+        "default": "redis",
+        "stores": {
+            "redis": {
+                "driver": "redis",
+                "connection": "default"
+            }
+        }
+    },
+    "session": {
+        "driver": "redis",
+        "lifetime": 120,
+        "expire_on_close": false,
+        "encrypt": false,
+        "files": "storage/framework/sessions",
+        "connection": "default",
+        "table": "sessions",
+        "store": "redis",
+        "lottery": [2, 100],
+        "cookie": "service_learning_session",
+        "path": "/",
+        "domain": null,
+        "secure": false,
+        "http_only": true,
+        "same_site": "lax"
+    },
+    "logging": {
+        "default": "stack",
+        "channels": {
+            "stack": {
+                "driver": "stack",
+                "channels": ["single", "daily"],
+                "ignore_exceptions": false
+            },
+            "single": {
+                "driver": "single",
+                "path": "storage/logs/laravel.log",
+                "level": "debug"
+            },
+            "daily": {
+                "driver": "daily",
+                "path": "storage/logs/laravel.log",
+                "level": "debug",
+                "days": 14
+            }
+        }
+    },
+    "testing": {
+        "parallel": true,
+        "processes": 4,
+        "memory_limit": "2G",
+        "timeout": 300,
+        "coverage": {
+            "enabled": true,
+            "format": ["html", "clover"],
+            "directory": "storage/logs/coverage"
+        },
+        "reports": {
+            "format": ["json", "markdown"],
+            "directory": "storage/logs/reports"
+        }
+    },
+    "codespaces": {
+        "api_version": "v1",
+        "default_machine": "basicLinux32gb",
+        "location": "EastUs",
+        "repository": "service_learning_management",
+        "branch": "main",
+        "devcontainer": {
+            "path": ".devcontainer/devcontainer.json",
+            "image": "mcr.microsoft.com/devcontainers/php:8.2"
+        },
+        "timeout": 300,
+        "retry_count": 3,
+        "retry_delay": 5
+    }
+} 

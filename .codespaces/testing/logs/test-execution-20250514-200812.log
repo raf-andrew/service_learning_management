@@ -1,0 +1,336 @@
+{
+    "Message":  "Starting feature test execution...",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.548",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  ""
+}
+{
+    "Message":  "Running test suite: Authentication - User Login",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.591",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Test suite Authentication completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.735",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Running test suite: Authentication - User Registration",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.804",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Test suite Authentication completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.859",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Running test suite: Authentication - Password Reset",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.863",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Test suite Authentication completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.916",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Authentication"
+}
+{
+    "Message":  "Running test suite: User Management - Profile Update",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.924",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Test suite User Management completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.977",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Running test suite: User Management - Role Management",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:12.982",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Test suite User Management completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.032",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Running test suite: User Management - User Search",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.038",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Test suite User Management completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.092",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "User Management"
+}
+{
+    "Message":  "Running test suite: Service Learning - Project Creation",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.098",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Test suite Service Learning completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.154",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Running test suite: Service Learning - Project Management",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.156",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Test suite Service Learning completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.213",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Running test suite: Service Learning - Hours Tracking",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.218",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Test suite Service Learning completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.274",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Service Learning"
+}
+{
+    "Message":  "Running test suite: API - ApiTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.282",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Test suite API completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.335",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Running test suite: API - RateLimitTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.340",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Test suite API completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.392",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Running test suite: API - ConcurrentRequestTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.397",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Test suite API completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.456",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "API"
+}
+{
+    "Message":  "Running test suite: File Operations - FileUploadTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.462",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "File Operations"
+}
+{
+    "Message":  "Test suite File Operations completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.516",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "File Operations"
+}
+{
+    "Message":  "Running test suite: Notifications - MailTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.522",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Notifications"
+}
+{
+    "Message":  "Test suite Notifications completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.576",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Notifications"
+}
+{
+    "Message":  "Running test suite: Notifications - QueueTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.579",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Notifications"
+}
+{
+    "Message":  "Test suite Notifications completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.633",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Notifications"
+}
+{
+    "Message":  "Running test suite: Developer Tools - DeveloperCredentialTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.654",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Developer Tools"
+}
+{
+    "Message":  "Test suite Developer Tools completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.705",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Developer Tools"
+}
+{
+    "Message":  "Running test suite: Developer Tools - CodespaceTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.711",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Developer Tools"
+}
+{
+    "Message":  "Test suite Developer Tools completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.765",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "Developer Tools"
+}
+{
+    "Message":  "Running test suite: System - SmokeTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.772",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "System"
+}
+{
+    "Message":  "Test suite System completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.823",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "System"
+}
+{
+    "Message":  "Running test suite: System - TestReporterTest",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.829",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "System"
+}
+{
+    "Message":  "Test suite System completed with status: failed",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.879",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  "System"
+}
+{
+    "Message":  "Test report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\results\\feature-test-report-20250514-200813.md",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.927",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  ""
+}
+{
+    "Message":  "Test tracking data saved to: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\test-tracking-20250514-200813.json",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.988",
+    "TestName":  "",
+    "Level":  "INFO",
+    "TestSuite":  ""
+}
+{
+    "Message":  "Tests completed with failures",
+    "Context":  null,
+    "Timestamp":  "2025-05-14 20:08:13.994",
+    "TestName":  "",
+    "Level":  "WARNING",
+    "TestSuite":  ""
+}

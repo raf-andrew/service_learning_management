@@ -1,0 +1,169 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Framework Coding Standards
+
+## File Organization
+
+1. Namespace Declaration
+   ```php
+   namespace MCP\{Component}\{Subcomponent};
+   ```
+
+2. Import Statements
+   ```php
+   use PDO;
+   use Monolog\Logger;
+   use MCP\Core\Database\ConnectionManager;
+   ```
+
+3. Class Declaration
+   ```php
+   class MyClass extends BaseClass implements SomeInterface
+   {
+       // Constants
+       // Properties
+       // Constructor
+       // Public methods
+       // Protected methods
+       // Private methods
+   }
+   ```
+
+## Code Style
+
+1. Properties
+   ```php
+   private $propertyName;           // Camel case
+   private static $staticProperty;  // Static properties
+   protected $logger;               // Framework properties
+   ```
+
+2. Methods
+   ```php
+   public function doSomething(): void
+   {
+       // Method body
+   }
+
+   private function helperMethod(): mixed
+   {
+       // Helper method body
+   }
+   ```
+
+3. Type Hints
+   ```php
+   public function process(string $input): array
+   {
+       return ['processed' => $input];
+   }
+   ```
+
+## Documentation
+
+1. Class Documentation
+   ```php
+   /**
+    * Class description
+    *
+    * @package MCP\Component
+    */
+   ```
+
+2. Method Documentation
+   ```php
+   /**
+    * Method description
+    *
+    * @param string $param Description
+    * @return mixed Description
+    * @throws \Exception When something goes wrong
+    */
+   ```
+
+## Testing
+
+1. Test Class Structure
+   ```php
+   class MyClassTest extends TestCase
+   {
+       protected function setUp(): void
+       {
+           // Setup code
+       }
+
+       public function testFeature(): void
+       {
+           // Test code
+       }
+   }
+   ```
+
+2. Test Methods
+   ```php
+   public function testSomething(): void
+   {
+       // Arrange
+       $data = ['key' => 'value'];
+
+       // Act
+       $result = $this->subject->process($data);
+
+       // Assert
+       $this->assertEquals('expected', $result);
+   }
+   ```
+
+## Error Handling
+
+1. Exception Usage
+   ```php
+   try {
+       // Risky operation
+   } catch (\Exception $e) {
+       $this->logger->error($e->getMessage());
+       throw $e;
+   }
+   ```
+
+2. Validation
+   ```php
+   if (!$this->isValid($data)) {
+       throw new \InvalidArgumentException('Invalid data');
+   }
+   ```
+
+## Framework Integration
+
+1. Model Layer ([src/MCP/Models/BaseModel.php](mdc:src/MCP/Models/BaseModel.php))
+   ```php
+   class UserModel extends BaseModel
+   {
+       protected $table = 'users';
+   }
+   ```
+
+2. Controller Layer ([src/MCP/Controllers/BaseController.php](mdc:src/MCP/Controllers/BaseController.php))
+   ```php
+   class UserController extends BaseController
+   {
+       public function index(): array
+       {
+           return $this->model->all();
+       }
+   }
+   ```
+
+3. Presenter Layer ([src/MCP/Presenters/BasePresenter.php](mdc:src/MCP/Presenters/BasePresenter.php))
+   ```php
+   class UserPresenter extends BasePresenter
+   {
+       public function format(array $data): array
+       {
+           return $this->formatResponse($data);
+       }
+   }
+   ```

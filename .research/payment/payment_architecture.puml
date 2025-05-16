@@ -1,0 +1,104 @@
+@startuml Payment System Architecture
+
+' Components
+package "Payment System" {
+    [Payment Controller] as PaymentController
+    [Payment Model] as PaymentModel
+    [Gateway Factory] as GatewayFactory
+    [Transaction Manager] as TransactionManager
+    [Payment Validator] as PaymentValidator
+}
+
+package "Gateway Integrations" {
+    [PayPal Gateway] as PayPalGateway
+    [Stripe Gateway] as StripeGateway
+    [Razorpay Gateway] as RazorpayGateway
+    [Other Gateways] as OtherGateways
+}
+
+package "Course System" {
+    [Course Controller] as CourseController
+    [Course Model] as CourseModel
+    [Enrollment Manager] as EnrollmentManager
+}
+
+package "User System" {
+    [User Controller] as UserController
+    [User Model] as UserModel
+    [Instructor Manager] as InstructorManager
+}
+
+database "Database" {
+    [Transactions] as TransactionsTable
+    [Payments] as PaymentsTable
+    [Gateway Config] as GatewayConfigTable
+    [Payouts] as PayoutsTable
+}
+
+cloud "External Payment Services" {
+    [PayPal API] as PayPalAPI
+    [Stripe API] as StripeAPI
+    [Razorpay API] as RazorpayAPI
+    [Other APIs] as OtherAPIs
+}
+
+' Relationships
+PaymentController --> PaymentModel : uses
+PaymentController --> GatewayFactory : creates
+PaymentModel --> TransactionManager : manages
+PaymentModel --> PaymentValidator : validates
+
+GatewayFactory --> PayPalGateway : creates
+GatewayFactory --> StripeGateway : creates
+GatewayFactory --> RazorpayGateway : creates
+GatewayFactory --> OtherGateways : creates
+
+PayPalGateway --> PayPalAPI : integrates
+StripeGateway --> StripeAPI : integrates
+RazorpayGateway --> RazorpayAPI : integrates
+OtherGateways --> OtherAPIs : integrates
+
+PaymentModel --> TransactionsTable : reads/writes
+PaymentModel --> PaymentsTable : reads/writes
+PaymentModel --> GatewayConfigTable : reads
+PaymentModel --> PayoutsTable : reads/writes
+
+CourseController --> PaymentController : initiates payment
+UserController --> PaymentController : requests payout
+
+EnrollmentManager --> PaymentModel : verifies payment
+InstructorManager --> PaymentModel : processes payout
+
+' Interfaces
+interface "Payment Gateway Interface" as IGateway
+IGateway --> PayPalGateway : implements
+IGateway --> StripeGateway : implements
+IGateway --> RazorpayGateway : implements
+IGateway --> OtherGateways : implements
+
+' Notes
+note right of GatewayFactory
+  Creates appropriate gateway
+  instance based on configuration
+  and payment method
+end note
+
+note right of PaymentValidator
+  Validates payment details,
+  amounts, and gateway responses
+end note
+
+note right of TransactionManager
+  Handles transaction lifecycle,
+  rollbacks, and status updates
+end note
+
+' Stereotypes
+PaymentController << Controller >>
+PaymentModel << Model >>
+GatewayFactory << Factory >>
+TransactionManager << Service >>
+PaymentValidator << Service >>
+IGateway << Interface >>
+
+@enduml 

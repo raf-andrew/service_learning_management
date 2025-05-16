@@ -1,0 +1,86 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Test Reporting System Guide
+
+## Overview
+
+The test reporting system generates standardized reports for test execution and checklist completion. Reports are stored in `.codespaces/testing/.test/results/`.
+
+## Report Types
+
+1. Feature Test Reports
+   - Generated after each test suite execution
+   - Named: `feature-test-report-YYYYMMDD-HHMMSS.md`
+   - Contains detailed test results
+
+2. Test Tracking Data
+   - JSON format
+   - Stored in `.codespaces/testing/.test/tracking/`
+   - Named: `test-tracking-YYYYMMDD-HHMMSS.json`
+
+## Report Contents
+
+### Feature Test Reports
+
+```markdown
+# Feature Test Report
+Generated: [timestamp]
+
+## Summary
+- Total Tests
+- Completed Tests
+- Passed Tests
+- Failed Tests
+- Skipped Tests
+- Duration
+- Status
+
+## Checklist Status
+- Total Items
+- Completed Items
+- Pending Items
+- Failed Items
+
+## Test Suites
+[Detailed test suite results]
+```
+
+### Test Tracking Data
+
+```json
+{
+    "StartTime": "timestamp",
+    "EndTime": "timestamp",
+    "TotalTests": number,
+    "CompletedTests": number,
+    "PassedTests": number,
+    "FailedTests": number,
+    "SkippedTests": number,
+    "TestSuites": [...],
+    "Status": "string"
+}
+```
+
+## Report Generation
+
+Reports are automatically generated:
+1. After each test suite execution
+2. When tests complete
+3. When errors occur
+4. At the end of the test run
+
+## Report Integration
+
+Reports are integrated with:
+- Test execution tracking
+- Checklist system
+- Error logging
+- Test results storage
+
+## File References
+
+- [run-feature-tests.ps1](mdc:.codespaces/testing/.test/run-feature-tests.ps1)
+- [checklist-tracking.json](mdc:.codespaces/testing/.test/checklist-tracking.json)

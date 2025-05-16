@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: Service Learning Management API
+  version: 1.0.0
+  description: API documentation for the Service Learning Management system
+
+paths:
+  /events/user/profile-updated:
+    post:
+      summary: User Profile Updated Event
+      description: Event fired when a user updates their profile
+      tags:
+        - User Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfileUpdatedEvent'
+      responses:
+        '200':
+          description: Event processed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Event processed successfully
+
+components:
+  schemas:
+    UserProfileUpdatedEvent:
+      type: object
+      required:
+        - user
+        - updated_at
+        - changes
+      properties:
+        user:
+          type: object
+          required:
+            - id
+            - name
+            - email
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: User ID
+              example: 1
+            name:
+              type: string
+              description: User's full name
+              example: John Doe
+            email:
+              type: string
+              format: email
+              description: User's email address
+              example: john.doe@example.com
+        updated_at:
+          type: string
+          format: date-time
+          description: When the profile was updated
+          example: "2024-03-20T10:30:00Z"
+        changes:
+          type: object
+          description: Fields that were changed
+          additionalProperties:
+            type: object
+            properties:
+              old:
+                type: string
+                description: Previous value
+                example: "Old Name"
+              new:
+                type: string
+                description: New value
+                example: "New Name"
+          example:
+            name:
+              old: "Old Name"
+              new: "New Name"
+            email:
+              old: "old@example.com"
+              new: "new@example.com" 

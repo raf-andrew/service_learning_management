@@ -1,0 +1,62 @@
+{
+    "name": "Service Learning Management",
+    "dockerFile": "../Dockerfile",
+    "forwardPorts": [8000],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "php.validate.enable": true,
+        "php.suggest.basic": true
+    },
+    "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "onecentlin.laravel-blade",
+        "shufo.vscode-blade-formatter",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "ryannaddy.laravel-artisan",
+        "mikestead.dotenv",
+        "esbenp.prettier-vscode"
+    ],
+    "postCreateCommand": "composer install && npm install && php artisan key:generate",
+    "remoteUser": "dev",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "username": "dev",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": true
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[php]": {
+                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                },
+                "[blade]": {
+                    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+                }
+            }
+        }
+    },
+    "services": {
+        "mysql": {
+            "image": "mysql:8.0",
+            "environment": {
+                "MYSQL_ROOT_PASSWORD": "root",
+                "MYSQL_DATABASE": "service_learning",
+                "MYSQL_USER": "dev",
+                "MYSQL_PASSWORD": "dev"
+            },
+            "ports": ["3306:3306"]
+        },
+        "redis": {
+            "image": "redis:alpine",
+            "ports": ["6379:6379"]
+        }
+    }
+} 

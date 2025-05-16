@@ -1,0 +1,93 @@
+@startuml API Structure
+
+' Components
+package "API Layer" {
+    [API Controller] as ApiController
+    [User Controller] as UserController
+    [TokenHandler] as TokenHandler
+    [JWT Library] as JWTLib
+}
+
+package "Data Layer" {
+    [API Model] as ApiModel
+    [User Model] as UserModel
+    [Course Model] as CourseModel
+    [Payment Model] as PaymentModel
+}
+
+package "Authentication" {
+    [Auth Middleware] as AuthMiddleware
+    [Role Middleware] as RoleMiddleware
+}
+
+package "External Services" {
+    [Payment Gateway] as PaymentGateway
+    [Storage Service] as StorageService
+    [Social Auth] as SocialAuth
+}
+
+database "Database" {
+    [Users] as UsersTable
+    [Courses] as CoursesTable
+    [Sections] as SectionsTable
+    [Lessons] as LessonsTable
+    [Enrollments] as EnrollmentsTable
+    [Payments] as PaymentsTable
+}
+
+' Relationships
+ApiController --> TokenHandler : uses
+TokenHandler --> JWTLib : uses
+ApiController --> AuthMiddleware : validates through
+AuthMiddleware --> TokenHandler : verifies token
+ApiController --> ApiModel : queries data
+ApiModel --> UsersTable : reads/writes
+ApiModel --> CoursesTable : reads/writes
+ApiModel --> SectionsTable : reads/writes
+ApiModel --> LessonsTable : reads/writes
+ApiModel --> EnrollmentsTable : reads/writes
+ApiModel --> PaymentsTable : reads/writes
+UserController --> UserModel : manages users
+UserModel --> UsersTable : reads/writes
+ApiController --> PaymentGateway : processes payments
+ApiController --> StorageService : manages media
+ApiController --> SocialAuth : handles OAuth
+
+' Interfaces
+interface "REST API" as RestAPI
+RestAPI --> ApiController : routes requests
+RestAPI --> UserController : routes requests
+
+' Notes
+note right of TokenHandler
+  Handles JWT operations:
+  - Token generation
+  - Token validation
+  - Token refresh
+end note
+
+note right of AuthMiddleware
+  Validates requests:
+  - Token presence
+  - Token validity
+  - User permissions
+end note
+
+note right of ApiModel
+  Core data operations:
+  - Course management
+  - User progress
+  - Content delivery
+  - Analytics
+end note
+
+' Stereotypes
+ApiController << Controller >>
+UserController << Controller >>
+ApiModel << Model >>
+UserModel << Model >>
+TokenHandler << Service >>
+AuthMiddleware << Middleware >>
+RoleMiddleware << Middleware >>
+
+@enduml 

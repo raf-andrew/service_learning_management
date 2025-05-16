@@ -1,0 +1,184 @@
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.253",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Starting Codespaces configuration tests..."
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.328",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Codespaces report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\codespaces-report-20250514-231256.md"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.341",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Codespaces data saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\tracking\\codespaces-20250514-231256.json"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.352",
+  "TestSuite": "",
+  "Level": "WARNING",
+  "Message": "Codespaces configuration tests completed with failures"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.457",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Starting feature test execution"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:56.471",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Authentication"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:12:59.127",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: API"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:01.667",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: File Upload"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:03.976",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Mail"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:05.957",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Queue"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:07.919",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Rate Limit"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:11.344",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Concurrent Requests"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:14.790",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Smoke Test"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:18.384",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Running test suite: Test Reporter"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.329",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Test tracking data saved: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\tracking\\test-tracking-20250514-231321.json"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.366",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "HTML report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\reports\\test-report-20250514-231321.html"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.499",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "JSON report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\reports\\test-report-20250514-231321.json"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.548",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Test history updated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\history\\test-history.json"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.561",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Markdown report generated: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\feature-test-report-20250514-231321.md"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.571",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Feature test execution completed"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.583",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "HTML Report: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\reports\\test-report-20250514-231321.html"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.594",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "JSON Report: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\reports\\test-report-20250514-231321.json"
+}
+{
+  "Context": null,
+  "TestName": "",
+  "Timestamp": "2025-05-14 23:13:21.606",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Markdown Report: C:\\laragon\\www\\service_learning_management\\.codespaces\\testing\\scripts\\..\\.test\\results\\feature-test-report-20250514-231321.md"
+}

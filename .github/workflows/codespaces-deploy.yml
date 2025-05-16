@@ -1,0 +1,41 @@
+name: Deploy to Codespaces
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-cli@v1
+
+      - name: Authenticate with GitHub
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Create or update Codespace
+        run: |
+          # Check if Codespace exists
+          CODESPACE=$(gh codespace list --json name,state | jq -r '.[0].name')
+          
+          if [ -z "$CODESPACE" ]; then
+            # Create new Codespace
+            gh codespace create --repo ${{ github.repository }} --branch main
+          else
+            # Rebuild existing Codespace
+            gh codespace rebuild $CODESPACE
+          fi
+
+      - name: Run tests
+        run: |
+          gh codespace ssh $CODESPACE --command "composer test"
+
+      - name: Deploy application
+        run: |
+          gh codespace ssh $CODESPACE --command "php artisan deploy" 

@@ -1,0 +1,62 @@
+{
+    "name": "Service Health Testing",
+    "version": "1.0.0",
+    "description": "Verification of service health monitoring and reporting",
+    "items": [
+        {
+            "id": "sh-001",
+            "name": "Database Health Check",
+            "description": "Verify database connection and health",
+            "status": "pending",
+            "verification_method": "Run database health check test",
+            "expected_result": "Database connection successful",
+            "completion_criteria": "Database health check passes"
+        },
+        {
+            "id": "sh-002",
+            "name": "Redis Health Check",
+            "description": "Verify Redis connection and health",
+            "status": "pending",
+            "verification_method": "Run Redis health check test",
+            "expected_result": "Redis connection successful",
+            "completion_criteria": "Redis health check passes"
+        },
+        {
+            "id": "sh-003",
+            "name": "Mail Service Health Check",
+            "description": "Verify mail service functionality",
+            "status": "pending",
+            "verification_method": "Run mail service test",
+            "expected_result": "Mail service operational",
+            "completion_criteria": "Mail service test passes"
+        },
+        {
+            "id": "sh-004",
+            "name": "Queue Service Health Check",
+            "description": "Verify queue service functionality",
+            "status": "pending",
+            "verification_method": "Run queue service test",
+            "expected_result": "Queue service operational",
+            "completion_criteria": "Queue service test passes"
+        },
+        {
+            "id": "sh-005",
+            "name": "Storage Health Check",
+            "description": "Verify storage access and permissions",
+            "status": "pending",
+            "verification_method": "Run storage access test",
+            "expected_result": "Storage access successful",
+            "completion_criteria": "Storage test passes"
+        },
+        {
+            "id": "sh-006",
+            "name": "Health Report Generation",
+            "description": "Verify health report generation",
+            "status": "pending",
+            "verification_method": "Generate health report",
+            "expected_result": "Health report generated successfully",
+            "completion_criteria": "Report contains all service statuses"
+        }
+    ],
+    "last_updated": "2024-03-19T00:00:00Z"
+} 

@@ -1,0 +1,47 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Controllers Simulation Guide
+
+## Core Components
+- Base Controller: [BaseController.php](mdc:.simulation/12_laravel_controllers/app/Http/Controllers/BaseController.php)
+- Product Controller: [ProductController.php](mdc:.simulation/12_laravel_controllers/app/Http/Controllers/ProductController.php)
+- Controller Tests: [ProductControllerTest.php](mdc:.simulation/12_laravel_controllers/tests/ProductControllerTest.php)
+
+## Controller Types
+1. Base Controller
+   - Common functionality
+   - Response formatting
+   - Error handling
+   - Authorization
+
+2. Product Controller
+   - CRUD operations
+   - Resource management
+   - Validation
+   - Response handling
+
+## Test Structure
+- Controller Tests: [ProductControllerTest.php](mdc:.simulation/12_laravel_controllers/tests/ProductControllerTest.php)
+- Integration Tests: [ControllerIntegrationTest.php](mdc:.simulation/12_laravel_controllers/tests/ControllerIntegrationTest.php)
+
+## Key Features
+1. Controller Implementation
+   - Resource controllers
+   - API controllers
+   - Form request validation
+   - Response formatting
+
+2. Controller Testing
+   - Unit tests
+   - Feature tests
+   - Integration tests
+   - Performance tests
+
+3. Controller Documentation
+   - API documentation
+   - Usage examples
+   - Best practices
+   - Error handling

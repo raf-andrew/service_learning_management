@@ -1,0 +1,169 @@
+name: Deploy MCP
+
+on:
+  push:
+    branches: [ main, staging ]
+  pull_request:
+    branches: [ main, staging ]
+
+env:
+  COMPOSER_NO_INTERACTION: 1
+  COMPOSER_ALLOW_SUPERUSER: 1
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mcp_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      
+      redis:
+        image: redis:6.2
+        ports:
+          - 6379:6379
+        options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, dom, fileinfo, mysql, redis
+        coverage: xdebug
+    
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+    
+    - name: Cache Composer dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+    
+    - name: Copy environment file
+      run: cp .env.example .env
+    
+    - name: Generate application key
+      run: php artisan key:generate
+    
+    - name: Run tests
+      run: |
+        php artisan test --coverage-clover=coverage.xml
+        php artisan test:coverage
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true
+    
+    - name: Check test coverage
+      run: |
+        COVERAGE=$(php artisan test:coverage --format=text)
+        if (( $(echo "$COVERAGE < 100" | bc -l) )); then
+          echo "Test coverage is below 100%"
+          exit 1
+        fi
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        tools: composer:v2
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+    
+    - name: Run security scan
+      run: |
+        composer require --dev roave/security-advisories:dev-latest
+        composer audit
+        vendor/bin/phpcs --standard=PSR12 src tests
+        vendor/bin/phpstan analyse src tests --level=max
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    if: github.ref == 'refs/heads/staging'
+    environment: staging
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        tools: composer:v2
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev
+    
+    - name: Deploy to staging
+      run: |
+        # Add your staging deployment commands here
+        echo "Deploying to staging environment..."
+    
+    - name: Run post-deployment tests
+      run: |
+        # Add your post-deployment test commands here
+        echo "Running post-deployment tests..."
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        tools: composer:v2
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev
+    
+    - name: Deploy to production
+      run: |
+        # Add your production deployment commands here
+        echo "Deploying to production environment..."
+    
+    - name: Run post-deployment tests
+      run: |
+        # Add your post-deployment test commands here
+        echo "Running post-deployment tests..."
+    
+    - name: Notify deployment status
+      if: always()
+      run: |
+        # Add your notification commands here
+        echo "Sending deployment status notifications..." 

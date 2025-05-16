@@ -1,0 +1,76 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Environment Troubleshooting Guide
+
+## PHP Version Issues
+1. Module API Version Mismatch
+   - Problem: PHP modules compiled with API version 20230831, but PHP using 20220829
+   - Solution:
+     - Install correct PHP version (8.3.x)
+     - Update system PATH to use new PHP version
+     - Verify with `php -v`
+
+2. Missing Extensions
+   - Problem: Required extensions not loading
+   - Solution:
+     - Check extension paths in php.ini
+     - Verify DLL files exist in ext directory
+     - Enable extensions in php.ini
+
+## Service Connection Issues
+1. MySQL Connection
+   - Problem: Failed to connect to MySQL
+   - Solution:
+     - Verify MySQL service is running
+     - Check connection credentials
+     - Test connection manually
+
+2. Redis Connection
+   - Problem: Failed to connect to Redis
+   - Solution:
+     - Verify Redis service is running
+     - Check Redis configuration
+     - Test connection manually
+
+## Environment Setup
+1. PHP Configuration
+   - Location: C:/php/php.ini
+   - Required settings:
+     - extension_dir
+     - session.save_path
+     - date.timezone
+
+2. Laragon Configuration
+   - PHP version: 8.3.16
+   - Extensions path: C:/laragon/bin/php/php-8.3.16-Win32-vs16-x64/ext
+   - Services: MySQL, Redis
+
+## Testing Environment
+1. Test Database
+   - Create separate test database
+   - Configure in phpunit.xml
+   - Run migrations
+
+2. Test Services
+   - Configure test Redis instance
+   - Set up test environment variables
+   - Verify service connections
+
+## Common Solutions
+1. PHP Issues
+   - Reinstall PHP with correct version
+   - Update system PATH
+   - Verify extension loading
+
+2. Service Issues
+   - Restart services
+   - Check service logs
+   - Verify configurations
+
+3. Test Environment
+   - Reset test database
+   - Clear Redis cache
+   - Update environment variables

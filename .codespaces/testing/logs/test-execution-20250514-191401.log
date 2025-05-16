@@ -1,0 +1,24 @@
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Starting test execution...",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:14:01.698"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "INFO",
+  "Message": "Installing required tools...",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:14:01.702"
+}
+{
+  "TestName": "",
+  "TestSuite": "",
+  "Level": "ERROR",
+  "Message": "Error during test execution: The term 'Write-Log' is not recognized as a name of a cmdlet, function, script file, or executable program.\r\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.",
+  "Context": null,
+  "Timestamp": "2025-05-14 19:14:01.786"
+}

@@ -1,0 +1,28 @@
+@startuml Core Architecture
+
+package "LMS Core" {
+    [Core] as core
+    [Config] as config
+    [Libraries] as libs
+    [Models] as models
+    [Controllers] as controllers
+    [Views] as views
+}
+
+package "External Dependencies" {
+    [Third Party] as third_party
+    [Language Files] as language
+}
+
+core --> config
+core --> libs
+core --> models
+core --> controllers
+core --> views
+
+controllers --> models
+views --> controllers
+libs --> third_party
+views --> language
+
+@enduml 

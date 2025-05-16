@@ -1,0 +1,243 @@
+{
+  "StartTime": "2025-05-14T23:07:12.3047182-07:00",
+  "Tests": [
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:12.4425521-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:12.5274221-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:12.6922423-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: pdo",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:12.7817567-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:12.858304-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: pdo_mysql",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:12.9387744-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.0167004-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: redis",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:13.1100397-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.1985392-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: mbstring",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:13.2983406-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.3817221-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: xml",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:13.4758937-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.5551375-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: curl",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:13.6555322-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.7664803-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: fileinfo",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:13.8902321-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:13.9762819-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: gd",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:14.0868723-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:14.1726635-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: intl",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:14.271464-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:14.3514749-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: mysqli",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:14.473434-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:14.5653671-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "PHP Extension: zip",
+      "Category": "PHP",
+      "Time": "2025-05-14T23:07:14.6568878-07:00",
+      "Details": "Extension not found"
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:14.7422035-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "MySQL Connection",
+      "Category": "Services",
+      "Time": "2025-05-14T23:07:14.8310779-07:00",
+      "Details": ""
+    },
+    {
+      "Status": "Passed",
+      "Name": "Docker Availability",
+      "Category": "Docker",
+      "Time": "2025-05-14T23:07:14.9018639-07:00",
+      "Details": "Docker version 28.0.4, build b8034c0"
+    },
+    {
+      "Status": "Failed",
+      "Name": "Redis Connection",
+      "Category": "Services",
+      "Time": "2025-05-14T23:07:14.9812609-07:00",
+      "Details": ""
+    }
+  ],
+  "EndTime": "2025-05-14T23:07:15.011597-07:00",
+  "Environment": {
+    "Services": {
+      "MySQL": false,
+      "Redis": false
+    },
+    "PowerShell": {
+      "Major": 7,
+      "Minor": 5,
+      "Patch": 1,
+      "PreReleaseLabel": null,
+      "BuildLabel": null
+    },
+    "Docker": "Docker version 28.0.4, build b8034c0",
+    "Extensions": {
+      "redis": false,
+      "pdo": false,
+      "curl": false,
+      "intl": false,
+      "pdo_mysql": false,
+      "mysqli": false,
+      "xml": false,
+      "mbstring": false,
+      "fileinfo": false,
+      "gd": false,
+      "zip": false
+    },
+    "PHP": null,
+    "OS": {
+      "Platform": 2,
+      "ServicePack": "",
+      "Version": {
+        "Major": 10,
+        "Minor": 0,
+        "Build": 26100,
+        "Revision": 0,
+        "MajorRevision": 0,
+        "MinorRevision": 0
+      },
+      "VersionString": "Microsoft Windows NT 10.0.26100.0"
+    }
+  }
+}

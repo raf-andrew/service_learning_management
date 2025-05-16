@@ -1,0 +1,87 @@
+@startuml Assessment System
+
+' Enums
+enum QuestionType {
+    MULTIPLE_CHOICE
+    SHORT_ANSWER
+    ESSAY
+    TRUE_FALSE
+}
+
+enum QuizStatus {
+    DRAFT
+    PUBLISHED
+    ARCHIVED
+}
+
+enum ResultStatus {
+    IN_PROGRESS
+    COMPLETED
+    GRADED
+}
+
+' Classes
+class Quiz {
+    +id: int
+    +title: string
+    +description: text
+    +course_id: int
+    +section_id: int
+    +lesson_type: string
+    +duration: int
+    +total_marks: int
+    +minimum_marks: int
+    +status: QuizStatus
+    +date_added: timestamp
+    +last_modified: timestamp
+}
+
+class Question {
+    +id: int
+    +quiz_id: int
+    +title: text
+    +type: QuestionType
+    +number_of_options: int
+    +options: json
+    +correct_answers: json
+    +marks: int
+    +order_index: int
+    +date_added: timestamp
+    +last_modified: timestamp
+}
+
+class QuizResult {
+    +id: int
+    +quiz_id: int
+    +user_id: int
+    +course_id: int
+    +obtained_marks: int
+    +total_marks: int
+    +quiz_result: json
+    +status: ResultStatus
+    +date_added: timestamp
+    +last_modified: timestamp
+}
+
+' Relationships
+Quiz "1" -- "1..*" Question : contains
+Quiz "1" -- "0..*" QuizResult : generates
+Question "1" -- "0..*" QuizResult : evaluated in
+
+' Notes
+note right of Quiz
+    Represents a complete assessment
+    with its metadata and structure
+end note
+
+note right of Question
+    Individual assessment items
+    with various types and scoring
+end note
+
+note right of QuizResult
+    Tracks student performance
+    and assessment outcomes
+end note
+
+@enduml 

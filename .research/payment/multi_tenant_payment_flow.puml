@@ -1,0 +1,106 @@
+@startuml Multi-tenant Payment Flow
+
+' Actors
+actor "Student" as student
+actor "Instructor" as instructor
+actor "Admin" as admin
+
+' External Systems
+cloud "Payment Gateways" {
+    [Gateway 1] as gateway1
+    [Gateway 2] as gateway2
+    [Gateway n] as gatewayN
+}
+
+' Components
+package "Tenant Layer" {
+    [Tenant Middleware] as tenantMiddleware
+    [Tenant Config] as tenantConfig
+    database "Tenant DB" as tenantDB
+}
+
+package "Payment Processing" {
+    [Payment Controller] as paymentController
+    [Gateway Factory] as gatewayFactory
+    [Payment Processor] as paymentProcessor
+    [Commission Calculator] as commissionCalc
+}
+
+package "Transaction Management" {
+    [Transaction Manager] as transactionManager
+    [Payment Validator] as paymentValidator
+    [Webhook Handler] as webhookHandler
+}
+
+database "Shared Database" {
+    [Transactions] as transactionsTable
+    [Gateway Configs] as gatewayConfigTable
+    [Tenant Settings] as tenantSettingsTable
+}
+
+' Sequence
+student -> tenantMiddleware : Initiates payment
+tenantMiddleware -> tenantConfig : Get tenant config
+tenantConfig -> tenantDB : Load settings
+
+tenantMiddleware -> paymentController : Process payment
+paymentController -> gatewayFactory : Create gateway
+gatewayFactory -> paymentProcessor : Initialize payment
+
+paymentProcessor -> commissionCalc : Calculate fees
+commissionCalc -> transactionManager : Create transaction
+
+alt Payment Success
+    gateway1 -> webhookHandler : Payment success
+    webhookHandler -> paymentValidator : Validate payment
+    paymentValidator -> transactionManager : Update transaction
+    transactionManager -> transactionsTable : Save transaction
+else Payment Failure
+    gateway1 -> webhookHandler : Payment failed
+    webhookHandler -> transactionManager : Mark failed
+    transactionManager -> transactionsTable : Update status
+end
+
+' Instructor Payout Flow
+instructor -> tenantMiddleware : Request payout
+tenantMiddleware -> paymentController : Process payout
+paymentController -> commissionCalc : Calculate earnings
+commissionCalc -> transactionManager : Create payout
+transactionManager -> gateway1 : Transfer funds
+
+' Admin Management
+admin -> tenantConfig : Configure gateway
+tenantConfig -> gatewayConfigTable : Save settings
+
+' Notes
+note right of tenantMiddleware
+  Identifies tenant and loads
+  appropriate configuration
+end note
+
+note right of gatewayFactory
+  Creates gateway instance
+  based on tenant settings
+end note
+
+note right of commissionCalc
+  Calculates platform fees
+  and instructor earnings
+  based on tenant rules
+end note
+
+note right of webhookHandler
+  Handles gateway callbacks
+  for each tenant separately
+end note
+
+' Stereotypes
+tenantMiddleware << Middleware >>
+paymentController << Controller >>
+gatewayFactory << Factory >>
+paymentProcessor << Service >>
+commissionCalc << Service >>
+transactionManager << Service >>
+webhookHandler << Service >>
+
+@enduml 
