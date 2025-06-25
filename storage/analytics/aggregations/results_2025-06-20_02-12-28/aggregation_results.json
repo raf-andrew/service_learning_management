@@ -1,0 +1,17 @@
+{
+    "timestamp": "2025-06-20_02-12-28",
+    "period": {
+        "start": "2025-06-13",
+        "end": "2025-06-20",
+        "interval": "1d"
+    },
+    "results": {
+        "contract": {
+            "success": false,
+            "message": "Aggregation failed",
+            "details": [
+                ""
+            ]
+        }
+    }
+}

@@ -5,6 +5,7 @@ namespace Tests\Helpers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class TestHelper
 {
@@ -221,5 +222,82 @@ class TestHelper
             \App\Models\User::factory()->create(),
             new $notification($data)
         );
+    }
+
+    /**
+     * Generate a random string
+     */
+    public static function randomString(int $length = 10): string
+    {
+        return Str::random($length);
+    }
+
+    /**
+     * Generate a random email
+     */
+    public static function randomEmail(): string
+    {
+        return Str::random(10) . '@example.com';
+    }
+
+    /**
+     * Generate a random password
+     */
+    public static function randomPassword(): string
+    {
+        return Hash::make(Str::random(10));
+    }
+
+    /**
+     * Create a test file in storage
+     */
+    public static function createTestFile(string $path, string $content = ''): string
+    {
+        Storage::put($path, $content ?: Str::random(100));
+        return $path;
+    }
+
+    /**
+     * Generate test data for a model
+     */
+    public static function generateTestData(array $attributes = []): array
+    {
+        return array_merge([
+            'name' => self::randomString(),
+            'email' => self::randomEmail(),
+            'password' => self::randomPassword(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], $attributes);
+    }
+
+    /**
+     * Assert that an array has all required keys
+     */
+    public static function assertArrayHasKeys(array $array, array $keys): bool
+    {
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $array)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Create a test database record
+     */
+    public static function createTestRecord(string $table, array $data): int
+    {
+        return \DB::table($table)->insertGetId($data);
+    }
+
+    /**
+     * Clean up test data
+     */
+    public static function cleanupTestData(): void
+    {
+        Storage::deleteDirectory('test');
+        \DB::table('test_records')->truncate();
     }
 } 

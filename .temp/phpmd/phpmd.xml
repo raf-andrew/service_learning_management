@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="@package_version@" tool="phpmd" timestamp="2025-05-09T03:47:43+00:00">
-  <file name="/var/www/html/src/MCP/Core/DeploymentAutomationAgent.php">
-    <violation beginline="47" endline="47" rule="ShortVariable" ruleset="Naming Rules" externalInfoUrl="https://phpmd.org/rules/naming.html#shortvariable" priority="3">
-      Avoid variables with short names like $h. Configured minimum length is 3.
-    </violation>
-  </file>
-</pmd>

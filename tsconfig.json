@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "~/*": ["./resources/*"],
+            "@wireframe/*": ["./.wireframe/resources/js/*"],
+            "@services/*": ["./app/Services/*"],
+            "@models/*": ["./src/models/*", "./app/Models/*"],
+            "@tests/*": ["./tests/*"]
+        },
+        "types": ["vitest/globals", "node"]
+    },
+    "include": [
+        "tests/**/*.ts",
+        "app/**/*.ts",
+        "src/**/*.ts"
+    ]
+} 

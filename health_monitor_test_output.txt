@@ -1,0 +1,22 @@
+PHPUnit 9.6.23 by Sebastian Bergmann and contributors.
+
+Warning:       No code coverage driver available
+
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health' started
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health' ended
+  
+
+Time: 00:00.481, Memory: 28.00 MB
+
+There was 1 failure:
+
+1) Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health
+Output "+----------+--------------+---------------------+-------------------------+" was not printed.
+
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:347
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:317
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:481
+C:\laragon\www\service_learning_management\tests\Feature\Commands\HealthMonitorCommandTest.php:77
+
+FAILURES!
+Tests: 1, Assertions: 2, Failures: 1.

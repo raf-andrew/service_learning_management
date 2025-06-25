@@ -1,0 +1,38 @@
+{
+    "timestamp": "2025-06-20_02-14-08",
+    "period": {
+        "start": "2025-06-13",
+        "end": "2025-06-20",
+        "interval": "1d"
+    },
+    "results": {
+        "contract": {
+            "success": false,
+            "message": "Aggregation failed",
+            "details": [
+                ""
+            ]
+        },
+        "transaction": {
+            "success": false,
+            "message": "Aggregation failed",
+            "details": [
+                ""
+            ]
+        },
+        "event": {
+            "success": false,
+            "message": "Aggregation failed",
+            "details": [
+                ""
+            ]
+        },
+        "metric": {
+            "success": false,
+            "message": "Aggregation failed",
+            "details": [
+                ""
+            ]
+        }
+    }
+}

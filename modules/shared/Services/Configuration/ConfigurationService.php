@@ -1,0 +1,416 @@
+<?php
+
+namespace App\Modules\Shared\Services\Configuration;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Collection;
+use Modules\Shared\Exceptions\SharedException;
+
+class ConfigurationService
+{
+    /**
+     * Cache key prefix for module configurations
+     */
+    private const CACHE_PREFIX = 'module_config_';
+    
+    /**
+     * Cache TTL in seconds
+     */
+    private const CACHE_TTL = 3600;
+
+    /**
+     * Get unified configuration for all modules
+     */
+    public function getUnifiedConfiguration(): array
+    {
+        $cacheKey = self::CACHE_PREFIX . 'unified';
+        
+        return Cache::remember($cacheKey, self::CACHE_TTL, function () {
+            return $this->buildUnifiedConfiguration();
+        });
+    }
+
+    /**
+     * Get configuration for a specific module
+     */
+    public function getModuleConfiguration(string $moduleName): array
+    {
+        $cacheKey = self::CACHE_PREFIX . $moduleName;
+        
+        return Cache::remember($cacheKey, self::CACHE_TTL, function () use ($moduleName) {
+            return $this->buildModuleConfiguration($moduleName);
+        });
+    }
+
+    /**
+     * Get inherited configuration for a module
+     */
+    public function getInheritedConfiguration(string $moduleName): array
+    {
+        $baseConfig = $this->getModuleConfiguration($moduleName);
+        $inheritedConfig = $this->getInheritedSettings($moduleName);
+        
+        return array_merge($baseConfig, $inheritedConfig);
+    }
+
+    /**
+     * Clear configuration cache
+     */
+    public function clearCache(string $moduleName = null): void
+    {
+        if ($moduleName) {
+            Cache::forget(self::CACHE_PREFIX . $moduleName);
+        } else {
+            Cache::forget(self::CACHE_PREFIX . 'unified');
+        }
+        
+        Log::info("Configuration cache cleared", ['module' => $moduleName]);
+    }
+
+    /**
+     * Build unified configuration for all modules
+     */
+    protected function buildUnifiedConfiguration(): array
+    {
+        $modules = config('modules.modules', []);
+        $unifiedConfig = [];
+
+        foreach ($modules as $moduleName => $moduleConfig) {
+            $unifiedConfig[$moduleName] = $this->buildModuleConfiguration($moduleName);
+        }
+
+        return $unifiedConfig;
+    }
+
+    /**
+     * Build configuration for a specific module
+     */
+    protected function buildModuleConfiguration(string $moduleName): array
+    {
+        $baseConfig = config("modules.modules.{$moduleName}", []);
+        $moduleConfig = $this->loadModuleConfigFile($moduleName);
+        $environmentConfig = $this->loadEnvironmentConfig($moduleName);
+        
+        // Merge configurations with priority: environment > module > base
+        $config = array_merge($baseConfig, $moduleConfig, $environmentConfig);
+        
+        // Add computed values
+        $config['module_name'] = $moduleName;
+        $config['config_path'] = $this->getModuleConfigPath($moduleName);
+        $config['is_configured'] = !empty($moduleConfig);
+        
+        return $config;
+    }
+
+    /**
+     * Load module-specific configuration file
+     */
+    protected function loadModuleConfigFile(string $moduleName): array
+    {
+        $configPath = $this->getModuleConfigPath($moduleName);
+        
+        if (File::exists($configPath)) {
+            try {
+                $config = require $configPath;
+                return is_array($config) ? $config : [];
+            } catch (\Exception $e) {
+                Log::error("Error loading module config for {$moduleName}: " . $e->getMessage());
+                return [];
+            }
+        }
+        
+        return [];
+    }
+
+    /**
+     * Load environment-specific configuration
+     */
+    protected function loadEnvironmentConfig(string $moduleName): array
+    {
+        $env = app()->environment();
+        $configPath = $this->getModuleConfigPath($moduleName, $env);
+        
+        if (File::exists($configPath)) {
+            try {
+                $config = require $configPath;
+                return is_array($config) ? $config : [];
+            } catch (\Exception $e) {
+                Log::error("Error loading environment config for {$moduleName}: " . $e->getMessage());
+                return [];
+            }
+        }
+        
+        return [];
+    }
+
+    /**
+     * Get inherited settings from parent configurations
+     */
+    protected function getInheritedSettings(string $moduleName): array
+    {
+        $dependencies = config("modules.dependencies.{$moduleName}", []);
+        $inherited = [];
+
+        foreach ($dependencies as $dependency) {
+            $dependencyConfig = $this->getModuleConfiguration($dependency);
+            $inherited = array_merge($inherited, $dependencyConfig);
+        }
+
+        return $inherited;
+    }
+
+    /**
+     * Get module configuration file path
+     */
+    protected function getModuleConfigPath(string $moduleName, string $environment = null): string
+    {
+        $basePath = base_path("modules/{$moduleName}/config");
+        
+        if ($environment) {
+            return $basePath . "/{$environment}.php";
+        }
+        
+        return $basePath . "/config.php";
+    }
+
+    /**
+     * Validate module configuration
+     */
+    public function validateModuleConfiguration(string $moduleName): array
+    {
+        $config = $this->getModuleConfiguration($moduleName);
+        $issues = [];
+
+        // Check required configuration keys
+        $requiredKeys = $this->getRequiredConfigKeys($moduleName);
+        foreach ($requiredKeys as $key) {
+            if (!isset($config[$key])) {
+                $issues[] = "Missing required configuration key: {$key}";
+            }
+        }
+
+        // Validate configuration values
+        $validationIssues = $this->validateConfigValues($moduleName, $config);
+        $issues = array_merge($issues, $validationIssues);
+
+        return $issues;
+    }
+
+    /**
+     * Get required configuration keys for a module
+     */
+    protected function getRequiredConfigKeys(string $moduleName): array
+    {
+        $requiredKeys = [
+            'enabled',
+        ];
+
+        // Add module-specific required keys
+        switch ($moduleName) {
+            case 'e2ee':
+                $requiredKeys[] = 'encryption_algorithm';
+                $requiredKeys[] = 'key_rotation_days';
+                break;
+            case 'soc2':
+                $requiredKeys[] = 'compliance_level';
+                break;
+            case 'auth':
+                $requiredKeys[] = 'rbac_enabled';
+                break;
+        }
+
+        return $requiredKeys;
+    }
+
+    /**
+     * Validate configuration values
+     */
+    protected function validateConfigValues(string $moduleName, array $config): array
+    {
+        $issues = [];
+
+        // Validate enabled flag
+        if (isset($config['enabled']) && !is_bool($config['enabled'])) {
+            $issues[] = "Configuration 'enabled' must be a boolean value";
+        }
+
+        // Module-specific validations
+        switch ($moduleName) {
+            case 'e2ee':
+                if (isset($config['key_rotation_days']) && !is_numeric($config['key_rotation_days'])) {
+                    $issues[] = "Configuration 'key_rotation_days' must be a numeric value";
+                }
+                break;
+            case 'soc2':
+                if (isset($config['compliance_level']) && !in_array($config['compliance_level'], ['type1', 'type2'])) {
+                    $issues[] = "Configuration 'compliance_level' must be 'type1' or 'type2'";
+                }
+                break;
+        }
+
+        return $issues;
+    }
+
+    /**
+     * Get all module configurations with validation status
+     */
+    public function getAllModuleConfigurations(): Collection
+    {
+        $modules = config('modules.modules', []);
+        $configurations = collect();
+
+        foreach (array_keys($modules) as $moduleName) {
+            $config = $this->getModuleConfiguration($moduleName);
+            $validationIssues = $this->validateModuleConfiguration($moduleName);
+            
+            $configurations->put($moduleName, [
+                'configuration' => $config,
+                'validation_issues' => $validationIssues,
+                'is_valid' => empty($validationIssues),
+                'last_updated' => $this->getConfigLastModified($moduleName),
+            ]);
+        }
+
+        return $configurations;
+    }
+
+    /**
+     * Get last modified time of module configuration
+     */
+    protected function getConfigLastModified(string $moduleName): ?string
+    {
+        $configPath = $this->getModuleConfigPath($moduleName);
+        
+        if (File::exists($configPath)) {
+            return date('Y-m-d H:i:s', File::lastModified($configPath));
+        }
+        
+        return null;
+    }
+
+    /**
+     * Export module configuration
+     */
+    public function exportModuleConfiguration(string $moduleName, string $format = 'json'): string
+    {
+        $config = $this->getModuleConfiguration($moduleName);
+        
+        switch ($format) {
+            case 'json':
+                return json_encode($config, JSON_PRETTY_PRINT);
+            case 'php':
+                return "<?php\n\nreturn " . var_export($config, true) . ";\n";
+            case 'yaml':
+                return yaml_emit($config);
+            default:
+                throw new \InvalidArgumentException("Unsupported export format: {$format}");
+        }
+    }
+
+    /**
+     * Import module configuration
+     */
+    public function importModuleConfiguration(string $moduleName, string $content, string $format = 'json'): bool
+    {
+        try {
+            switch ($format) {
+                case 'json':
+                    $config = json_decode($content, true);
+                    break;
+                case 'php':
+                    $config = eval('return ' . $content . ';');
+                    break;
+                case 'yaml':
+                    $config = yaml_parse($content);
+                    break;
+                default:
+                    throw new \InvalidArgumentException("Unsupported import format: {$format}");
+            }
+
+            if (!is_array($config)) {
+                throw new \InvalidArgumentException("Invalid configuration format");
+            }
+
+            // Validate the imported configuration
+            $validationIssues = $this->validateConfigValues($moduleName, $config);
+            if (!empty($validationIssues)) {
+                throw new \InvalidArgumentException("Configuration validation failed: " . implode(', ', $validationIssues));
+            }
+
+            // Save the configuration
+            $configPath = $this->getModuleConfigPath($moduleName);
+            $this->ensureConfigDirectoryExists($configPath);
+            
+            $phpContent = "<?php\n\nreturn " . var_export($config, true) . ";\n";
+            File::put($configPath, $phpContent);
+
+            // Clear cache
+            $this->clearCache($moduleName);
+
+            Log::info("Module configuration imported successfully", ['module' => $moduleName]);
+            return true;
+
+        } catch (\Exception $e) {
+            Log::error("Failed to import module configuration", [
+                'module' => $moduleName,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Ensure configuration directory exists
+     */
+    protected function ensureConfigDirectoryExists(string $configPath): void
+    {
+        $directory = dirname($configPath);
+        if (!File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Get configuration statistics
+     */
+    public function getConfigurationStatistics(): array
+    {
+        $configurations = $this->getAllModuleConfigurations();
+        
+        return [
+            'total_modules' => $configurations->count(),
+            'configured_modules' => $configurations->where('is_valid', true)->count(),
+            'modules_with_issues' => $configurations->where('is_valid', false)->count(),
+            'total_validation_issues' => $configurations->sum(function ($config) {
+                return count($config['validation_issues']);
+            }),
+            'cache_enabled' => config('modules.performance.caching.enabled', true),
+            'last_cache_clear' => Cache::get('last_config_cache_clear'),
+        ];
+    }
+
+    /**
+     * Merge shared config defaults from config/modules.php into a module's config array.
+     *
+     * @param string $moduleName
+     * @param array $moduleConfig
+     * @return array
+     */
+    public static function mergeSharedDefaults(string $moduleName, array $moduleConfig): array
+    {
+        $shared = config("modules.modules.$moduleName", []);
+        return array_replace_recursive($shared, $moduleConfig);
+    }
+
+    public function getConfigOrFail(string $key)
+    {
+        $value = config($key);
+        if ($value === null) {
+            throw new SharedException("Configuration key '{$key}' not found", 404);
+        }
+        return $value;
+    }
+} 

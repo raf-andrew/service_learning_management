@@ -1,0 +1,512 @@
+<?php
+
+namespace App\Modules\Shared;
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Collection;
+use ReflectionClass;
+use ReflectionException;
+
+class ModuleDiscoveryService
+{
+    /**
+     * Cache key for module discovery
+     */
+    private const CACHE_KEY = 'module_discovery_cache';
+    
+    /**
+     * Cache TTL in seconds
+     */
+    private const CACHE_TTL = 3600;
+
+    /**
+     * Discover and register all modules
+     */
+    public function discoverModules(): Collection
+    {
+        // Check cache first
+        if (config('modules.autoload.cache', true)) {
+            $cached = Cache::get(self::CACHE_KEY);
+            if ($cached) {
+                Log::info('Using cached module discovery results');
+                return collect($cached);
+            }
+        }
+
+        $modules = collect();
+        $scanPaths = config('modules.discovery.scan_paths', [base_path('modules')]);
+
+        foreach ($scanPaths as $scanPath) {
+            if (File::isDirectory($scanPath)) {
+                $discoveredModules = $this->scanDirectory($scanPath);
+                $modules = $modules->merge($discoveredModules);
+            } else {
+                Log::warning("Scan path does not exist: {$scanPath}");
+            }
+        }
+
+        $modules = $modules->unique('name');
+
+        // Cache the results
+        if (config('modules.autoload.cache', true)) {
+            Cache::put(self::CACHE_KEY, $modules->toArray(), self::CACHE_TTL);
+        }
+
+        return $modules;
+    }
+
+    /**
+     * Clear module discovery cache
+     */
+    public function clearCache(): void
+    {
+        Cache::forget(self::CACHE_KEY);
+        Log::info('Module discovery cache cleared');
+    }
+
+    /**
+     * Scan a directory for modules
+     */
+    protected function scanDirectory(string $path): Collection
+    {
+        $modules = collect();
+        $excludePatterns = config('modules.discovery.exclude_patterns', []);
+
+        try {
+            $directories = File::directories($path);
+
+            foreach ($directories as $directory) {
+                $moduleName = basename($directory);
+                
+                // Skip excluded patterns
+                if ($this->shouldExclude($moduleName, $excludePatterns)) {
+                    Log::debug("Excluded module: {$moduleName}");
+                    continue;
+                }
+
+                $module = $this->analyzeModule($directory, $moduleName);
+                if ($module) {
+                    $modules->push($module);
+                    Log::info("Discovered module: {$moduleName}");
+                } else {
+                    Log::warning("Failed to analyze module: {$moduleName}");
+                }
+            }
+        } catch (\Exception $e) {
+            Log::error("Error scanning directory {$path}: " . $e->getMessage());
+        }
+
+        return $modules;
+    }
+
+    /**
+     * Check if a module should be excluded
+     */
+    protected function shouldExclude(string $name, array $patterns): bool
+    {
+        foreach ($patterns as $pattern) {
+            if (fnmatch($pattern, $name)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Analyze a module directory
+     */
+    protected function analyzeModule(string $path, string $name): ?array
+    {
+        try {
+            $moduleInfo = [
+                'name' => $name,
+                'path' => $path,
+                'enabled' => $this->isModuleEnabled($name),
+                'service_provider' => null,
+                'config_files' => [],
+                'migrations' => [],
+                'routes' => [],
+                'dependencies' => [],
+                'version' => null,
+                'description' => null,
+                'health_status' => 'unknown',
+                'issues' => [],
+            ];
+
+            // Look for service provider
+            $serviceProvider = $this->findServiceProvider($path, $name);
+            if ($serviceProvider) {
+                $moduleInfo['service_provider'] = $serviceProvider;
+            }
+
+            // Find configuration files
+            $moduleInfo['config_files'] = $this->findConfigFiles($path);
+
+            // Find migrations
+            $moduleInfo['migrations'] = $this->findMigrations($path);
+
+            // Find routes
+            $moduleInfo['routes'] = $this->findRoutes($path);
+
+            // Read module metadata
+            $metadata = $this->readModuleMetadata($path);
+            $moduleInfo = array_merge($moduleInfo, $metadata);
+
+            // Validate module health
+            $moduleInfo['health_status'] = $this->assessModuleHealth($moduleInfo);
+            $moduleInfo['issues'] = $this->validateModuleStructure($moduleInfo);
+
+            return $moduleInfo;
+        } catch (\Exception $e) {
+            Log::error("Error analyzing module {$name}: " . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Find service provider for a module
+     */
+    protected function findServiceProvider(string $path, string $name): ?string
+    {
+        $possibleNames = [
+            "{$name}ServiceProvider.php",
+            ucfirst($name) . "ServiceProvider.php",
+            "ServiceProvider.php",
+        ];
+
+        foreach ($possibleNames as $fileName) {
+            $filePath = $path . DIRECTORY_SEPARATOR . $fileName;
+            if (File::exists($filePath)) {
+                $className = $this->getClassNameFromFile($filePath);
+                if ($className) {
+                    return $className;
+                }
+            }
+        }
+
+        // Look in providers subdirectory
+        $providersPath = $path . DIRECTORY_SEPARATOR . 'Providers';
+        if (File::isDirectory($providersPath)) {
+            foreach ($possibleNames as $fileName) {
+                $filePath = $providersPath . DIRECTORY_SEPARATOR . $fileName;
+                if (File::exists($filePath)) {
+                    $className = $this->getClassNameFromFile($filePath);
+                    if ($className) {
+                        return $className;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Find configuration files in a module
+     */
+    protected function findConfigFiles(string $path): array
+    {
+        $configFiles = [];
+        $configPath = $path . DIRECTORY_SEPARATOR . 'config';
+
+        if (File::isDirectory($configPath)) {
+            try {
+                $files = File::files($configPath);
+                foreach ($files as $file) {
+                    if ($file->getExtension() === 'php') {
+                        $configFiles[] = $file->getFilenameWithoutExtension();
+                    }
+                }
+            } catch (\Exception $e) {
+                Log::error("Error reading config files from {$configPath}: " . $e->getMessage());
+            }
+        }
+
+        return $configFiles;
+    }
+
+    /**
+     * Find migration files in a module
+     */
+    protected function findMigrations(string $path): array
+    {
+        $migrations = [];
+        $migrationPath = $path . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR . 'migrations';
+
+        if (File::isDirectory($migrationPath)) {
+            try {
+                $files = File::files($migrationPath);
+                foreach ($files as $file) {
+                    if ($file->getExtension() === 'php') {
+                        $migrations[] = $file->getFilename();
+                    }
+                }
+            } catch (\Exception $e) {
+                Log::error("Error reading migrations from {$migrationPath}: " . $e->getMessage());
+            }
+        }
+
+        return $migrations;
+    }
+
+    /**
+     * Find route files in a module
+     */
+    protected function findRoutes(string $path): array
+    {
+        $routes = [];
+        $routesPath = $path . DIRECTORY_SEPARATOR . 'routes';
+
+        if (File::isDirectory($routesPath)) {
+            try {
+                $files = File::files($routesPath);
+                foreach ($files as $file) {
+                    if (in_array($file->getExtension(), ['php'])) {
+                        $routes[] = 'routes/' . $file->getFilename();
+                    }
+                }
+            } catch (\Exception $e) {
+                Log::error("Error reading routes from {$routesPath}: " . $e->getMessage());
+            }
+        }
+
+        return $routes;
+    }
+
+    /**
+     * Read module metadata from composer.json or module.json
+     */
+    protected function readModuleMetadata(string $path): array
+    {
+        $metadata = [
+            'version' => '1.0.0',
+            'description' => '',
+            'dependencies' => [],
+        ];
+
+        // Try to read from module.json
+        $moduleJsonPath = $path . DIRECTORY_SEPARATOR . 'module.json';
+        if (File::exists($moduleJsonPath)) {
+            try {
+                $moduleData = json_decode(File::get($moduleJsonPath), true);
+                if ($moduleData) {
+                    $metadata = array_merge($metadata, $moduleData);
+                }
+            } catch (\Exception $e) {
+                Log::error("Error reading module.json from {$moduleJsonPath}: " . $e->getMessage());
+            }
+        }
+
+        // Try to read from composer.json
+        $composerJsonPath = $path . DIRECTORY_SEPARATOR . 'composer.json';
+        if (File::exists($composerJsonPath)) {
+            try {
+                $composerData = json_decode(File::get($composerJsonPath), true);
+                if ($composerData) {
+                    if (isset($composerData['version'])) {
+                        $metadata['version'] = $composerData['version'];
+                    }
+                    if (isset($composerData['description'])) {
+                        $metadata['description'] = $composerData['description'];
+                    }
+                }
+            } catch (\Exception $e) {
+                Log::error("Error reading composer.json from {$composerJsonPath}: " . $e->getMessage());
+            }
+        }
+
+        return $metadata;
+    }
+
+    /**
+     * Get class name from PHP file
+     */
+    protected function getClassNameFromFile(string $filePath): ?string
+    {
+        try {
+            $content = File::get($filePath);
+            
+            // Simple regex to extract class name
+            if (preg_match('/class\s+(\w+)/', $content, $matches)) {
+                $className = $matches[1];
+                
+                // Try to extract namespace
+                if (preg_match('/namespace\s+([^;]+)/', $content, $namespaceMatches)) {
+                    $namespace = trim($namespaceMatches[1]);
+                    return $namespace . '\\' . $className;
+                }
+                
+                return $className;
+            }
+        } catch (\Exception $e) {
+            Log::error("Error extracting class name from {$filePath}: " . $e->getMessage());
+        }
+
+        return null;
+    }
+
+    /**
+     * Check if module is enabled
+     */
+    protected function isModuleEnabled(string $name): bool
+    {
+        return config("modules.modules.{$name}.enabled", true);
+    }
+
+    /**
+     * Assess module health
+     */
+    protected function assessModuleHealth(array $moduleInfo): string
+    {
+        $issues = $this->validateModuleStructure($moduleInfo);
+        
+        if (empty($issues)) {
+            return 'healthy';
+        } elseif (count($issues) <= 2) {
+            return 'warning';
+        } else {
+            return 'critical';
+        }
+    }
+
+    /**
+     * Validate module structure
+     */
+    protected function validateModuleStructure(array $moduleInfo): array
+    {
+        $issues = [];
+        $path = $moduleInfo['path'];
+
+        // Check if module directory exists
+        if (!File::isDirectory($path)) {
+            $issues[] = "Module directory does not exist: {$path}";
+        }
+
+        // Check for service provider
+        if (!$moduleInfo['service_provider']) {
+            $issues[] = "No service provider found";
+        }
+
+        // Check for required directories
+        $requiredDirs = ['config', 'routes', 'views'];
+        foreach ($requiredDirs as $dir) {
+            $dirPath = $path . DIRECTORY_SEPARATOR . $dir;
+            if (!File::isDirectory($dirPath)) {
+                $issues[] = "Missing required directory: {$dir}";
+            }
+        }
+
+        // Check for configuration files
+        if (empty($moduleInfo['config_files'])) {
+            $issues[] = "No configuration files found";
+        }
+
+        return $issues;
+    }
+
+    /**
+     * Get load order for modules based on dependencies
+     */
+    public function getLoadOrder(): array
+    {
+        $modules = $this->discoverModules();
+        $dependencies = [];
+        $loadOrder = [];
+        $visited = [];
+
+        // Build dependency graph
+        foreach ($modules as $module) {
+            $dependencies[$module['name']] = $module['dependencies'] ?? [];
+        }
+
+        // Topological sort
+        foreach ($modules as $module) {
+            if (!isset($visited[$module['name']])) {
+                $this->topologicalSort($module['name'], $dependencies, $loadOrder, $visited);
+            }
+        }
+
+        return $loadOrder;
+    }
+
+    /**
+     * Topological sort for dependency resolution
+     */
+    protected function topologicalSort(string $module, array $dependencies, array &$loadOrder, array &$visited): void
+    {
+        $visited[$module] = true;
+
+        foreach ($dependencies[$module] ?? [] as $dependency) {
+            if (!isset($visited[$dependency])) {
+                $this->topologicalSort($dependency, $dependencies, $loadOrder, $visited);
+            }
+        }
+
+        $loadOrder[] = $module;
+    }
+
+    /**
+     * Validate module dependencies
+     */
+    public function validateDependencies(): array
+    {
+        $modules = $this->discoverModules();
+        $issues = [];
+
+        foreach ($modules as $module) {
+            foreach ($module['dependencies'] ?? [] as $dependency) {
+                $dependencyModule = $modules->firstWhere('name', $dependency);
+                if (!$dependencyModule) {
+                    $issues[] = "Module {$module['name']} depends on missing module: {$dependency}";
+                } elseif (!$dependencyModule['enabled']) {
+                    $issues[] = "Module {$module['name']} depends on disabled module: {$dependency}";
+                }
+            }
+        }
+
+        return $issues;
+    }
+
+    /**
+     * Get detailed health information for a specific module
+     */
+    public function getModuleHealth(string $moduleName): array
+    {
+        $modules = $this->discoverModules();
+        $module = $modules->firstWhere('name', $moduleName);
+
+        if (!$module) {
+            return [
+                'status' => 'not_found',
+                'issues' => ["Module {$moduleName} not found"],
+            ];
+        }
+
+        return [
+            'status' => $module['health_status'],
+            'issues' => $module['issues'],
+            'metadata' => $module,
+        ];
+    }
+
+    /**
+     * Get all modules with health status
+     */
+    public function getAllModulesHealth(): Collection
+    {
+        $modules = $this->discoverModules();
+        
+        return $modules->map(function ($module) {
+            return [
+                'name' => $module['name'],
+                'status' => $module['health_status'],
+                'enabled' => $module['enabled'],
+                'issues' => $module['issues'],
+                'version' => $module['version'],
+            ];
+        });
+    }
+} 

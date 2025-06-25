@@ -1,44 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         colors="true">
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         cacheDirectory=".phpunit.cache">
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./modules/*/tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./modules/*/tests/Feature</directory>
         </testsuite>
         <testsuite name="Integration">
             <directory suffix="Test.php">./tests/Integration</directory>
+            <directory suffix="Test.php">./modules/*/tests/Integration</directory>
         </testsuite>
         <testsuite name="Performance">
             <directory suffix="Test.php">./tests/Performance</directory>
+            <directory suffix="Test.php">./modules/*/tests/Performance</directory>
         </testsuite>
         <testsuite name="Security">
             <directory suffix="Test.php">./tests/Security</directory>
+            <directory suffix="Test.php">./modules/*/tests/Security</directory>
+        </testsuite>
+        <testsuite name="E2EE">
+            <directory suffix="Test.php">./modules/e2ee/tests</directory>
+        </testsuite>
+        <testsuite name="SOC2">
+            <directory suffix="Test.php">./modules/soc2/tests</directory>
+        </testsuite>
+        <testsuite name="MCP">
+            <directory suffix="Test.php">./modules/mcp/tests</directory>
+        </testsuite>
+        <testsuite name="Web3">
+            <directory suffix="Test.php">./modules/web3/tests</directory>
+        </testsuite>
+        <testsuite name="Auth">
+            <directory suffix="Test.php">./modules/auth/tests</directory>
+        </testsuite>
+        <testsuite name="API">
+            <directory suffix="Test.php">./modules/api/tests</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">./src</directory>
             <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./modules</directory>
+            <directory suffix=".php">./src</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">./vendor</directory>
+            <directory suffix=".php">./tests</directory>
+            <directory suffix=".php">./node_modules</directory>
+            <directory suffix=".php">./storage</directory>
+            <directory suffix=".php">./bootstrap</directory>
+        </exclude>
         <report>
             <html outputDirectory=".reports/coverage"/>
             <clover outputFile=".reports/coverage/clover.xml"/>
+            <text outputFile=".reports/coverage/coverage.txt"/>
         </report>
     </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
-        <env name="DB_CONNECTION" value="mysql"/>
-        <env name="DB_HOST" value="mysql"/>
-        <env name="DB_PORT" value="3306"/>
-        <env name="DB_DATABASE" value="service_learning_test"/>
-        <env name="DB_USERNAME" value="root"/>
-        <env name="DB_PASSWORD" value="root"/>
-        <env name="REDIS_HOST" value="redis"/>
-        <env name="REDIS_PORT" value="6379"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="SESSION_LIFETIME" value="120"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="CODESPACES_ENABLED" value="false"/>
+        <env name="FILESYSTEM_DISK" value="local"/>
+        <env name="REDIS_CLIENT" value="predis"/>
+        <env name="LOG_CHANNEL" value="single"/>
+        <env name="LOG_LEVEL" value="debug"/>
+        <env name="MODULES_ENABLED" value="true"/>
+        <env name="E2EE_ENABLED" value="true"/>
+        <env name="SOC2_ENABLED" value="true"/>
+        <env name="MCP_ENABLED" value="true"/>
+        <env name="WEB3_ENABLED" value="true"/>
+        <env name="AUTH_MODULE_ENABLED" value="true"/>
+        <env name="API_MODULE_ENABLED" value="true"/>
     </php>
 </phpunit> 

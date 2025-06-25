@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<ruleset name="ServiceLearningStandard">
+    <description>Custom coding standard for Service Learning Platform</description>
+
+    <!-- Include PSR-12 as base -->
+    <rule ref="PSR12"/>
+
+    <!-- Custom rules -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+
+    <!-- Service Class Rules -->
+    <rule ref="Squiz.Classes.ValidClassName"/>
+    <rule ref="Squiz.Commenting.ClassComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
+
+    <!-- Naming Conventions -->
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName"/>
+    <rule ref="Squiz.NamingConventions.ValidClassName"/>
+
+    <!-- Code Style -->
+    <rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing"/>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+
+    <!-- Documentation -->
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="Squiz.Commenting.InlineComment"/>
+
+    <!-- Security -->
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions"/>
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+
+    <!-- Exclude vendor directory -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/storage/*</exclude-pattern>
+    <exclude-pattern>*/bootstrap/cache/*</exclude-pattern>
+</ruleset> 

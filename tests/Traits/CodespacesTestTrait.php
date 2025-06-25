@@ -52,10 +52,12 @@ trait CodespacesTestTrait
 
     protected function tearDownCodespacesTest(): void
     {
-        if ($this->hasFailed()) {
-            $this->testReporter->completeTest(false, $this->getStatusMessage());
-        } else {
-            $this->testReporter->completeTest(true);
+        if ($this->testReporter) {
+            if ($this->hasFailed()) {
+                $this->testReporter->completeTest(false, $this->getStatusMessage());
+            } else {
+                $this->testReporter->completeTest(true);
+            }
         }
     }
 
@@ -71,7 +73,7 @@ trait CodespacesTestTrait
         $this->testReporter->addStep($step, $status, $message);
     }
 
-    protected function getStatusMessage(): string
+    public function getStatusMessage(): string
     {
         $status = $this->getStatus();
         $message = '';

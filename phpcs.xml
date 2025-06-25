@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="ServiceLearningManagement">
+    <description>Laravel coding standards for Service Learning Management</description>
+
+    <!-- Include Laravel standard -->
+    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
+    <rule ref="Squiz"/>
+    <rule ref="Generic"/>
+
+    <!-- Custom rules -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+
+    <!-- Exclude vendor files -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>storage/*</exclude-pattern>
+    <exclude-pattern>bootstrap/cache/*</exclude-pattern>
+
+    <!-- Report settings -->
+    <report type="full"/>
+    <report type="xml"/>
+</ruleset>

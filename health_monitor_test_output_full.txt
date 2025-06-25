@@ -1,0 +1,36 @@
+PHPUnit 9.6.23 by Sebastian Bergmann and contributors.
+
+Warning:       No code coverage driver available
+
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health' started
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health' ended
+  Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_specific_service_health' started
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_specific_service_health' ended
+  Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_shows_detailed_health_information_when_requested' started
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_shows_detailed_health_information_when_requested' ended
+  Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_handles_service_check_failures_gracefully' started
+Test 'Tests\Feature\Commands\HealthMonitorCommandTest::it_handles_service_check_failures_gracefully' ended
+  
+
+Time: 00:01.309, Memory: 30.00 MB
+
+There were 2 failures:
+
+1) Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_all_services_health
+Output "+------------+--------------+---------------------+-------------------------+" was not printed.
+
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:347
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:317
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:481
+C:\laragon\www\service_learning_management\tests\Feature\Commands\HealthMonitorCommandTest.php:78
+
+2) Tests\Feature\Commands\HealthMonitorCommandTest::it_can_check_specific_service_health
+Output "+----------+------------+---------------------+-------------------------+" was not printed.
+
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:347
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:317
+C:\laragon\www\service_learning_management\vendor\laravel\framework\src\Illuminate\Testing\PendingCommand.php:481
+C:\laragon\www\service_learning_management\tests\Feature\Commands\HealthMonitorCommandTest.php:106
+
+FAILURES!
+Tests: 4, Assertions: 6, Failures: 2.

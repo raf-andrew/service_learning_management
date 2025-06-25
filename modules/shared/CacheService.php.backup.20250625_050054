@@ -1,0 +1,412 @@
+<?php
+
+namespace App\Modules\Shared;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Config;
+use Modules\Shared\Traits\ErrorHandlingTrait;
+
+class CacheService
+{
+    use ErrorHandlingTrait;
+
+    /**
+     * Default cache driver
+     */
+    protected string $defaultDriver;
+
+    /**
+     * Cache drivers configuration
+     */
+    protected array $drivers;
+
+    /**
+     * Cache statistics
+     */
+    protected array $statistics = [];
+
+    public function __construct()
+    {
+        $this->defaultDriver = config('cache.default', 'file');
+        $this->initializeDrivers();
+    }
+
+    /**
+     * Initialize cache drivers
+     */
+    protected function initializeDrivers(): void
+    {
+        $this->drivers = [
+            'file' => [
+                'driver' => 'file',
+                'ttl' => 3600,
+                'enabled' => true,
+            ],
+            'redis' => [
+                'driver' => 'redis',
+                'ttl' => 7200,
+                'enabled' => config('cache.stores.redis.enabled', false),
+            ],
+            'memcached' => [
+                'driver' => 'memcached',
+                'ttl' => 7200,
+                'enabled' => config('cache.stores.memcached.enabled', false),
+            ],
+            'database' => [
+                'driver' => 'database',
+                'ttl' => 3600,
+                'enabled' => config('cache.stores.database.enabled', false),
+            ],
+        ];
+    }
+
+    /**
+     * Get cache value
+     */
+    public function get(string $key, mixed $default = null, string $driver = null): mixed
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->get($key, $default);
+        } catch (\Exception $e) {
+            Log::warning("Cache get failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return $default;
+        }
+    }
+
+    /**
+     * Set cache value
+     */
+    public function set(string $key, mixed $value, int $ttl = null, string $driver = null): bool
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        $ttl = $ttl ?? $this->drivers[$driver]['ttl'] ?? 3600;
+        
+        try {
+            return Cache::store($driver)->put($key, $value, $ttl);
+        } catch (\Exception $e) {
+            Log::warning("Cache set failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Remember cache value
+     */
+    public function remember(string $key, callable $callback, int $ttl = null, string $driver = null): mixed
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        $ttl = $ttl ?? $this->drivers[$driver]['ttl'] ?? 3600;
+        
+        try {
+            return Cache::store($driver)->remember($key, $ttl, $callback);
+        } catch (\Exception $e) {
+            Log::warning("Cache remember failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return $callback();
+        }
+    }
+
+    /**
+     * Remember cache value with tags
+     */
+    public function rememberWithTags(array $tags, string $key, callable $callback, int $ttl = null, string $driver = null): mixed
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        $ttl = $ttl ?? $this->drivers[$driver]['ttl'] ?? 3600;
+        
+        try {
+            return Cache::store($driver)->tags($tags)->remember($key, $ttl, $callback);
+        } catch (\Exception $e) {
+            Log::warning("Cache remember with tags failed for key: {$key}", [
+                'driver' => $driver,
+                'tags' => $tags,
+                'error' => $e->getMessage()
+            ]);
+            return $callback();
+        }
+    }
+
+    /**
+     * Forget cache key
+     */
+    public function forget(string $key, string $driver = null): bool
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->forget($key);
+        } catch (\Exception $e) {
+            Log::warning("Cache forget failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Flush cache
+     */
+    public function flush(string $driver = null): bool
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->flush();
+        } catch (\Exception $e) {
+            Log::warning("Cache flush failed", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Flush cache by tags
+     */
+    public function flushTags(array $tags, string $driver = null): bool
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->tags($tags)->flush();
+        } catch (\Exception $e) {
+            Log::warning("Cache flush tags failed", [
+                'driver' => $driver,
+                'tags' => $tags,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Check if cache has key
+     */
+    public function has(string $key, string $driver = null): bool
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->has($key);
+        } catch (\Exception $e) {
+            Log::warning("Cache has check failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return false;
+        }
+    }
+
+    /**
+     * Increment cache value
+     */
+    public function increment(string $key, int $value = 1, string $driver = null): int
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->increment($key, $value);
+        } catch (\Exception $e) {
+            Log::warning("Cache increment failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return 0;
+        }
+    }
+
+    /**
+     * Decrement cache value
+     */
+    public function decrement(string $key, int $value = 1, string $driver = null): int
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            return Cache::store($driver)->decrement($key, $value);
+        } catch (\Exception $e) {
+            Log::warning("Cache decrement failed for key: {$key}", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return 0;
+        }
+    }
+
+    /**
+     * Get cache statistics
+     */
+    public function getStatistics(): array
+    {
+        $stats = [
+            'default_driver' => $this->defaultDriver,
+            'drivers' => [],
+        ];
+
+        foreach ($this->drivers as $name => $config) {
+            $stats['drivers'][$name] = [
+                'enabled' => $config['enabled'],
+                'ttl' => $config['ttl'],
+                'driver' => $config['driver'],
+            ];
+        }
+
+        return $stats;
+    }
+
+    /**
+     * Get cache health status
+     */
+    public function getHealthStatus(): array
+    {
+        $health = [
+            'status' => 'healthy',
+            'drivers' => [],
+        ];
+
+        foreach ($this->drivers as $name => $config) {
+            if (!$config['enabled']) {
+                continue;
+            }
+
+            try {
+                $testKey = "health_check_{$name}_" . time();
+                $testValue = 'test';
+                
+                $setResult = $this->set($testKey, $testValue, 60, $name);
+                $getResult = $this->get($testKey, null, $name);
+                $forgetResult = $this->forget($testKey, $name);
+                
+                $health['drivers'][$name] = [
+                    'status' => ($setResult && $getResult === $testValue && $forgetResult) ? 'healthy' : 'unhealthy',
+                    'set' => $setResult,
+                    'get' => $getResult === $testValue,
+                    'forget' => $forgetResult,
+                ];
+            } catch (\Exception $e) {
+                $health['drivers'][$name] = [
+                    'status' => 'error',
+                    'error' => $e->getMessage(),
+                ];
+            }
+        }
+
+        // Overall status
+        $healthyDrivers = array_filter($health['drivers'], function ($driver) {
+            return $driver['status'] === 'healthy';
+        });
+
+        if (empty($healthyDrivers)) {
+            $health['status'] = 'unhealthy';
+        }
+
+        return $health;
+    }
+
+    /**
+     * Warm cache with data
+     */
+    public function warmCache(array $data, string $driver = null): array
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        $results = ['success' => 0, 'failed' => 0, 'errors' => []];
+
+        foreach ($data as $key => $value) {
+            try {
+                $ttl = is_array($value) ? ($value['ttl'] ?? 3600) : 3600;
+                $actualValue = is_array($value) ? $value['value'] : $value;
+                
+                if ($this->set($key, $actualValue, $ttl, $driver)) {
+                    $results['success']++;
+                } else {
+                    $results['failed']++;
+                }
+            } catch (\Exception $e) {
+                $results['failed']++;
+                $results['errors'][] = "Key: {$key}, Error: " . $e->getMessage();
+            }
+        }
+
+        return $results;
+    }
+
+    /**
+     * Get cache keys by pattern
+     */
+    public function getKeysByPattern(string $pattern, string $driver = null): array
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            // This is a simplified implementation
+            // In a real scenario, you'd need driver-specific implementations
+            return [];
+        } catch (\Exception $e) {
+            Log::warning("Cache get keys by pattern failed", [
+                'pattern' => $pattern,
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return [];
+        }
+    }
+
+    /**
+     * Clear cache by pattern
+     */
+    public function clearByPattern(string $pattern, string $driver = null): int
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        $keys = $this->getKeysByPattern($pattern, $driver);
+        $cleared = 0;
+
+        foreach ($keys as $key) {
+            if ($this->forget($key, $driver)) {
+                $cleared++;
+            }
+        }
+
+        return $cleared;
+    }
+
+    /**
+     * Get cache size information
+     */
+    public function getSizeInfo(string $driver = null): array
+    {
+        $driver = $driver ?? $this->defaultDriver;
+        
+        try {
+            // This is a simplified implementation
+            // In a real scenario, you'd need driver-specific implementations
+            return [
+                'driver' => $driver,
+                'size' => 'unknown',
+                'items' => 'unknown',
+            ];
+        } catch (\Exception $e) {
+            Log::warning("Cache size info failed", [
+                'driver' => $driver,
+                'error' => $e->getMessage()
+            ]);
+            return [
+                'driver' => $driver,
+                'size' => 'error',
+                'items' => 'error',
+            ];
+        }
+    }
+} 

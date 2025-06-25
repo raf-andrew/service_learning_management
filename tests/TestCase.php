@@ -5,6 +5,7 @@ namespace Tests;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Tests\Traits\CodespacesTestTrait;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\View;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -13,6 +14,13 @@ abstract class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        // Force codespaces.enabled to false to bypass CodespacesTestTrait logic in tests
+        \Illuminate\Support\Facades\Config::set('codespaces.enabled', false);
+
+        // Configure view paths
+        View::addLocation(resource_path('views'));
+        View::addLocation(base_path('resources/views'));
 
         if (Config::get('codespaces.enabled', false)) {
             $this->setUpCodespacesTest();
@@ -57,5 +65,17 @@ abstract class TestCase extends BaseTestCase
             // Reset database to a clean state
             $this->artisan('migrate:fresh', ['--env' => 'testing']);
         }
+    }
+
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__.'/../bootstrap/app.php';
+        $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        return $app;
     }
 } 

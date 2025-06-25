@@ -55,13 +55,17 @@ class RemoteServiceManager
     {
         try {
             $config = $this->config['redis'];
+            if (empty($config['host'])) {
+                $this->logger->info('Redis host not configured, skipping Redis initialization');
+                return;
+            }
             Redis::purge();
             Redis::reconnect();
             $this->connections['redis'] = Redis::connection();
             $this->logger->info('Redis connection initialized');
         } catch (\Exception $e) {
-            $this->logger->error('Failed to initialize Redis connection: ' . $e->getMessage());
-            throw $e;
+            $this->logger->warning('Failed to initialize Redis connection: ' . $e->getMessage());
+            // Don't throw the exception, just log a warning
         }
     }
 

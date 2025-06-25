@@ -1,0 +1,283 @@
+<?php
+
+namespace App\Modules\Shared;
+
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+class AuditService
+{
+    /**
+     * @var bool
+     */
+    protected bool $enabled;
+
+    /**
+     * @var string
+     */
+    protected string $logLevel;
+
+    public function __construct()
+    {
+        $this->enabled = config('modules.security.audit.enabled', true);
+        $this->logLevel = config('modules.security.audit.log_level', 'info');
+    }
+
+    /**
+     * Log an audit event
+     */
+    public function log(string $module, string $action, array $context = []): void
+    {
+        if (!$this->enabled) {
+            return;
+        }
+
+        $auditData = [
+            'module' => $module,
+            'action' => $action,
+            'user_id' => $this->getCurrentUserId(),
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+            'timestamp' => now()->toISOString(),
+            'context' => $context,
+        ];
+
+        // Log to Laravel log
+        $this->logToLaravel($auditData);
+
+        // Store in database if configured
+        $this->storeInDatabase($auditData);
+    }
+
+    /**
+     * Get current user ID safely
+     */
+    protected function getCurrentUserId(): ?int
+    {
+        try {
+            return Auth::id();
+        } catch (\Exception $e) {
+            // If auth is not available, return null
+            return null;
+        }
+    }
+
+    /**
+     * Log security event
+     */
+    public function logSecurity(string $action, array $context = []): void
+    {
+        $this->log('security', $action, $context);
+    }
+
+    /**
+     * Log authentication event
+     */
+    public function logAuth(string $action, array $context = []): void
+    {
+        $this->log('auth', $action, $context);
+    }
+
+    /**
+     * Log data access event
+     */
+    public function logDataAccess(string $action, array $context = []): void
+    {
+        $this->log('data_access', $action, $context);
+    }
+
+    /**
+     * Log configuration change
+     */
+    public function logConfigChange(string $action, array $context = []): void
+    {
+        $this->log('config', $action, $context);
+    }
+
+    /**
+     * Log to Laravel log system
+     */
+    protected function logToLaravel(array $auditData): void
+    {
+        $message = "AUDIT: [{$auditData['module']}] {$auditData['action']}";
+        
+        switch ($this->logLevel) {
+            case 'debug':
+                Log::debug($message, $auditData);
+                break;
+            case 'info':
+                Log::info($message, $auditData);
+                break;
+            case 'warning':
+                Log::warning($message, $auditData);
+                break;
+            case 'error':
+                Log::error($message, $auditData);
+                break;
+            default:
+                Log::info($message, $auditData);
+        }
+    }
+
+    /**
+     * Store audit data in database
+     */
+    protected function storeInDatabase(array $auditData): void
+    {
+        try {
+            // Check if audit table exists
+            if (!DB::getSchemaBuilder()->hasTable('audit_logs')) {
+                return;
+            }
+
+            DB::table('audit_logs')->insert([
+                'module' => $auditData['module'],
+                'action' => $auditData['action'],
+                'user_id' => $auditData['user_id'],
+                'ip_address' => $auditData['ip_address'],
+                'user_agent' => $auditData['user_agent'],
+                'context' => json_encode($auditData['context']),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+        } catch (\Exception $e) {
+            // If database storage fails, just log the error
+            Log::error('Failed to store audit log in database', [
+                'error' => $e->getMessage(),
+                'audit_data' => $auditData
+            ]);
+        }
+    }
+
+    /**
+     * Get audit logs for a module
+     */
+    public function getModuleLogs(string $module, int $limit = 100): array
+    {
+        try {
+            if (!DB::getSchemaBuilder()->hasTable('audit_logs')) {
+                return [];
+            }
+
+            $logs = DB::table('audit_logs')
+                ->where('module', $module)
+                ->orderBy('created_at', 'desc')
+                ->limit($limit)
+                ->get();
+
+            return $logs->toArray();
+
+        } catch (\Exception $e) {
+            Log::error('Failed to retrieve audit logs', [
+                'error' => $e->getMessage(),
+                'module' => $module
+            ]);
+            return [];
+        }
+    }
+
+    /**
+     * Get audit logs for a user
+     */
+    public function getUserLogs(int $userId, int $limit = 100): array
+    {
+        try {
+            if (!DB::getSchemaBuilder()->hasTable('audit_logs')) {
+                return [];
+            }
+
+            $logs = DB::table('audit_logs')
+                ->where('user_id', $userId)
+                ->orderBy('created_at', 'desc')
+                ->limit($limit)
+                ->get();
+
+            return $logs->toArray();
+
+        } catch (\Exception $e) {
+            Log::error('Failed to retrieve user audit logs', [
+                'error' => $e->getMessage(),
+                'user_id' => $userId
+            ]);
+            return [];
+        }
+    }
+
+    /**
+     * Clean up old audit logs
+     */
+    public function cleanupOldLogs(int $daysOld = 90): int
+    {
+        try {
+            if (!DB::getSchemaBuilder()->hasTable('audit_logs')) {
+                return 0;
+            }
+
+            $cutoffDate = now()->subDays($daysOld);
+            
+            $deletedCount = DB::table('audit_logs')
+                ->where('created_at', '<', $cutoffDate)
+                ->delete();
+
+            Log::info('Cleaned up old audit logs', [
+                'deleted_count' => $deletedCount,
+                'cutoff_date' => $cutoffDate->toISOString()
+            ]);
+
+            return $deletedCount;
+
+        } catch (\Exception $e) {
+            Log::error('Failed to cleanup old audit logs', [
+                'error' => $e->getMessage()
+            ]);
+            return 0;
+        }
+    }
+
+    /**
+     * Get audit statistics
+     */
+    public function getStatistics(): array
+    {
+        try {
+            if (!DB::getSchemaBuilder()->hasTable('audit_logs')) {
+                return [
+                    'total_logs' => 0,
+                    'modules' => [],
+                    'recent_activity' => 0,
+                ];
+            }
+
+            $totalLogs = DB::table('audit_logs')->count();
+            
+            $modules = DB::table('audit_logs')
+                ->select('module', DB::raw('count(*) as count'))
+                ->groupBy('module')
+                ->get()
+                ->pluck('count', 'module')
+                ->toArray();
+
+            $recentActivity = DB::table('audit_logs')
+                ->where('created_at', '>=', now()->subHours(24))
+                ->count();
+
+            return [
+                'total_logs' => $totalLogs,
+                'modules' => $modules,
+                'recent_activity' => $recentActivity,
+            ];
+
+        } catch (\Exception $e) {
+            Log::error('Failed to get audit statistics', [
+                'error' => $e->getMessage()
+            ]);
+            return [
+                'total_logs' => 0,
+                'modules' => [],
+                'recent_activity' => 0,
+            ];
+        }
+    }
+} 

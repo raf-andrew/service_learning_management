@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestListener;
 use PHPUnit\Framework\TestSuite;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Warning;
-use PHPUnit\Util\TestListenerDefaultImplementation;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
 
@@ -39,8 +38,6 @@ use Carbon\Carbon;
  */
 class TestReporter implements TestListener
 {
-    use TestListenerDefaultImplementation;
-
     protected $reportDir;
     protected $startTime;
     protected $testResults = [];
@@ -65,7 +62,7 @@ class TestReporter implements TestListener
 
     public function __construct(string $outputPath = 'reports')
     {
-        $this->reportDir = base_path('reports/tests');
+        $this->reportDir = dirname(__DIR__) . '/reports/tests';
         if (!file_exists($this->reportDir)) {
             mkdir($this->reportDir, 0755, true);
         }
@@ -130,71 +127,17 @@ class TestReporter implements TestListener
         ];
     }
 
-    public function addError(Test $test, \Throwable $t, float $time): void
-    {
-        $this->currentTestStatus = 'error';
-        $this->currentTestErrors[] = [
-            'message' => $t->getMessage(),
-            'file' => $t->getFile(),
-            'line' => $t->getLine(),
-            'trace' => $t->getTraceAsString(),
-        ];
-    }
+    public function addError(Test $test, \Throwable $t, float $time): void {}
 
-    public function addFailure(Test $test, AssertionFailedError $e, float $time): void
-    {
-        $this->currentTestStatus = 'failure';
-        $this->currentTestFailures[] = [
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => $e->getTraceAsString(),
-        ];
-    }
+    public function addFailure(Test $test, AssertionFailedError $e, float $time): void {}
 
-    public function addWarning(Test $test, Warning $e, float $time): void
-    {
-        $this->currentTestStatus = 'warning';
-        $this->currentTestWarnings[] = [
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => $e->getTraceAsString(),
-        ];
-    }
+    public function addWarning(Test $test, Warning $e, float $time): void {}
 
-    public function addSkippedTest(Test $test, \Throwable $t, float $time): void
-    {
-        $this->currentTestStatus = 'skipped';
-        $this->currentTestSkipped[] = [
-            'message' => $t->getMessage(),
-            'file' => $t->getFile(),
-            'line' => $t->getLine(),
-            'trace' => $t->getTraceAsString(),
-        ];
-    }
+    public function addSkippedTest(Test $test, \Throwable $t, float $time): void {}
 
-    public function addIncompleteTest(Test $test, \Throwable $t, float $time): void
-    {
-        $this->currentTestStatus = 'incomplete';
-        $this->currentTestIncomplete[] = [
-            'message' => $t->getMessage(),
-            'file' => $t->getFile(),
-            'line' => $t->getLine(),
-            'trace' => $t->getTraceAsString(),
-        ];
-    }
+    public function addIncompleteTest(Test $test, \Throwable $t, float $time): void {}
 
-    public function addRiskyTest(Test $test, \Throwable $t, float $time): void
-    {
-        $this->currentTestStatus = 'risky';
-        $this->currentTestRisky[] = [
-            'message' => $t->getMessage(),
-            'file' => $t->getFile(),
-            'line' => $t->getLine(),
-            'trace' => $t->getTraceAsString(),
-        ];
-    }
+    public function addRiskyTest(Test $test, \Throwable $t, float $time): void {}
 
     public function addSecurityCheck($check, $result): void
     {

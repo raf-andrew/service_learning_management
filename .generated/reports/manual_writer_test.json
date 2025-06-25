@@ -1,0 +1,13 @@
+{
+    "test": "ManualWriterTest",
+    "timestamp": "2025-06-07T06:15:12+00:00",
+    "results": [
+        {
+            "name": "manual_check",
+            "status": "pass"
+        }
+    ],
+    "features": [
+        "manual_test_feature"
+    ]
+}

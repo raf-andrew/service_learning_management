@@ -1,223 +1,331 @@
 # Service Learning Management System
 
-A comprehensive service learning management system with GitHub Codespaces integration, automated deployment, and developer tools.
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-red.svg)](https://laravel.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-green.svg)](https://vuejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org)
+[![PHP](https://img.shields.io/badge/PHP-8.1+-purple.svg)](https://php.net)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+A comprehensive, enterprise-grade service learning management system built with Laravel, Vue.js, and TypeScript. This system provides a modern, scalable platform for managing service learning programs, student engagement, and community partnerships.
 
-- **GitHub Codespaces Integration**
-  - Automated setup and deployment
-  - Docker container configuration
-  - Development environment management
-  - CLI interaction through Artisan commands
+## 🚀 Features
 
-- **Developer Credentials Management**
-  - Secure token storage
-  - Permission management
-  - Token expiration
-  - Activity tracking
+### Core Functionality
+- **User Management**: Comprehensive user authentication and authorization
+- **Service Learning Programs**: Program creation, management, and tracking
+- **Student Engagement**: Student registration, progress tracking, and reporting
+- **Community Partnerships**: Partner organization management and collaboration
+- **Assessment & Evaluation**: Comprehensive evaluation and feedback systems
 
-- **Task Management**
-  - GitHub Issues integration
-  - Project boards
-  - Milestone tracking
-  - Automated workflows
+### Advanced Features
+- **Health Monitoring**: Real-time system health checks and monitoring
+- **Code Quality**: Automated code quality analysis and reporting
+- **GitHub Integration**: Seamless GitHub Codespaces integration
+- **Web3 Support**: Blockchain integration for credential verification
+- **SOC2 Compliance**: Built-in security and compliance features
+- **MCP Protocol**: Model Context Protocol integration
 
-- **Code Quality**
-  - Automated testing
-  - Code style enforcement
-  - Static analysis
-  - Coverage reporting
+### Technical Features
+- **RESTful APIs**: Comprehensive API for all functionality
+- **Real-time Updates**: WebSocket support for live updates
+- **Multi-tenant Architecture**: Support for multiple organizations
+- **Advanced Security**: Role-based access control and encryption
+- **Performance Optimization**: Caching, optimization, and monitoring
+- **Comprehensive Testing**: Unit, integration, and E2E testing
 
-## Requirements
+## 🏗️ Architecture
 
-- PHP 8.2 or higher
-- Composer
-- Node.js and NPM
-- Docker and Docker Compose
-- GitHub account with Codespaces access
+The system follows modern architectural principles:
 
-## Installation
+- **Domain-Driven Design (DDD)**: Organized by business domains
+- **Clean Architecture**: Separation of concerns and dependency inversion
+- **Microservices-Ready**: Modular design for future scalability
+- **Security-First**: Built-in security measures and compliance
+- **API-First**: RESTful APIs for all integrations
 
-1. Clone the repository:
+### System Components
+
+```
+service_learning_management/
+├── app/                    # Laravel application core
+│   ├── Console/Commands/   # Artisan commands (by domain)
+│   ├── Http/Controllers/   # Controllers (by type)
+│   ├── Models/            # Eloquent models (by domain)
+│   └── Services/          # Business logic services
+├── config/                # Configuration files
+│   ├── environments/      # Environment-specific configs
+│   ├── modules/           # Module-specific configs
+│   └── shared/            # Shared configurations
+├── database/              # Database files
+│   └── migrations/        # Migrations (by domain)
+├── src/                   # Frontend source code
+│   ├── components/        # Vue components
+│   ├── pages/            # Page components
+│   ├── stores/           # Pinia stores
+│   └── services/         # Frontend services
+├── modules/               # Modular components
+├── infrastructure/        # Infrastructure configuration
+├── tests/                # Comprehensive test suite
+└── docs/                 # Complete documentation
+```
+
+## 📋 Requirements
+
+### Backend Requirements
+- PHP 8.1 or higher
+- Composer 2.0 or higher
+- MySQL 8.0 or PostgreSQL 13+
+- Redis 6.0+ (for caching)
+- Node.js 18+ and npm
+
+### Frontend Requirements
+- Node.js 18+ and npm
+- Vue.js 3.x
+- TypeScript 5.x
+- Vite (for build tooling)
+
+### Development Tools
+- Git
+- Docker (optional)
+- Laragon (recommended for Windows)
+
+## 🛠️ Installation
+
+### Quick Start
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/service-learning-management.git
-   cd service-learning-management
+   git clone <repository-url>
+   cd service_learning_management
    ```
 
-2. Install PHP dependencies:
+2. **Install PHP dependencies**
    ```bash
    composer install
    ```
 
-3. Install Node.js dependencies:
+3. **Install Node.js dependencies**
    ```bash
    npm install
    ```
 
-4. Copy environment file:
+4. **Environment setup**
    ```bash
    cp .env.example .env
-   ```
-
-5. Generate application key:
-   ```bash
    php artisan key:generate
    ```
 
-6. Run migrations:
+5. **Database setup**
    ```bash
    php artisan migrate
+   php artisan db:seed
    ```
 
-7. Start the development server:
+6. **Start development servers**
    ```bash
+   # Terminal 1: Laravel development server
    php artisan serve
+   
+   # Terminal 2: Frontend development server
+   npm run dev
    ```
 
-## GitHub Codespaces Setup
+### Detailed Installation
 
-1. Create a new Codespace:
-   ```bash
-   php artisan codespace:create --name=my-codespace
-   ```
+For detailed installation instructions, see the [Installation Guide](docs/DEVELOPMENT/INSTALLATION.md).
 
-2. List available Codespaces:
-   ```bash
-   php artisan codespace:list
-   ```
+## 🚀 Development
 
-3. Connect to a Codespace:
-   ```bash
-   php artisan codespace:connect --name=my-codespace
-   ```
+### Project Structure
 
-4. Rebuild a Codespace:
-   ```bash
-   php artisan codespace:rebuild --name=my-codespace
-   ```
+The project is organized by domains rather than technical layers:
 
-5. Delete a Codespace:
-   ```bash
-   php artisan codespace:delete --name=my-codespace
-   ```
+- **Core**: User management, system operations
+- **Monitoring**: Health checks, metrics, analytics
+- **Development**: Development tools, environment management
+- **Infrastructure**: Infrastructure management, deployment
+- **Security**: Authentication, authorization, compliance
+- **Web3**: Blockchain integration, smart contracts
+- **Codespaces**: GitHub Codespaces integration
 
-## Developer Credentials
+### Development Workflow
 
-1. Create a new credential:
-   ```bash
-   curl -X POST http://localhost:8000/api/developer-credentials \
-     -H "Authorization: Bearer {token}" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "github_token": "your_github_token",
-       "github_username": "your_username",
-       "permissions": {
-         "codespaces": true,
-         "repositories": true,
-         "workflows": true
-       }
-     }'
-   ```
+1. **Understanding the Structure**: Review the [Development Guidelines](docs/DEVELOPMENT/DEVELOPMENT_GUIDELINES.md)
+2. **Getting Started**: Follow the [Onboarding Guide](docs/DEVELOPMENT/ONBOARDING_GUIDE.md)
+3. **Adding Features**: Use the established patterns and conventions
+4. **Testing**: Write comprehensive tests for all new functionality
+5. **Documentation**: Update documentation as needed
 
-2. List credentials:
-   ```bash
-   curl -X GET http://localhost:8000/api/developer-credentials \
-     -H "Authorization: Bearer {token}"
-   ```
+### Common Commands
 
-3. Update credential:
-   ```bash
-   curl -X PUT http://localhost:8000/api/developer-credentials/{id} \
-     -H "Authorization: Bearer {token}" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "permissions": {
-         "codespaces": true,
-         "repositories": true,
-         "workflows": false
-       }
-     }'
-   ```
-
-## Testing
-
-Run the test suite:
 ```bash
+# Run tests
 php artisan test
+
+# Run frontend tests
+npm run test
+
+# Code quality checks
+./vendor/bin/phpcs
+npm run lint
+
+# Database migrations
+php artisan migrate
+
+# Clear caches
+php artisan cache:clear
+php artisan config:clear
+
+# Build frontend assets
+npm run build
 ```
 
-Run specific test files:
+## 📚 Documentation
+
+### Core Documentation
+- [System Architecture](docs/ARCHITECTURE/SYSTEM_ARCHITECTURE.md) - Complete system architecture overview
+- [Development Guidelines](docs/DEVELOPMENT/DEVELOPMENT_GUIDELINES.md) - Coding standards and best practices
+- [Onboarding Guide](docs/DEVELOPMENT/ONBOARDING_GUIDE.md) - Guide for new developers
+- [API Documentation](docs/API/README.md) - Complete API reference
+- [Module Documentation](docs/MODULES/README.md) - Module-specific documentation
+
+### Operational Documentation
+- [Deployment Guide](docs/DEPLOYMENT/README.md) - Deployment and infrastructure setup
+- [Troubleshooting Guide](docs/TROUBLESHOOTING/README.md) - Common issues and solutions
+- [Security Guide](docs/SECURITY/README.md) - Security best practices and compliance
+
+### Technical Documentation
+- [Database Schema](docs/DATABASE/README.md) - Database design and relationships
+- [Testing Strategy](docs/TESTING/README.md) - Testing approach and guidelines
+- [Performance Guide](docs/PERFORMANCE/README.md) - Performance optimization
+
+## 🧪 Testing
+
+The project includes comprehensive testing:
+
+### Test Types
+- **Unit Tests**: Individual classes and methods
+- **Feature Tests**: Complete features and API endpoints
+- **Integration Tests**: Component interactions and external services
+- **E2E Tests**: Complete user journeys
+- **Performance Tests**: Load and stress testing
+- **Security Tests**: Security and vulnerability testing
+
+### Running Tests
 ```bash
-php artisan test --filter=CodespaceTest
-php artisan test --filter=DeveloperCredentialTest
+# Run all tests
+php artisan test
+
+# Run specific test suites
+php artisan test --testsuite=Unit
+php artisan test --testsuite=Feature
+php artisan test --testsuite=Integration
+
+# Run with coverage
+./vendor/bin/phpunit --coverage-html coverage
+
+# Frontend tests
+npm run test
 ```
 
-## Documentation
+## 🔒 Security
 
-Generate documentation:
-```bash
-php artisan docs:generate
-```
+### Security Features
+- **Authentication**: Multi-layer authentication (session, token, OAuth2)
+- **Authorization**: Role-based access control (RBAC)
+- **Data Protection**: Encryption at rest and in transit
+- **Compliance**: SOC2, GDPR, PCI-DSS compliance ready
+- **Security Monitoring**: Real-time security event logging
 
-View documentation:
-- API Documentation: `/docs/api.md`
-- Features: `/docs/features.md`
-- Setup Guide: `/docs/setup.md`
-- Contributing Guide: `/docs/contributing.md`
+### Security Best Practices
+- All inputs are validated and sanitized
+- SQL injection protection through Eloquent ORM
+- XSS protection through proper output encoding
+- CSRF protection on all forms
+- Secure session management
+- Regular security updates and patches
 
-## GitHub Integration
+## 🚀 Deployment
 
-- **GitHub Pages**: Documentation is automatically deployed to GitHub Pages
-- **GitHub Actions**: Automated testing, deployment, and code quality checks
-- **GitHub Issues**: Task management and bug tracking
-- **GitHub Projects**: Project management and organization
-- **GitHub Security**: Security scanning and vulnerability detection
+### Environment Strategy
+- **Development**: Local development environment
+- **Testing**: Automated testing environment
+- **Staging**: Pre-production validation
+- **Production**: Live application environment
 
-## Development Workflow
+### Deployment Options
+- **Traditional**: VPS or dedicated server deployment
+- **Containerized**: Docker and Kubernetes deployment
+- **Cloud**: AWS, Azure, or Google Cloud deployment
+- **Serverless**: Serverless function deployment (future)
 
-1. Create a new branch
-2. Make changes
-3. Write tests
-4. Run tests
-5. Submit pull request
-6. Code review
-7. Merge and deploy
+### Infrastructure as Code
+- **Terraform**: Infrastructure provisioning and management
+- **Kubernetes**: Container orchestration and scaling
+- **CI/CD**: Automated deployment pipelines
+- **Monitoring**: Comprehensive monitoring and alerting
 
-## Code Style
+## 🤝 Contributing
 
-- Follow PSR-12
-- Use type hints
-- Write meaningful comments
-- Follow Laravel conventions
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Security
-
-- Token encryption
-- Permission-based access control
-- Automatic token rotation
-- Audit logging
-- Two-factor authentication
-- Security scanning
-
-## Contributing
-
+### Development Process
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a pull request
+2. Create a feature branch
+3. Make your changes
+4. Write or update tests
+5. Update documentation
+6. Submit a pull request
 
-## License
+### Code Standards
+- Follow the established coding standards
+- Write comprehensive tests
+- Update documentation as needed
+- Use conventional commit messages
+- Ensure all tests pass
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📄 License
 
-## Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-For support, please open an issue in the GitHub repository or contact the development team.
+## 🆘 Support
 
-## Acknowledgments
+### Getting Help
+- **Documentation**: Check the comprehensive documentation
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Discussions**: Join discussions in GitHub Discussions
+- **Community**: Connect with the community
 
-- Laravel Framework
-- GitHub Codespaces
-- Docker
-- All contributors and maintainers 
+### Contact
+- **Email**: [support@example.com](mailto:support@example.com)
+- **GitHub**: [GitHub Issues](https://github.com/your-org/service-learning-management/issues)
+- **Documentation**: [Project Documentation](docs/)
+
+## 🙏 Acknowledgments
+
+- **Laravel Team**: For the amazing Laravel framework
+- **Vue.js Team**: For the excellent Vue.js framework
+- **Community**: All contributors and community members
+- **Open Source**: All open source libraries and tools used
+
+## 📈 Roadmap
+
+### Upcoming Features
+- **GraphQL API**: Flexible query interface
+- **Real-time Collaboration**: Live collaboration features
+- **Mobile App**: Native mobile application
+- **AI Integration**: Machine learning features
+- **Advanced Analytics**: Enhanced reporting and analytics
+
+### Technology Evolution
+- **PHP 8.x Features**: Modern PHP capabilities
+- **Vue 3 Composition API**: Advanced frontend patterns
+- **TypeScript Migration**: Enhanced type safety
+- **Microservices**: Service decomposition
+- **Serverless**: Event-driven computing
+
+---
+
+**Built with ❤️ by the Service Learning Management Team**
+
+For more information, visit our [documentation](docs/) or [GitHub repository](https://github.com/your-org/service-learning-management). 

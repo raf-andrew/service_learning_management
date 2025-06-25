@@ -3,14 +3,12 @@
 namespace Tests\Feature;
 
 use Tests\TestCase as BaseTestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestReporter;
 
 abstract class TestCase extends BaseTestCase
 {
-    use RefreshDatabase, WithoutMiddleware, DatabaseTransactions;
+    use WithoutMiddleware;
 
     protected $reporter;
     protected $user;
@@ -48,7 +46,7 @@ abstract class TestCase extends BaseTestCase
      * @param array $headers
      * @return self
      */
-    protected function withHeaders(array $headers): self
+    public function withHeaders(array $headers): self
     {
         $this->headers = array_merge($this->headers, $headers);
         return $this;

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 class TestReporterTest extends TestCase
 {
     protected string $reportPath;
-    protected TestReporter $reporter;
+    protected $reporter;
     protected string $checklistItem = 'TEST-001';
 
     protected function setUp(): void
