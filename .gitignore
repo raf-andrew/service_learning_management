@@ -1,0 +1,153 @@
+# Laravel Framework
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# Laravel Storage
+/storage/app/public/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/storage/analytics/*
+/storage/backups/*
+/storage/compliance/*
+/storage/reports/*
+/storage/sniffing/*
+
+# Laravel Bootstrap
+/bootstrap/cache/*
+
+# Laravel Configuration
+/config/environments/*/app.php
+/config/environments/*/database.php
+/config/environments/*/cache.php
+/config/environments/*/queue.php
+/config/environments/*/filesystems.php
+/config/environments/*/view.php
+/config/environments/*/logging.php
+/config/environments/*/docker.php
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+*.tmp
+*.temp
+.temp/
+.tmp/
+
+# Build and Distribution
+/dist
+/build
+*.tgz
+*.tar.gz
+
+# Testing
+/coverage
+.phpunit.cache
+.phpunit.result.cache
+
+# Composer
+composer.phar
+/vendor/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment Files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log Files
+*.log
+logs/
+*.log.*
+
+# Cache Files
+cache/
+*.cache
+
+# Backup Files
+*.bak
+*.backup
+backup/
+backups/
+
+# Generated Files
+.generated/
+generated/
+
+# Test Output
+test_output/
+test-results/
+*.test-output
+
+# Documentation Build
+docs/build/
+docs/_build/
+
+# Docker
+.dockerignore
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes
+*.kubeconfig
+
+# Security
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Large Files
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# Application Specific
+web3_test_output.txt
+health_monitor_test_output.txt
+health_monitor_test_output_full.txt 
