@@ -1,0 +1,693 @@
+# Service Learning Management System - Cursor AI Configuration
+
+## 🎯 Platform Overview
+This is a comprehensive, enterprise-grade service learning management system built with Laravel, Vue.js, and TypeScript. The platform integrates GitHub Codespaces, Web3 blockchain technology, SOC2 compliance, MCP protocol, Laravel Vapor, and advanced monitoring systems.
+
+## 🏗️ Architecture Principles
+
+### Domain-Driven Design (DDD)
+- Code is organized by business domains rather than technical layers
+- Clear bounded contexts between different areas of functionality
+- Consistent ubiquitous language across code, documentation, and communication
+
+### Clean Architecture
+- Clear separation between business logic, infrastructure, and presentation
+- Dependency inversion with high-level modules independent of low-level modules
+- Comprehensive testability at all levels
+
+### Security-First Approach
+- Defense in depth with multiple security layers
+- Principle of least privilege for all components
+- Built-in security measures, not bolted on
+
+### Serverless Architecture (Vapor)
+- Laravel Vapor for serverless deployment
+- Auto-scaling and pay-per-use model
+- Global edge deployment
+- Zero-downtime deployments
+
+## 📁 Directory Structure & Organization
+
+### Core Application (`app/`)
+```
+app/
+├── Console/Commands/     # Artisan commands by domain
+│   ├── Core/            # Core system operations
+│   ├── Development/     # Development and setup tools
+│   ├── Infrastructure/  # Infrastructure management
+│   ├── Monitoring/      # Health checks and metrics
+│   ├── Security/        # Security and compliance
+│   ├── Testing/         # Testing and quality assurance
+│   ├── Web3/           # Blockchain integration
+│   ├── Codespaces/     # GitHub Codespaces
+│   ├── Environment/    # Environment management
+│   ├── Sniffing/       # Code quality analysis
+│   ├── Setup/          # Initial setup and configuration
+│   └── Vapor/          # Vapor deployment commands
+├── Http/Controllers/    # HTTP controllers by type
+│   ├── Api/            # RESTful API endpoints
+│   ├── Web/            # Web interface controllers
+│   ├── Admin/          # Administrative interface
+│   ├── Search/         # Search functionality
+│   ├── GitHub/         # GitHub integration
+│   ├── Sniffing/       # Code quality interface
+│   └── Vapor/          # Vapor-specific controllers
+├── Models/             # Eloquent models by domain
+│   ├── Core/           # Core business entities
+│   ├── Monitoring/     # Health and monitoring data
+│   ├── Development/    # Development-related entities
+│   ├── Sniffing/       # Code quality data
+│   ├── Infrastructure/ # Infrastructure entities
+│   └── Vapor/          # Vapor deployment models
+└── Services/           # Business logic services by domain
+    ├── Core/           # Core business logic
+    ├── Auth/           # Authentication and authorization
+    ├── Monitoring/     # Health and monitoring services
+    ├── Development/    # Development tools and utilities
+    ├── Infrastructure/ # Infrastructure management
+    ├── Web3/          # Web3 integration services
+    ├── Codespaces/    # GitHub Codespaces services
+    ├── Sniffing/      # Code quality services
+    ├── Configuration/ # Configuration management
+    ├── Caching/       # Caching services
+    ├── Vapor/         # Vapor deployment services
+    └── Misc/          # Miscellaneous services
+```
+
+### Configuration (`config/`)
+```
+config/
+├── environments/       # Environment-specific configs
+│   ├── local.php
+│   ├── testing.php
+│   ├── staging.php
+│   └── production.php
+├── modules/           # Module-specific configs
+├── base/             # Base configurations
+├── shared/           # Shared configurations
+└── vapor.php         # Vapor deployment configuration
+```
+
+### Frontend (`src/`)
+```
+src/
+├── components/        # Reusable Vue components
+├── pages/            # Page components
+├── stores/           # State management (Pinia)
+├── services/         # Frontend services
+├── utils/            # Utility functions
+├── constants/        # Application constants
+├── composables/      # Vue composables
+├── models/           # TypeScript models
+├── types/            # TypeScript types
+├── MCP/             # MCP frontend code
+└── vapor/           # Vapor-specific frontend code
+```
+
+### Modules (`modules/`)
+```
+modules/
+├── web3/            # Web3 integration
+├── soc2/            # SOC2 compliance
+├── shared/          # Shared utilities
+├── mcp/             # MCP protocol
+├── e2ee/            # End-to-end encryption
+├── auth/            # Authentication
+├── api/             # API functionality
+└── vapor/           # Vapor deployment module
+```
+
+### Tests (`tests/`)
+```
+tests/
+├── Unit/            # Unit tests
+├── Feature/         # Feature tests
+├── Integration/     # Integration tests
+├── E2E/             # End-to-end tests
+├── Performance/     # Performance tests
+├── Security/        # Security tests
+├── Frontend/        # Frontend tests
+├── AI/              # AI tests
+├── MCP/             # MCP tests
+├── Chaos/           # Chaos tests
+├── Sanity/          # Sanity tests
+├── Functional/      # Functional tests
+├── Tenant/          # Tenant tests
+├── Sniffing/        # Sniffing tests
+├── Infrastructure/  # Infrastructure tests
+├── Vapor/           # Vapor deployment tests
+├── config/          # Config tests
+├── Traits/          # Test traits
+├── helpers/         # Test helpers
+├── scripts/         # Test scripts
+├── stubs/           # Test stubs
+└── reports/         # Test reports
+```
+
+## 🛠️ Available Commands
+
+### Core System Commands
+```bash
+# Infrastructure Management
+php artisan infrastructure:analyze
+php artisan infrastructure:improve
+php artisan infrastructure:manage
+
+# Health Monitoring
+php artisan health:check
+php artisan health:monitor
+php artisan system:status
+
+# Testing
+php artisan test
+php artisan test:report
+php artisan test:commands
+
+# Code Quality
+php artisan sniffing:analyze
+php artisan sniffing:report
+php artisan code:quality
+
+# Setup & Configuration
+php artisan setup:run
+php artisan config:commands
+php artisan config:jobs
+```
+
+### Domain-Specific Commands
+```bash
+# Codespaces
+php artisan codespace:create
+php artisan codespace:list
+php artisan codespace:connect
+php artisan codespaces:services
+
+# Web3
+php artisan web3:deploy
+php artisan web3:test
+php artisan web3:manage
+
+# SOC2 Compliance
+php artisan soc2:init
+php artisan soc2:validate
+php artisan soc2:report
+
+# Development
+php artisan development:setup
+php artisan development:analyze
+php artisan development:optimize
+
+# Vapor Deployment
+php artisan vapor:deploy
+php artisan vapor:list
+php artisan vapor:logs
+php artisan vapor:status
+```
+
+### Docker & Infrastructure
+```bash
+# Docker Management
+php artisan docker:start
+php artisan docker:stop
+php artisan docker:status
+php artisan docker:logs
+
+# Environment Management
+php artisan env:sync
+php artisan env:restore
+```
+
+## 🔧 Development Workflow
+
+### 1. Environment Setup
+```bash
+# Install dependencies
+composer install
+npm install
+
+# Environment configuration
+cp .env.example .env
+php artisan key:generate
+
+# Database setup
+php artisan migrate
+php artisan db:seed
+
+# Start development servers
+php artisan serve
+npm run dev
+```
+
+### 2. Code Quality Process
+```bash
+# Run linting
+scripts/quality/run-linting.sh
+
+# Run tests
+scripts/testing/run-tests.sh
+
+# Check code coverage
+scripts/testing/run-coverage.sh
+
+# Run security scan
+scripts/security/security-scan.sh
+```
+
+### 3. Testing Strategy
+```bash
+# Unit tests
+php artisan test --testsuite=Unit
+
+# Feature tests
+php artisan test --testsuite=Feature
+
+# Integration tests
+php artisan test --testsuite=Integration
+
+# E2E tests
+php artisan test --testsuite=E2E
+
+# Performance tests
+php artisan test --testsuite=Performance
+
+# Security tests
+php artisan test --testsuite=Security
+
+# Vapor tests
+php artisan test --testsuite=Vapor
+```
+
+## 🔒 Security & Compliance
+
+### Authentication & Authorization
+- Multi-layer authentication (session, token, OAuth2, API keys)
+- Role-based access control (RBAC) with granular permissions
+- Multi-tenant data isolation
+- SOC2 compliance with comprehensive audit logging
+
+### Data Protection
+- Encryption at rest and in transit
+- End-to-end encryption (E2EE) for sensitive communications
+- GDPR and PCI-DSS compliance ready
+- Secure credential management
+
+### Infrastructure Security
+- Network-level protection with firewalls and VPC
+- Web application firewall (WAF)
+- Real-time security monitoring and alerting
+- Vulnerability scanning and intrusion detection
+
+## 📊 Monitoring & Observability
+
+### Health Monitoring
+- Real-time system health checks
+- Performance metrics and alerting
+- Comprehensive logging and tracing
+- Infrastructure monitoring with Kubernetes and Docker
+
+### Application Monitoring
+- API endpoint availability monitoring
+- Database connectivity health checks
+- External service status monitoring
+- Error rate tracking and analysis
+
+## 🚀 Deployment & Infrastructure
+
+### Environment Strategy
+- Development: Local development environment
+- Testing: Automated testing environment
+- Staging: Pre-production validation
+- Production: Live application environment
+
+### CI/CD Pipeline
+- Automated code quality analysis
+- Comprehensive test execution
+- Security vulnerability assessment
+- Blue-green deployment with zero downtime
+
+### Infrastructure as Code
+- Terraform for infrastructure provisioning
+- Kubernetes for container orchestration
+- Docker for containerization
+- Automated monitoring and alerting
+
+### Laravel Vapor Integration
+- Serverless deployment on AWS Lambda
+- Auto-scaling and pay-per-use model
+- Global edge deployment
+- Zero-downtime deployments
+- Database and cache management
+- File storage and CDN integration
+
+## 🔗 External Integrations
+
+### GitHub Integration
+- Repository management and operations
+- GitHub Codespaces for development environments
+- Webhooks for real-time event notifications
+- Automated workflows and CI/CD
+
+### Web3 Integration
+- Blockchain smart contract interactions
+- Cryptocurrency wallet support
+- NFT functionality
+- Decentralized application (dApp) support
+
+### MCP Protocol
+- Model Context Protocol integration
+- AI agent communication
+- Context-aware AI assistance
+- Automated AI workflows
+
+### Laravel Vapor
+- AWS Lambda serverless deployment
+- Auto-scaling infrastructure
+- Global edge deployment
+- Database and cache management
+- File storage and CDN
+
+## 📚 Documentation & Resources
+
+### Key Documentation Files
+- **System Architecture**: `docs/ARCHITECTURE/SYSTEM_ARCHITECTURE.md`
+- **Development Guidelines**: `docs/DEVELOPMENT/DEVELOPMENT_GUIDELINES.md`
+- **Onboarding Guide**: `docs/DEVELOPMENT/ONBOARDING_GUIDE.md`
+- **Installation Guide**: `docs/DEVELOPMENT/INSTALLATION.md`
+- **API Documentation**: `docs/API/`
+- **Module Documentation**: `docs/MODULES/`
+- **Vapor Documentation**: `docs/DEPLOYMENT/VAPOR.md`
+
+### External Resources
+- **Laravel Documentation**: https://laravel.com/docs
+- **Vue.js Documentation**: https://vuejs.org/guide/
+- **TypeScript Documentation**: https://www.typescriptlang.org/docs/
+- **GitHub Codespaces**: https://docs.github.com/en/codespaces
+- **MCP Protocol**: https://modelcontextprotocol.io/
+- **SOC2 Compliance**: https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html
+- **Web3 Documentation**: https://ethereum.org/en/developers/docs/
+- **Laravel Vapor**: https://vapor.laravel.com/docs
+- **AWS Lambda**: https://docs.aws.amazon.com/lambda/
+- **AWS CloudFormation**: https://docs.aws.amazon.com/cloudformation/
+- **AWS S3**: https://docs.aws.amazon.com/s3/
+- **AWS CloudFront**: https://docs.aws.amazon.com/cloudfront/
+- **AWS RDS**: https://docs.aws.amazon.com/rds/
+- **AWS ElastiCache**: https://docs.aws.amazon.com/elasticache/
+- **Docker Documentation**: https://docs.docker.com/
+- **Kubernetes Documentation**: https://kubernetes.io/docs/
+- **Terraform Documentation**: https://www.terraform.io/docs
+- **Tailwind CSS Documentation**: https://tailwindcss.com/docs
+- **Pinia Documentation**: https://pinia.vuejs.org/
+- **Vitest Documentation**: https://vitest.dev/
+- **PHPUnit Documentation**: https://phpunit.de/documentation.html
+- **OWASP Security**: https://owasp.org/
+- **NIST Cybersecurity**: https://www.nist.gov/cyberframework
+- **GDPR**: https://gdpr.eu/
+- **PCI-DSS**: https://www.pcisecuritystandards.org/
+- **GitHub Actions**: https://docs.github.com/en/actions
+- **GitHub API**: https://docs.github.com/en/rest
+- **MetaMask Documentation**: https://docs.metamask.io/
+- **Web3.js**: https://web3js.org/
+- **Ethereum Smart Contracts**: https://ethereum.org/en/developers/docs/smart-contracts/
+- **Solidity Documentation**: https://docs.soliditylang.org/
+- **Hardhat**: https://hardhat.org/docs
+- **Truffle**: https://trufflesuite.com/docs/
+- **OpenZeppelin**: https://docs.openzeppelin.com/
+- **IPFS**: https://docs.ipfs.io/
+- **Filecoin**: https://docs.filecoin.io/
+- **Polygon**: https://docs.polygon.technology/
+- **Binance Smart Chain**: https://docs.binance.org/
+- **Arbitrum**: https://developer.arbitrum.io/
+- **Optimism**: https://community.optimism.io/docs/
+- **Stripe API**: https://stripe.com/docs/api
+- **PayPal API**: https://developer.paypal.com/docs/
+- **Twilio API**: https://www.twilio.com/docs
+- **SendGrid API**: https://sendgrid.com/docs/
+- **Mailgun API**: https://documentation.mailgun.com/
+- **AWS SDK for PHP**: https://docs.aws.amazon.com/sdk-for-php/
+- **AWS SDK for JavaScript**: https://docs.aws.amazon.com/sdk-for-javascript/
+- **Google Cloud Platform**: https://cloud.google.com/docs
+- **Microsoft Azure**: https://docs.microsoft.com/en-us/azure/
+- **DigitalOcean**: https://docs.digitalocean.com/
+- **Vercel**: https://vercel.com/docs
+- **Netlify**: https://docs.netlify.com/
+- **Heroku**: https://devcenter.heroku.com/
+- **Railway**: https://docs.railway.app/
+- **Fly.io**: https://fly.io/docs/
+- **Render**: https://render.com/docs
+- **Supabase**: https://supabase.com/docs
+- **Firebase**: https://firebase.google.com/docs
+- **MongoDB**: https://docs.mongodb.com/
+- **PostgreSQL**: https://www.postgresql.org/docs/
+- **Redis**: https://redis.io/documentation
+- **Elasticsearch**: https://www.elastic.co/guide/
+- **Kibana**: https://www.elastic.co/guide/en/kibana/
+- **Logstash**: https://www.elastic.co/guide/en/logstash/
+- **Prometheus**: https://prometheus.io/docs/
+- **Grafana**: https://grafana.com/docs/
+- **Jaeger**: https://www.jaegertracing.io/docs/
+- **Zipkin**: https://zipkin.io/pages/quickstart.html
+- **Sentry**: https://docs.sentry.io/
+- **Bugsnag**: https://docs.bugsnag.com/
+- **Rollbar**: https://docs.rollbar.com/
+- **New Relic**: https://docs.newrelic.com/
+- **Datadog**: https://docs.datadoghq.com/
+- **PagerDuty**: https://developer.pagerduty.com/
+- **Slack API**: https://api.slack.com/
+- **Discord API**: https://discord.com/developers/docs
+- **Microsoft Teams API**: https://docs.microsoft.com/en-us/microsoftteams/platform/
+- **Zoom API**: https://marketplace.zoom.us/docs/api-reference
+- **Google Meet API**: https://developers.google.com/meet
+- **Jira API**: https://developer.atlassian.com/cloud/jira/
+- **Confluence API**: https://developer.atlassian.com/cloud/confluence/
+- **Notion API**: https://developers.notion.com/
+- **Airtable API**: https://airtable.com/api
+- **Zapier**: https://zapier.com/developer
+- **IFTTT**: https://ifttt.com/maker
+- **Make (Integromat)**: https://www.make.com/en/help
+- **n8n**: https://docs.n8n.io/
+- **Apache Kafka**: https://kafka.apache.org/documentation/
+- **RabbitMQ**: https://www.rabbitmq.com/documentation.html
+- **Apache ActiveMQ**: https://activemq.apache.org/
+- **Apache Pulsar**: https://pulsar.apache.org/docs/
+- **NATS**: https://docs.nats.io/
+- **gRPC**: https://grpc.io/docs/
+- **GraphQL**: https://graphql.org/learn/
+- **REST API Design**: https://restfulapi.net/
+- **OpenAPI Specification**: https://swagger.io/specification/
+- **JSON Schema**: https://json-schema.org/
+- **JSON-LD**: https://json-ld.org/
+- **Microservices**: https://microservices.io/
+- **Event Sourcing**: https://martinfowler.com/eaaDev/EventSourcing.html
+- **CQRS**: https://martinfowler.com/bliki/CQRS.html
+- **Domain Events**: https://martinfowler.com/eaaDev/DomainEvent.html
+- **Aggregate Pattern**: https://martinfowler.com/bliki/DDD_Aggregate.html
+- **Repository Pattern**: https://martinfowler.com/eaaCatalog/repository.html
+- **Unit of Work Pattern**: https://martinfowler.com/eaaCatalog/unitOfWork.html
+- **Specification Pattern**: https://martinfowler.com/apsupp/spec.pdf
+- **Factory Pattern**: https://refactoring.guru/design-patterns/factory-method
+- **Strategy Pattern**: https://refactoring.guru/design-patterns/strategy
+- **Observer Pattern**: https://refactoring.guru/design-patterns/observer
+- **Command Pattern**: https://refactoring.guru/design-patterns/command
+- **Mediator Pattern**: https://refactoring.guru/design-patterns/mediator
+- **Chain of Responsibility**: https://refactoring.guru/design-patterns/chain-of-responsibility
+- **Template Method**: https://refactoring.guru/design-patterns/template-method
+- **State Pattern**: https://refactoring.guru/design-patterns/state
+- **Proxy Pattern**: https://refactoring.guru/design-patterns/proxy
+- **Adapter Pattern**: https://refactoring.guru/design-patterns/adapter
+- **Bridge Pattern**: https://refactoring.guru/design-patterns/bridge
+- **Composite Pattern**: https://refactoring.guru/design-patterns/composite
+- **Decorator Pattern**: https://refactoring.guru/design-patterns/decorator
+- **Facade Pattern**: https://refactoring.guru/design-patterns/facade
+- **Flyweight Pattern**: https://refactoring.guru/design-patterns/flyweight
+- **Builder Pattern**: https://refactoring.guru/design-patterns/builder
+- **Prototype Pattern**: https://refactoring.guru/design-patterns/prototype
+- **Singleton Pattern**: https://refactoring.guru/design-patterns/singleton
+- **Abstract Factory**: https://refactoring.guru/design-patterns/abstract-factory
+- **Object Pool**: https://refactoring.guru/design-patterns/object-pool
+- **Lazy Loading**: https://refactoring.guru/design-patterns/lazy-loading
+- **Dependency Injection**: https://martinfowler.com/articles/injection.html
+- **Service Locator**: https://martinfowler.com/articles/injection.html#ServiceLocator
+- **Event-Driven Architecture**: https://martinfowler.com/articles/201701-event-driven.html
+- **Message-Driven Architecture**: https://www.enterpriseintegrationpatterns.com/
+- **API Gateway Pattern**: https://microservices.io/patterns/apigateway.html
+- **Circuit Breaker Pattern**: https://martinfowler.com/bliki/CircuitBreaker.html
+- **Bulkhead Pattern**: https://martinfowler.com/bliki/Bulkhead.html
+- **Retry Pattern**: https://docs.microsoft.com/en-us/azure/architecture/patterns/retry
+- **Cache-Aside Pattern**: https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside
+- **CQRS Pattern**: https://martinfowler.com/bliki/CQRS.html
+- **Event Sourcing**: https://martinfowler.com/eaaDev/EventSourcing.html
+- **Saga Pattern**: https://microservices.io/patterns/data/saga.html
+- **Database per Service**: https://microservices.io/patterns/data/database-per-service.html
+- **Shared Database**: https://microservices.io/patterns/data/shared-database.html
+- **API Composition**: https://microservices.io/patterns/data/api-composition.html
+- **Command Query Responsibility Segregation**: https://martinfowler.com/bliki/CQRS.html
+- **Event-Driven Architecture**: https://martinfowler.com/articles/201701-event-driven.html
+- **Message-Driven Architecture**: https://www.enterpriseintegrationpatterns.com/
+- **API Gateway Pattern**: https://microservices.io/patterns/apigateway.html
+- **Circuit Breaker Pattern**: https://martinfowler.com/bliki/CircuitBreaker.html
+- **Bulkhead Pattern**: https://martinfowler.com/bliki/Bulkhead.html
+- **Retry Pattern**: https://docs.microsoft.com/en-us/azure/architecture/patterns/retry
+- **Cache-Aside Pattern**: https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside
+- **CQRS Pattern**: https://martinfowler.com/bliki/CQRS.html
+- **Event Sourcing**: https://martinfowler.com/eaaDev/EventSourcing.html
+- **Saga Pattern**: https://microservices.io/patterns/data/saga.html
+- **Database per Service**: https://microservices.io/patterns/data/database-per-service.html
+- **Shared Database**: https://microservices.io/patterns/data/shared-database.html
+- **API Composition**: https://microservices.io/patterns/data/api-composition.html
+
+## 🎯 AI Assistant Guidelines
+
+### Code Generation
+- Follow Laravel conventions and best practices
+- Use domain-driven design principles
+- Implement comprehensive error handling
+- Include proper validation and sanitization
+- Write unit tests for all new functionality
+- Consider Vapor serverless constraints
+- Optimize for cold starts and performance
+
+### Architecture Decisions
+- Maintain separation of concerns
+- Follow dependency inversion principles
+- Ensure testability at all levels
+- Consider security implications
+- Plan for scalability and maintainability
+- Design for serverless architecture
+- Consider edge computing requirements
+
+### Testing Requirements
+- Write unit tests for all business logic
+- Include feature tests for API endpoints
+- Implement integration tests for external services
+- Add performance tests for critical paths
+- Include security tests for authentication and authorization
+- Test Vapor deployment configurations
+- Validate serverless function behavior
+
+### Documentation Standards
+- Update relevant documentation files
+- Include inline code comments for complex logic
+- Document API endpoints with examples
+- Maintain changelog entries
+- Update architecture diagrams as needed
+- Document Vapor deployment procedures
+- Include serverless architecture diagrams
+
+### Security Considerations
+- Validate and sanitize all inputs
+- Implement proper authentication and authorization
+- Use secure communication protocols
+- Follow OWASP security guidelines
+- Include security testing in development workflow
+- Secure serverless function configurations
+- Implement proper IAM policies for Vapor
+
+## 🔄 Development Process
+
+### Feature Development
+1. Create feature branch from main
+2. Implement feature with tests
+3. Run code quality checks
+4. Update documentation
+5. Create pull request
+6. Code review and approval
+7. Merge and deploy to Vapor
+
+### Bug Fixes
+1. Create bug fix branch
+2. Implement fix with regression tests
+3. Verify fix resolves the issue
+4. Update documentation if needed
+5. Create pull request
+6. Code review and approval
+7. Merge and deploy to Vapor
+
+### Hotfixes
+1. Create hotfix branch from production
+2. Implement minimal fix
+3. Test thoroughly
+4. Deploy to Vapor production
+5. Merge back to development branches
+
+## 📈 Performance Optimization
+
+### Caching Strategy
+- Application-level caching with Redis
+- Database query result caching
+- CDN for static assets
+- Browser caching optimization
+- Vapor edge caching
+
+### Database Optimization
+- Strategic indexing
+- Query optimization
+- Connection pooling
+- Data partitioning strategies
+- Serverless database considerations
+
+### Frontend Optimization
+- Code splitting and lazy loading
+- Bundle size optimization
+- Image optimization
+- Progressive web app features
+- Edge computing optimization
+
+### Vapor Optimization
+- Cold start optimization
+- Function size minimization
+- Memory allocation optimization
+- Database connection pooling
+- Edge caching strategies
+
+## 🚨 Emergency Procedures
+
+### Incident Response
+1. Assess impact and scope
+2. Implement immediate mitigation
+3. Communicate to stakeholders
+4. Investigate root cause
+5. Implement permanent fix
+6. Document lessons learned
+
+### Rollback Procedures
+1. Identify rollback point
+2. Execute rollback plan
+3. Verify system stability
+4. Communicate status
+5. Plan forward fix
+
+### Vapor Emergency Procedures
+1. Monitor Vapor deployment status
+2. Check function execution logs
+3. Verify database connectivity
+4. Assess scaling issues
+5. Implement emergency scaling
+6. Rollback to previous deployment if needed
+
+## 🔧 Maintenance Tasks
+
+### Regular Maintenance
+- Database backups and optimization
+- Log rotation and cleanup
+- Security updates and patches
+- Performance monitoring and tuning
+- Dependency updates
+- Vapor function optimization
+
+### Monitoring Tasks
+- System health checks
+- Performance metrics review
+- Security audit logs
+- Error rate analysis
+- Capacity planning
+- Vapor function monitoring
+
+### Vapor Maintenance
+- Function performance monitoring
+- Cold start optimization
+- Memory usage analysis
+- Database connection monitoring
+- Edge cache optimization
+- Cost optimization
+
+This configuration provides comprehensive guidance for AI assistance in developing, maintaining, and enhancing the Service Learning Management System platform with full Vapor integration. 
